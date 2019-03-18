@@ -5,6 +5,7 @@ import userSaga from './userSaga';
 import getshelfSaga from './getshelfSaga';
 import postshelfSaga from './postShelfSaga';
 import deleteShelfSaga from './deleteShelfItem';
+import getWordInfo from './getWordInfoSaga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -21,5 +22,7 @@ export default function* rootSaga() {
     takeEvery('GET_SHELF_INFORMATION', getshelfSaga),
     takeEvery('POST_SHELF_INFORMATION', postshelfSaga),
     takeEvery('DELETE_SHELF_INFORMATION', deleteShelfSaga),
+    takeEvery('GET_WORD_INFO', getWordInfo),
+
   ]);
 }

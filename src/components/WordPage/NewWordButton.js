@@ -10,7 +10,7 @@ class NewWordButton extends Component {
 
     handleNewWord = () => {
         console.log('in handleNewWord');
-        this.props.getRandomWord();
+        this.props.dispatch({ type: 'GET_WORD_INFO'})
     }
 
     render() {
