@@ -1,18 +1,45 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Grid } from '@material-ui/core';
+import Header from './Header';
+import SelectedWord from './SelectedWord';
+import PartOfSpeech from './PartOfSpeech';
+import Pronunciation from './Pronunciation';
+import Definition from './Definition';
+import NewWordButton from './NewWordButton';
 
-// This is one of our simplest components
-// It doesn't have local state, so it can be a function component.
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is, so it doesn't need 'connect()'
 
-const WordPage = () => (
-    <div>
-        <div>
-            <p>
-                This about page is for anyone to read!
-      </p>
-        </div>
-    </div>
-);
 
-export default WordPage;
+class WordPage extends Component {
+
+    render() {
+        return (
+            <div>
+                <Grid container spacing={8}>
+                    <Grid container>
+                        <Header />
+                    </Grid>
+                    <Grid container>
+                        <SelectedWord />
+                    </Grid>
+                    <Grid container spacing={16}>
+                        <PartOfSpeech />
+                        <Pronunciation />
+                    </Grid>
+                    <Grid container>
+                        <Definition getRandomWord={this.props.getRandomWord} />
+                    </Grid>
+                    <Grid container>
+                        <NewWordButton getRandomWord={this.props.getRandomWord} />
+                    </Grid>
+                </Grid>
+            </div>
+        );
+    }
+}
+
+const mapReduxStateToProps = (reduxState) => {
+    return reduxState;
+};
+
+export default connect(mapReduxStateToProps)(WordPage);
