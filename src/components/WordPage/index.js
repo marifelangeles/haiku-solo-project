@@ -11,6 +11,9 @@ import NewWordButton from './NewWordButton';
 
 
 class WordPage extends Component {
+    componentDidMount() {
+        this.props.dispatch({ type: 'GET_WORD_INFO'});
+    }
 
     render() {
         return (
@@ -27,10 +30,10 @@ class WordPage extends Component {
                         <Pronunciation />
                     </Grid>
                     <Grid container>
-                        <Definition getRandomWord={this.props.getRandomWord} />
+                        <Definition  />
                     </Grid>
                     <Grid container>
-                        <NewWordButton getRandomWord={this.props.getRandomWord} />
+                        <NewWordButton  />
                     </Grid>
                 </Grid>
             </div>

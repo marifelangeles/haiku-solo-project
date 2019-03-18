@@ -20,7 +20,7 @@ const Nav = (props) => (
       {props.user.id && (
         <>
           <Link className="nav-link" to="/info">
-            Info Page
+            Info
           </Link>
           <Link className="nav-link" to="/shelf">
             View Shelf
@@ -29,8 +29,8 @@ const Nav = (props) => (
         </>
       )}
       {/* Always show this link since the about page is not protected */}
-      <Link className="nav-link" to="/about">
-        About
+      <Link className="nav-link" to="/word">
+        Write a Haiku
       </Link>
     </div>
   </div>
