@@ -6,12 +6,14 @@ import { Grid } from '@material-ui/core';
 
 class Pronunciation extends Component {
 
+    // pronunciation not necessary for MVP
     getPronunciation = () => {
-        const pronunciation = this.props.word.pronunciation;
+        const pronunciation = this.props.wordInfo.pronunciation;
         if (pronunciation) {
             return pronunciation.all;
         }
     }
+    
 
     render() {
         return (

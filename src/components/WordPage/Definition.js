@@ -4,18 +4,12 @@ import { Grid } from '@material-ui/core';
 
 
 class Definition extends Component {
-
+    
     getDefinition = () => {
-        const wordResults = this.props.word.results;
-        // get random word only if definition exists --> definition needed for MVP
-        // if so, return first definition 
-        if (wordResults) {
-            console.log('wordResults', wordResults);
-            const definition = wordResults[0].definition;
-            return definition;
-        } else {
-            this.props.getRandomWord();
-        }
+        const results = this.props.wordInfo.results;
+        if (results && results[0] && results[0].definition) {
+            return results[0].definition;
+        } 
     }
 
     render() {
