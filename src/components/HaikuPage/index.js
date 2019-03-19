@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Line1 from './Line1';
 
 
 class HaikuPage extends Component {
 
     state = {
-        line_1: '',
         line_2: '',
         line_3: '',
         count_1: 0,
@@ -14,11 +14,10 @@ class HaikuPage extends Component {
 
     }
 
-    handleChange = (line, count) => (event) => {
+    handleChange = (line) => (event) => {
         console.log('in handle change');
         this.setState({
             [line]: event.target.value,
-            [count]: this.countSyllables(line),
         });
     }
 
@@ -50,14 +49,7 @@ class HaikuPage extends Component {
             <div>
                 {JSON.stringify(this.state)}
                 <h2>Intuitive</h2>
-                <div>
-                    <input 
-                        type="text" 
-                        value={this.state.line_1}
-                        onChange={this.handleChange('line_1', 'count_1')}
-                    />
-                    <p>{this.state.count_1}</p>
-                </div>
+                <Line1 />
                 <div>
                     <input
                         type="text"
