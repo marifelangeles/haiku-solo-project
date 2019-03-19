@@ -18,19 +18,25 @@ class Line1 extends Component {
         });
 
         // haiku line 1 from reducer
-        let lineObject = this.props.haikuLine.line_1;
-        console.log('lineObject', lineObject);
+        let line = this.props.haikuLine.line_1;
+        console.log('line', line);
 
-        // count the number of syllables in each line while user is typing
-        console.log('line 1 syllable count:', this.getLineCount(lineObject) );
-        
+        // count the number of syllables in each line
+        // set count state
+        console.log('line 1 syllable count:', this.getLineCount(line) );
+        this.setState({
+            count: this.getLineCount(line)
+        }) 
         
     }
 
     getLineCount = (line) => {
+        // line = this.props.haikuLine.line_1;
+
         console.log('in getLineCount', line);
         let totalSyllables = 0;
-        // run code if string has no space
+        // split is undefined if string is not a character
+        // get the sum of syllables in a line
         for (const character in line) {
             if (character !== ' ') {
                 let lineArray = line.split(" ");
@@ -38,21 +44,12 @@ class Line1 extends Component {
                     totalSyllables += this.getWordCount(word);
                 }
                 return totalSyllables;
+                
             }
         }
-        
-        // for (let i = 0; i < line.length; i++) {
-        //     if (line[i] !== ' ') {
-        //         let lineArray = line.split(" ");
-        //         for (let word of lineArray) {
-        //             totalSyllables += this.getWordCount(word);
-        //         }
-        //         return totalSyllables;
-        //     }
-        // }
     }
 
-    // avoid running new_count function in loop
+    // calculate number of syllables in a word
     getWordCount = (word) => {
         console.log('word:', word);
         let syllables = this.new_count(word);
@@ -62,7 +59,7 @@ class Line1 extends Component {
         return syllables;
     }
 
-    // calculate syllables in a word
+    // define syllable rules in English
     new_count = (word) => {
         word = word.toLowerCase();
         if (word.length <= 3) { return 1; }
@@ -73,6 +70,7 @@ class Line1 extends Component {
 
 
     render() {
+
         return (
             <div>
                 <p>{JSON.stringify(this.props.haikuLine.line_1)}</p>
@@ -81,7 +79,7 @@ class Line1 extends Component {
                     value={this.props.haikuReducer}
                     onChange={this.handleChange}
                 />
-                <p>0/5</p>
+                <p>{(this.state.count)}/5</p>
             </div>
         );
     }
