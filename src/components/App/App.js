@@ -18,6 +18,7 @@ import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import ViewShelfList from '../ViewShelf/VIewShelfList';
 import WordPage from '../WordPage/index';
+import HaikuPage from '../HaikuPage/index';
 
 
 import './App.css';
@@ -46,6 +47,11 @@ class App extends Component {
               exact
               path="/word"
               component={WordPage}
+            />
+            <Route
+              exact
+              path="/word/haiku"
+              component={HaikuPage}
             />
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/home will show the UserPage if the user is logged in.

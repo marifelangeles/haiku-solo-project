@@ -7,6 +7,7 @@ import PartOfSpeech from './PartOfSpeech';
 import Pronunciation from './Pronunciation';
 import Definition from './Definition';
 import NewWordButton from './NewWordButton';
+import NextButton from './NextButton';
 
 
 
@@ -18,7 +19,7 @@ class WordPage extends Component {
     render() {
         return (
             <div>
-                <Grid container spacing={8}>
+                <Grid container spacing={8} style={{padding: "2rem"}}>
                     <Grid container>
                         <Header />
                     </Grid>
@@ -34,6 +35,7 @@ class WordPage extends Component {
                     </Grid>
                     <Grid container>
                         <NewWordButton  />
+                        <NextButton />
                     </Grid>
                 </Grid>
             </div>
