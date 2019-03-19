@@ -13,10 +13,10 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
-import AboutPage from '../AboutPage/AboutPage';
+// import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
-import ViewShelfList from '../ViewShelf/VIewShelfList';
+// import InfoPage from '../InfoPage/InfoPage';
+// import ViewShelfList from '../ViewShelf/VIewShelfList';
 import WordPage from '../WordPage/index';
 import HaikuPage from '../HaikuPage/index';
 
@@ -35,22 +35,16 @@ class App extends Component {
           <Nav />
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-            <Redirect exact from="/" to="/word" />
+            <Redirect exact from="/" to="/home" />
             {/* Visiting localhost:3000/about will show the about page.
             This is a route anyone can see, no login necessary */}
+        
             <Route
-              exact
-              path="/about"
-              component={AboutPage}
-            />
-            <Route
-              exact
-              path="/word"
+              exact path="/word"
               component={WordPage}
             />
             <Route
-              exact
-              path="/word/haiku"
+              exact path="/word/haiku"
               component={HaikuPage}
             />
             {/* For protected routes, the view could show one of several things on the same route.
@@ -63,18 +57,18 @@ class App extends Component {
               component={UserPage}
             />
 
-            <ProtectedRoute
+            {/* <ProtectedRoute
               exact
               path="/shelf"
               component={ViewShelfList}
-            />
+            /> */}
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
-            <ProtectedRoute
+            {/* <ProtectedRoute
               exact
               path="/info"
               component={InfoPage}
-            />
+            /> */}
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>

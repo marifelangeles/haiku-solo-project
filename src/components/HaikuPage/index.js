@@ -8,13 +8,41 @@ class HaikuPage extends Component {
         line_1: '',
         line_2: '',
         line_3: '',
+        count_1: 0,
+        count_2: 0,
+        count_3: 0,
+
     }
 
-    handleChange = (line) => (event) => {
+    handleChange = (line, count) => (event) => {
         console.log('in handle change');
         this.setState({
-            [line]: event.target.value
-        })
+            [line]: event.target.value,
+            [count]: this.countSyllables(line),
+        });
+    }
+
+    // count the number of syllables in each line
+    countSyllables = (haikuLine) => {
+        console.log('in countSyllables');
+        let lineArray = haikuLine.split(" ");
+        let totalSyllables = 0;
+        lineArray.forEach(word => {
+            console.log('word:', word);
+            let syllables = this.new_count(word);
+            console.log('syllables', syllables);
+            totalSyllables = totalSyllables + syllables;
+        });
+        return totalSyllables;
+    }
+
+    // count number of syllables in a word
+    new_count = (word) => {
+        word = word.toLowerCase();
+        if (word.length <= 3) { return 1; }
+        word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
+        word = word.replace(/^y/, '');
+        return word.match(/[aeiouy]{1,2}/g).length;   
     }
 
     render() {
@@ -26,8 +54,9 @@ class HaikuPage extends Component {
                     <input 
                         type="text" 
                         value={this.state.line_1}
-                        onChange={this.handleChange('line_1')}
+                        onChange={this.handleChange('line_1', 'count_1')}
                     />
+                    <p>{this.state.count_1}</p>
                 </div>
                 <div>
                     <input
@@ -44,7 +73,11 @@ class HaikuPage extends Component {
                     />
                 </div>
                 <div>
-                    <button>Next</button>
+                    <button
+                        // onClick={this.handleClick}
+                    >
+                        Next
+                    </button>
                 </div>
             </div>
         );
