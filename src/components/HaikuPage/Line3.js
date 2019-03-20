@@ -2,22 +2,22 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 
-class Line1 extends Component {
+class Line3 extends Component {
 
     handleChange = (event) => {
-        console.log('in handle change', event.target.value );
+        console.log('in handle change', event.target.value);
 
         //save input to redux at all times
         // allow user to see input when leaving and returning to haiku page
         this.props.dispatch({
             type: 'SET_HAIKU',
             payload: event.target.value,
-            propertyName: "line1"
+            propertyName: "line3"
         });
         this.props.dispatch({
             type: 'SET_HAIKU',
             payload: this.new_count(event.target.value),
-            propertyName: "count1"
+            propertyName: "count3"
         })
     }
 
@@ -40,10 +40,10 @@ class Line1 extends Component {
             <div>
                 <input
                     type="text"
-                    value={this.props.haiku.line1}
+                    value={this.props.haiku.line3}
                     onChange={this.handleChange}
                 />
-                <p>{this.props.haiku.count1 ? this.props.haiku.count1 : 0 }/5</p>
+                <p>{this.props.haiku.count3 ? this.props.haiku.count3 : 0}/5</p>
             </div>
         );
     }
@@ -54,4 +54,4 @@ const mapStateToProps = (reduxState) => {
     return reduxState;
 }
 
-export default connect(mapStateToProps)(Line1);
+export default connect(mapStateToProps)(Line3);
