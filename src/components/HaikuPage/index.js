@@ -47,7 +47,7 @@ class HaikuPage extends Component {
     render() {
         return (
             <div>
-                {JSON.stringify(this.state)}
+                {/* {JSON.stringify(this.state)} */}
                 <h2>Intuitive</h2>
                 <Line1 />
                 <div>
