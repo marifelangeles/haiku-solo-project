@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Line1 from './Line1';
 import Line2 from './Line2';
+import Line3 from './Line3';
 
 
 class HaikuPage extends Component {
@@ -15,13 +16,7 @@ class HaikuPage extends Component {
 
                 <Line1 />
                 <Line2 />
-                {/* <div>
-                    <input
-                        type="text"
-                        value={this.state.line_3}
-                        onChange={this.handleChange('line_3')}
-                    />
-                </div> */}
+                <Line3 />
                 <div>
                     <button
                         // onClick={this.handleClick}
