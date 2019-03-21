@@ -6,8 +6,6 @@ class Line1 extends Component {
 
     state = {
         isMatch: false,
-        // word: this.props.wordInfo.word,
-        // line: this.props.haiku.line1
     }
 
     handleChange = (event) => {
@@ -27,13 +25,8 @@ class Line1 extends Component {
             propertyName: "count1"
         })
 
-        // // set local state
-        // this.setState({
-        //     word: this.props.wordInfo.word,
-        //     line: event.target.value,
-        // })
 
-        // on every handle change, check if user types target word
+        // check if target word is used in haiku
         this.getMatch(this.props.wordInfo.word, this.props.haiku.line1);
 
 
@@ -69,8 +62,6 @@ class Line1 extends Component {
                 isMatch: false
             })
         }
-             
-        
     }
 
     render() {
