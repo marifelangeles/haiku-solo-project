@@ -41,8 +41,8 @@ class HaikuPage extends Component {
                 <p>index state: {JSON.stringify(this.state)}</p>
 
                 <Line1 getMatch={this.getMatch}/>
-                <Line2 />
-                <Line3 />
+                <Line2 getMatch={this.getMatch}/>
+                <Line3 getMatch={this.getMatch}/>
                 <div>
                     <button
                         // onClick={this.handleClick}

@@ -45,8 +45,6 @@ class Line1 extends Component {
     render() {
         return (
             <div>
-                <p>state: {JSON.stringify(this.state)}</p>
-
                 <input
                     type="text"
                     value={this.props.haiku.line1}
