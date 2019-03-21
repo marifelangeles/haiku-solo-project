@@ -15,8 +15,11 @@ router.get('/', (req, res) => {
                         "haiku"."date",
                         "haiku"."user_id"
                         FROM "haiku"
-                        JOIN "user" ON "user"."id" = "haiku"."user_id";`
-    pool.query(queryText)
+                        JOIN "user" ON "user"."id" = "haiku"."user_id"
+                        WHERE "user"."id" = $1
+                        ORDER BY "date" DESC;`
+    const queryValues = [ req.user.id]
+    pool.query(queryText, queryValues)
         .then((result) => { res.send(result.rows); })
         .catch((err) => {
             console.log('Error with get haikus', err);
