@@ -2,16 +2,16 @@ import { put } from 'redux-saga/effects';
 import axios from 'axios';
 
 
-// haikuList: id, word, line1, line2, line3, date, user_id
+// get haiku list from database
+// expect: id, word, line1, line2, line3, date, user_id
 function* getHaiku() {
     try {
         const haikuList = yield axios({
             method: 'GET',
             url: '/haiku'
         })
-        console.log('haikuList', haikuList.data);
         
-        // send to redux haikuList reducer
+        // store it in haikuList reducer
         yield put({ type: 'SET_HAIKU_LIST', payload: haikuList.data })
     }
     catch (error) {
