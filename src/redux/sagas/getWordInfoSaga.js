@@ -8,6 +8,8 @@ function* getWordInfo() {
             method: 'GET',
             url: '/word'
         })
+        console.log('in getWordInfo Saga', wordInfo.data);
+        
         yield put({ type: 'SET_WORD', payload: wordInfo.data })
     }
     catch (error) {

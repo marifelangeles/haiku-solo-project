@@ -6,26 +6,37 @@ import { connect } from 'react-redux';
 
 class HistoryPage extends Component {
 
-    render() {
+    componentDidMount() {
+        this.getHaikuList();
+    }
 
+    // get updated haiku list
+    getHaikuList = () => {
+        console.log('in getHaikuList');
+        this.props.dispatch({ type: 'GET_HAIKU'});
+    }
+
+    render() {
+            
         return (
             <div>
                 <h2>My Haikus</h2>
-
+                {JSON.stringify(this.props.haikuList)}
                 <ul>
-                    
-                    <li>
-                        <div>
-                            <h3>Word</h3>
-                            <h4>Date</h4>
+                    {this.props.haikuList.map(haiku =>
+                        <li key={haiku.id}>
                             <div>
-                                <p>line1</p>
-                                <p>line2</p>
-                                <p>line3</p>
+                                <h3>{haiku.word}</h3>
+                                <h4>{haiku.date}</h4>
+                                <div>
+                                    <p>{haiku.line1}</p>
+                                    <p>{haiku.line2}</p>
+                                    <p>{haiku.line3}</p>
+                                </div>
+                                <button>Delete</button>
                             </div>
-                            <button>Delete</button>
-                        </div>
-                    </li>
+                        </li>
+                    )}
                 </ul>
 
 

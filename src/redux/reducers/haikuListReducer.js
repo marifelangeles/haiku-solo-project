@@ -1,4 +1,4 @@
-const haikuList = (state = {}, action) => {
+const haikuList = (state = [], action) => {
     console.log('in haikuList reducer');
 
     switch (action.type) {

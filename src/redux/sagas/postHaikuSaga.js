@@ -5,6 +5,8 @@ import axios from 'axios';
 // data to post: word, line1, line2, line3
 function* postHaiku(action) {
     try {
+        console.log('in postHaikuSaga');
+        
         yield axios({
             method: 'POST',
             url: '/haiku',
