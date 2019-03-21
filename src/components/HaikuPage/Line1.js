@@ -4,10 +4,6 @@ import { connect } from 'react-redux';
 
 class Line1 extends Component {
 
-    state = {
-        isMatch: false,
-    }
-
     handleChange = (event) => {
         console.log('in handle change', event.target.value );
 
@@ -27,7 +23,7 @@ class Line1 extends Component {
 
 
         // check if target word is used in haiku
-        this.getMatch(this.props.wordInfo.word, this.props.haiku.line1);
+        this.props.getMatch('line1Match')(this.props.wordInfo.word, this.props.haiku.line1);
 
 
     }
@@ -45,24 +41,6 @@ class Line1 extends Component {
         return 0;
     }
 
-    // check if word is used in haiku lines
-    // loop through inputArray for each wordArray
-    // check for matching word
-    getMatch = (word, input) => {
-        console.log('word:', word, 'input:', input);
-        let index = input.indexOf(word);   
-        console.log('index', index);
-        if (index !== -1) {
-            console.log('match!');
-            this.setState({
-                isMatch: true
-            })
-        } else {
-            this.setState({
-                isMatch: false
-            })
-        }
-    }
 
     render() {
         return (
