@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+// import HaikuList from './HaikuList';
 
 
 
@@ -21,7 +22,7 @@ class HistoryPage extends Component {
         return (
             <div>
                 <h2>My Haikus</h2>
-                {JSON.stringify(this.props.haikuList)}
+                {/* {JSON.stringify(this.props.haikuList)} */}
                 <ul>
                     {this.props.haikuList.map(haiku =>
                         <li key={haiku.id}>
