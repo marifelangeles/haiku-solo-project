@@ -8,6 +8,12 @@ import Line3 from './Line3';
 
 class HaikuPage extends Component {
     
+    state = {
+        line1Match: false,
+        line2Match: false,
+        line3Match: false,
+
+    }
     
     render() {
 
