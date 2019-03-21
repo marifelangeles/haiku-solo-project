@@ -13,6 +13,8 @@ const haiku = (state = lines, action) => {
     switch (action.type) {
         case 'SET_HAIKU':
             return { ...state, [action.propertyName]: action.payload }
+        case 'RESET_HAIKU':
+            return action.payload;
         default:
             return state;
     }

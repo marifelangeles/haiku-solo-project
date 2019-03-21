@@ -12,7 +12,7 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 const shelfRouter = require('./routes/shelf.router');
 const wordRouter = require('./routes/word.router');
-
+const haikuRouter = require('./routes/haiku.router');
 
 
 // Body parser middleware
@@ -28,8 +28,9 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
-app.use('/api/shelf', shelfRouter);
+// app.use('/api/shelf', shelfRouter);
 app.use('/word', wordRouter);
+app.use('/haiku', haikuRouter);
 
 
 // Serve static files

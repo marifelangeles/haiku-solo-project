@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 
 
@@ -22,12 +23,42 @@ class NextButton extends Component {
             console.log('ok to go!');
             // word is used in input fields
             if (line1Match || line2Match || line3Match) {
-                return <button>Next</button>
+                return <button onClick={this.handleClick}>Done</button>
             }
         } else {
-            return <button disabled>Next</button>
+            return <button disabled>Done</button>
         }
-        // then save word and haiku lines in database
+    }
+
+    handleClick = () => {
+        console.log('in handleClick');
+        
+        // when done is clicked...
+        // save data in database
+        this.props.dispatch({
+            type: 'POST_HAIKU',
+            payload: {
+                id: this.props.user.id,
+                word: this.props.wordInfo.word,
+                line1: this.props.haiku.line1,
+                line2: this.props.haiku.line2,
+                line3: this.props.haiku.line3,
+            }
+        });
+        // clear input fields
+        this.props.dispatch({
+            type: 'RESET_HAIKU',
+            payload: {
+                line1: '',
+                line2: '',
+                line3: '',
+                line1Match: false,
+                line2Match: false,
+                line3Match: false,
+            }
+        })
+        // direct user to history page
+        this.props.history.push('/history');
     }
 
     render() {
@@ -45,4 +76,4 @@ const mapStateToProps = (reduxState) => {
     return reduxState;
 }
 
-export default connect(mapStateToProps)(NextButton);
+export default connect(mapStateToProps)(withRouter(NextButton));
