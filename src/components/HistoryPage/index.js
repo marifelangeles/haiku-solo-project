@@ -17,6 +17,14 @@ class HistoryPage extends Component {
         this.props.dispatch({ type: 'GET_HAIKU'});
     }
 
+    handleDeleteClick = (id) => {
+        console.log('in handleDeleteClick', id);
+        this.props.dispatch({
+            type: 'DELETE_HAIKU',
+            payload: id
+        })
+    }
+
     render() {
             
         return (
@@ -34,7 +42,7 @@ class HistoryPage extends Component {
                                     <p>{haiku.line2}</p>
                                     <p>{haiku.line3}</p>
                                 </div>
-                                <button>Delete</button>
+                                <button onClick={ () => this.handleDeleteClick(haiku.id)}>Delete</button>
                             </div>
                         </li>
                     )}

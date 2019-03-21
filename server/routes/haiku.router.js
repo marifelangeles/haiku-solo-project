@@ -46,6 +46,22 @@ router.post('/', (req, res) => {
         });
 });
 
-
+/**
+ * Delete a haiku for the logged in user
+ */
+router.delete('/:id', (req, res) => {
+    const queryText = `DELETE FROM "haiku"
+                    WHERE "haiku"."id" = $1;`
+    const queryValues = [req.params.id]
+    pool.query(queryText, queryValues)
+        .then(() => { 
+            console.log('back from delete haiku');
+            res.sendStatus(200); 
+        })
+        .catch((error) => {
+            console.log('Error with delete request', error);
+            res.sendStatus(500);
+        });
+});
 
 module.exports = router;

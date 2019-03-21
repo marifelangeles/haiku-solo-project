@@ -5,7 +5,7 @@ import userSaga from './userSaga';
 import getWordInfo from './getWordInfoSaga';
 import getHaiku from './getHaikuSaga';
 import postHaiku from './postHaikuSaga';
-
+import deleteHaiku from './deleteHaikuSaga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -26,6 +26,8 @@ export default function* rootSaga() {
     takeEvery('GET_HAIKU', getHaiku),
     // save created haiku in database
     takeEvery('POST_HAIKU', postHaiku),
+    // delete haiku from history page
+    takeEvery('DELETE_HAIKU', deleteHaiku),
     
 
 
