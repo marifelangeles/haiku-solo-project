@@ -3,7 +3,7 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 /**
- * Get all of a user's saved haikus
+ * Get all of a user's saved haikus from database
  */
 router.get('/', (req, res) => {
     const queryText = `SELECT 
@@ -26,20 +26,25 @@ router.get('/', (req, res) => {
 
 
 /**
- * Add an item for the logged in user to the shelf
+ * Save a haiku for the logged in user
  */
-// router.post('/', (req, res) => {
-//     const updatedshelf = req.body;
-//     const queryText = `INSERT INTO "item" ("description", "image_url", "user_id") VALUES ($1, $2, $3);`
-//     const queryValues = [updatedshelf.description,
-//     updatedshelf.image_url, updatedshelf.user_id]
-//     pool.query(queryText, queryValues)
-//         .then(() => { res.sendStatus(200); })
-//         .catch((err) => {
-//             console.log('Error completing POST shelf query', err);
-//             res.sendStatus(500);
-//         });
-// });
+router.post('/', (req, res) => {
+    const updatedHaiku = req.body;
+    const queryText = `INSERT INTO "haiku" ("word", "line1", "line2", "line3", "user_id" ) 
+                    VALUES ($1, $2, $3, $4, $5);`
+    const queryValues = [
+        updatedHaiku.word,
+        updatedHaiku.line1, 
+        updatedHaiku.line2,
+        updatedHaiku.line3,
+        updatedHaiku.id,]
+    pool.query(queryText, queryValues)
+        .then(() => { res.sendStatus(200); })
+        .catch((error) => {
+            console.log('Error completing POST haiku query', error);
+            res.sendStatus(500);
+        });
+});
 
 
 

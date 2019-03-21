@@ -6,6 +6,9 @@ import getshelfSaga from './getshelfSaga';
 import postshelfSaga from './postShelfSaga';
 import deleteShelfSaga from './deleteShelfItem';
 import getWordInfo from './getWordInfoSaga';
+import getHaiku from './getHaikuSaga';
+import postHaiku from './postHaikuSaga';
+
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -22,7 +25,15 @@ export default function* rootSaga() {
     takeEvery('GET_SHELF_INFORMATION', getshelfSaga),
     takeEvery('POST_SHELF_INFORMATION', postshelfSaga),
     takeEvery('DELETE_SHELF_INFORMATION', deleteShelfSaga),
+
+    // get random word from API 
     takeEvery('GET_WORD_INFO', getWordInfo),
+    // get haiku list from database
+    takeEvery('GET_HAIKU', getHaiku),
+    // save created haiku in database
+    takeEvery('POST_HAIKU', postHaiku),
+    
+
 
   ]);
 }

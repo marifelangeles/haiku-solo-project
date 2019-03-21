@@ -31,8 +31,19 @@ class NextButton extends Component {
 
     handleClick = () => {
         console.log('in handleClick');
+        
         // when done is clicked...
         // save data in database
+        this.props.dispatch({
+            type: 'POST_HAIKU',
+            payload: {
+                id: this.props.user.id,
+                word: this.props.wordInfo.word,
+                line1: this.props.haiku.line1,
+                line2: this.props.haiku.line2,
+                line3: this.props.haiku.line3,
+            }
+        });
         // clear input fields
         // direct user to history page
     }
