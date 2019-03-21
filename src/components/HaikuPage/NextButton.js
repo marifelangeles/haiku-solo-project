@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 
 
@@ -57,6 +58,7 @@ class NextButton extends Component {
             }
         })
         // direct user to history page
+        this.props.history.push('/history');
     }
 
     render() {
@@ -74,4 +76,4 @@ const mapStateToProps = (reduxState) => {
     return reduxState;
 }
 
-export default connect(mapStateToProps)(NextButton);
+export default connect(mapStateToProps)(withRouter(NextButton));
