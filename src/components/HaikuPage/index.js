@@ -8,12 +8,6 @@ import Line3 from './Line3';
 
 class HaikuPage extends Component {
     
-    state = {
-        line1Match: false,
-        line2Match: false,
-        line3Match: false,
-
-    }
 
     getMatch = (lineMatch) => (word, input) => {
         console.log('word:', word, 'input:', input);
@@ -21,12 +15,16 @@ class HaikuPage extends Component {
         console.log('index', index);
         if (index !== -1) {
             console.log('match!');
-            this.setState({
-                [lineMatch]: true
+            this.props.dispatch({
+                type: 'SET_HAIKU',
+                payload: true,
+                propertyName: [lineMatch]
             })
         } else {
-            this.setState({
-                [lineMatch]: false
+            this.props.dispatch({
+                type: 'SET_HAIKU',
+                payload: false,
+                propertyName: [lineMatch]
             })
         }
     }
@@ -37,8 +35,8 @@ class HaikuPage extends Component {
             <div>
                 <h2>{this.props.wordInfo.word}</h2>
 
-                <p>reducer: {JSON.stringify(this.props.haiku)}</p>
-                <p>index state: {JSON.stringify(this.state)}</p>
+                <p>haiku reducer: {JSON.stringify(this.props.haiku)}</p>
+                {/* <p>index state: {JSON.stringify(this.state)}</p> */}
 
                 <Line1 getMatch={this.getMatch}/>
                 <Line2 getMatch={this.getMatch}/>
