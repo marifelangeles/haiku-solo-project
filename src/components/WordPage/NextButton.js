@@ -10,6 +10,8 @@ class NextButton extends Component {
 
     handleNextButton = () => {
         console.log('go to haiku page');
+
+        // direct user to next step -- haiku page
         this.props.history.push('/word/haiku');
     }
 

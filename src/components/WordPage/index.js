@@ -12,9 +12,7 @@ import NextButton from './NextButton';
 
 
 class WordPage extends Component {
-    componentDidMount() {
-        this.props.dispatch({ type: 'GET_WORD_INFO'});
-    }
+
 
     render() {
         return (

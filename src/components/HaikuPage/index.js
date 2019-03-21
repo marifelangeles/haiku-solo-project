@@ -5,14 +5,17 @@ import Line2 from './Line2';
 import Line3 from './Line3';
 
 
-class HaikuPage extends Component {
 
+class HaikuPage extends Component {
+    
     
     render() {
+
         return (
             <div>
-                <h2>Intuitive</h2>
-                <p>reducer: {JSON.stringify(this.props.haiku)}</p>
+                <h2>{this.props.wordInfo.word}</h2>
+
+                <p>reducer: {JSON.stringify(this.props.haiku.line1)}</p>
 
                 <Line1 />
                 <Line2 />
