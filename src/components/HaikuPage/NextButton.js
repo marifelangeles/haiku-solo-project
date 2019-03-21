@@ -27,7 +27,6 @@ class NextButton extends Component {
         } else {
             return <button disabled>Done</button>
         }
-        // then save word and haiku lines in database
     }
 
     handleClick = () => {
