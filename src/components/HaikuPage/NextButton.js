@@ -22,12 +22,20 @@ class NextButton extends Component {
             console.log('ok to go!');
             // word is used in input fields
             if (line1Match || line2Match || line3Match) {
-                return <button>Next</button>
+                return <button onClick={this.handleClick}>Done</button>
             }
         } else {
-            return <button disabled>Next</button>
+            return <button disabled>Done</button>
         }
         // then save word and haiku lines in database
+    }
+
+    handleClick = () => {
+        console.log('in handleClick');
+        // when done is clicked...
+        // save data in database
+        // clear input fields
+        // direct user to history page
     }
 
     render() {
