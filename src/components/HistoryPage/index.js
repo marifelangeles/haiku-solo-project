@@ -10,7 +10,25 @@ class HistoryPage extends Component {
 
         return (
             <div>
-                History Page
+                <h2>My Haikus</h2>
+
+                <ul>
+                    
+                    <li>
+                        <div>
+                            <h3>Word</h3>
+                            <h4>Date</h4>
+                            <div>
+                                <p>line1</p>
+                                <p>line2</p>
+                                <p>line3</p>
+                            </div>
+                            <button>Delete</button>
+                        </div>
+                    </li>
+                </ul>
+
+
             </div>
         );
     }
