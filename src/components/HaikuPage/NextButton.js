@@ -45,6 +45,17 @@ class NextButton extends Component {
             }
         });
         // clear input fields
+        this.props.dispatch({
+            type: 'RESET_HAIKU',
+            payload: {
+                line1: '',
+                line2: '',
+                line3: '',
+                line1Match: false,
+                line2Match: false,
+                line3Match: false,
+            }
+        })
         // direct user to history page
     }
 
