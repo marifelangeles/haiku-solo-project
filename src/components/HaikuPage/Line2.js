@@ -4,10 +4,6 @@ import { connect } from 'react-redux';
 
 class Line2 extends Component {
 
-    state = {
-        isMatch: false,
-    }
-
     handleChange = (event) => {
         console.log('in handle change', event.target.value);
 
@@ -25,7 +21,7 @@ class Line2 extends Component {
         })
 
         // check if target word is used in haiku
-        this.getMatch(this.props.wordInfo.word, this.props.haiku.line2);
+        this.props.getMatch('line2Match')(this.props.wordInfo.word, this.props.haiku.line2);
     }
 
     // count syllables in a word
@@ -41,28 +37,10 @@ class Line2 extends Component {
         return 0;
     }
 
-    getMatch = (word, input) => {
-        console.log('word:', word, 'input:', input);
-        let index = input.indexOf(word);
-        console.log('index', index);
-        if (index !== -1) {
-            console.log('match!');
-            this.setState({
-                isMatch: true
-            })
-        } else {
-            this.setState({
-                isMatch: false
-            })
-        }
-    }
-
 
     render() {
         return (
             <div>
-                <p>state: {JSON.stringify(this.state)}</p>
-
                 <input
                     type="text"
                     value={this.props.haiku.line2}
