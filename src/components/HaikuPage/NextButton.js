@@ -33,6 +33,10 @@ class NextButton extends Component {
     handleClick = () => {
         console.log('in handleClick');
         
+        // if user is not registered, go to register page and create an account
+
+        // if user has an account, prompt user to login to save haiku
+
         // when done is clicked...
         // save data in database
         this.props.dispatch({

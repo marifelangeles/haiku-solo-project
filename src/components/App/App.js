@@ -13,16 +13,14 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
-// import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
-// import InfoPage from '../InfoPage/InfoPage';
-// import ViewShelfList from '../ViewShelf/VIewShelfList';
 import WordPage from '../WordPage/index';
 import HaikuPage from '../HaikuPage/index';
 import HistoryPage from '../HistoryPage/index';
 
 import './App.css';
 import NewUserPage from '../NewUserPage';
+import LoginPage from '../LoginPage/LoginPage';
 
 class App extends Component {
   componentDidMount () {
@@ -49,7 +47,10 @@ class App extends Component {
               exact path="/word/haiku"
               component={HaikuPage}
             />
-            
+            <Route
+              exact path="/login"
+              component={LoginPage}
+            />
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/home will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the 'Login' or 'Register' page.

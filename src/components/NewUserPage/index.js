@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 
 class NewUserPage extends Component {
 
-    handleClick = () => {
+    handleWriteClick = () => {
         console.log('in handleClick');
         // get random word before user goes to word page
         this.props.dispatch({ type: 'GET_WORD_INFO' })
@@ -27,6 +27,12 @@ class NewUserPage extends Component {
 
     }
 
+    handleLoginClick = () => {
+        console.log('in handleLoginClick');
+        // go to login page
+        this.props.history.push('/login');
+    }
+
     render() {
         return (
             <div>
@@ -36,10 +42,10 @@ class NewUserPage extends Component {
                     <p>Start with a word and ...</p>
                 </div>
                 <div>
-                    <button onClick={this.handleClick}>Write a Haiku</button>
+                    <button onClick={this.handleWriteClick}>Write a Haiku</button>
                 </div>
                 <div>
-                    <button onClick={this.handleClick}>Login</button>
+                    <button onClick={this.handleLoginClick}>Login</button>
                 </div>
             </div>
         );
