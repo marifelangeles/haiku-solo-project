@@ -1,17 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import LogOutButton from '../LogOutButton/LogOutButton';
-
+import HistoryPage from '../HistoryPage/index';
 // this could also be written with destructuring parameters as:
 // const UserPage = ({ user }) => (
 // and then instead of `props.user.username` you could use `user.username`
 const UserPage = (props) => (
   <div>
     <h1 id="welcome">
-      Welcome, { props.user.username }!
+      Hi { props.user.username },
     </h1>
-    <p>Your ID is: {props.user.id}</p>
-    <LogOutButton className="log-in" />
+    {/* <p>Breath, let it go. Let </p>
+    <p>yet your creativity flow. </p>
+    <p>Start with a word... go.</p>
+     */}
+    <button>Write a Haiku</button>
+    <HistoryPage />
   </div>
 );
 
