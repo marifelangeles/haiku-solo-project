@@ -10,8 +10,11 @@ class UserPage extends Component {
   
   handleClick = () => {
     console.log('in handleClick');
+    // get random word before user goes to word page
+    this.props.dispatch({ type: 'GET_WORD_INFO' })
     // go to word page
     this.props.history.push('/word');
+    
   }
 
   render() {
