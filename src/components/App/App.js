@@ -19,7 +19,7 @@ import HaikuPage from '../HaikuPage/index';
 import HistoryPage from '../HistoryPage/index';
 
 import './App.css';
-import NewUserPage from '../NewUserPage';
+import WelcomePage from '../WelcomePage/index';
 import LoginPage from '../LoginPage/LoginPage';
 
 class App extends Component {
@@ -33,11 +33,11 @@ class App extends Component {
         <div>
           <Nav />
           <Switch>
-            {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-            <Redirect exact from="/" to="/home" />
+            {/* Visiting localhost:3000 will redirect to localhost:3000/welcome */}
+            <Redirect exact from="/" to="/welcome" />
             <Route
-              exact path="/home"
-              component={NewUserPage}
+              exact path="/welcome"
+              component={WelcomePage}
             />
             <Route
               exact path="/word"

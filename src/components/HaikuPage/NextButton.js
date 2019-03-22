@@ -33,40 +33,43 @@ class NextButton extends Component {
     handleClick = () => {
         console.log('in handleClick');
         
-        // if user is not registered, go to register page and create an account
-
-        // if user has an account, prompt user to login to save haiku
-
         // when done is clicked...
-        // save data in database
-        this.props.dispatch({
-            type: 'POST_HAIKU',
-            payload: {
-                id: this.props.user.id,
-                word: this.props.wordInfo.word,
-                line1: this.props.haiku.line1,
-                line2: this.props.haiku.line2,
-                line3: this.props.haiku.line3,
-            }
-        });
-        // clear input fields
-        this.props.dispatch({
-            type: 'RESET_HAIKU',
-            payload: {
-                line1: '',
-                line2: '',
-                line3: '',
-                line1Match: false,
-                line2Match: false,
-                line3Match: false,
-            }
-        })
-        // direct user to history page
-        this.props.history.push('/history');
+        
+        if (!this.props.user) {
+            // if user is not logged in, go to login page
+            this.props.history.push('/login');
+
+        } else {
+            // if user is logged in
+            // save data in database
+            this.props.dispatch({
+                type: 'POST_HAIKU',
+                payload: {
+                    id: this.props.user.id,
+                    word: this.props.wordInfo.word,
+                    line1: this.props.haiku.line1,
+                    line2: this.props.haiku.line2,
+                    line3: this.props.haiku.line3,
+                }
+            });
+            // clear input fields
+            this.props.dispatch({
+                type: 'RESET_HAIKU',
+                payload: {
+                    line1: '',
+                    line2: '',
+                    line3: '',
+                    line1Match: false,
+                    line2Match: false,
+                    line3Match: false,
+                }
+            })
+            // if user is logged in, go to history page
+            this.props.history.push('/history');
+        }
     }
 
     render() {
-
         return (
                 <div>
                     {this.activateButton()}

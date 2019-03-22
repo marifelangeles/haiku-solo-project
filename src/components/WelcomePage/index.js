@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 
 
-class NewUserPage extends Component {
+class WelcomePage extends Component {
 
     handleWriteClick = () => {
         console.log('in handleClick');
@@ -59,4 +59,4 @@ const mapStateToProps = (reduxState) => {
     return reduxState;
 }
 
-export default connect(mapStateToProps)(withRouter(NewUserPage));
+export default connect(mapStateToProps)(withRouter(WelcomePage));
