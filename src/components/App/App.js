@@ -22,6 +22,7 @@ import HaikuPage from '../HaikuPage/index';
 import HistoryPage from '../HistoryPage/index';
 
 import './App.css';
+import NewUserPage from '../NewUserPage';
 
 class App extends Component {
   componentDidMount () {
@@ -36,9 +37,10 @@ class App extends Component {
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />
-            {/* Visiting localhost:3000/about will show the about page.
-            This is a route anyone can see, no login necessary */}
-        
+            <Route
+              exact path="/home"
+              component={NewUserPage}
+            />
             <Route
               exact path="/word"
               component={WordPage}
@@ -46,10 +48,6 @@ class App extends Component {
             <Route
               exact path="/word/haiku"
               component={HaikuPage}
-            />
-            <Route
-              exact path="/history"
-              component={HistoryPage}
             />
             
             {/* For protected routes, the view could show one of several things on the same route.
@@ -60,6 +58,10 @@ class App extends Component {
               exact
               path="/home"
               component={UserPage}
+            />
+            <ProtectedRoute
+              exact path="/history"
+              component={HistoryPage}
             />
             
             {/* If none of the other routes matched, we will show a 404. */}
