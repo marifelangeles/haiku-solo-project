@@ -12,6 +12,18 @@ class UserPage extends Component {
     console.log('in handleClick');
     // get random word before user goes to word page
     this.props.dispatch({ type: 'GET_WORD_INFO' })
+    // make sure input field in word page is cleared
+    this.props.dispatch({
+      type: 'RESET_HAIKU',
+      payload: {
+        line1: '',
+        line2: '',
+        line3: '',
+        line1Match: false,
+        line2Match: false,
+        line3Match: false,
+      }
+    })
     // go to word page
     this.props.history.push('/word');
     
