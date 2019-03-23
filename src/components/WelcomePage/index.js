@@ -4,6 +4,9 @@ import { withRouter } from 'react-router-dom';
 import SampleHaiku from './SampleHaiku';
 import WriteHaikuButton from './WriteHaikuButton';
 import LoginButton from './LoginButton';
+// styles
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 
 
 
@@ -12,11 +15,34 @@ class WelcomePage extends Component {
    
     render() {
         return (
-            <div>
-                <SampleHaiku />
-                <WriteHaikuButton />
-                <LoginButton />
-            </div>
+            <>
+
+                <Grid 
+                    container
+                    justify="center"
+                >
+                    <Paper>
+                        <Grid item>
+                            <SampleHaiku />
+                        </Grid>
+                    </Paper>
+                </Grid>
+
+                <Grid 
+                    container
+                    direction="column"
+                    justify="center"
+                    alignItems="center"
+                >
+                    <Grid item>
+                        <WriteHaikuButton />
+                    </Grid>
+                    <Grid item>
+                        <LoginButton />
+                    </Grid>
+                </Grid>
+
+            </>
         );
     }
 }
