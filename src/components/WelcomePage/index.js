@@ -26,6 +26,7 @@ class WelcomePage extends Component {
 
                 <Grid 
                     container
+                    spacing={24}
                     direction="column"
                     justify="center"
                     alignItems="center"

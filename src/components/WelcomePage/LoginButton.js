@@ -19,7 +19,7 @@ class LoginButton extends Component {
                     color="primary"
                     onClick={this.handleLoginClick}
                 >
-                    Login
+                    Login / Register
                 </Button>
             </div>
         );

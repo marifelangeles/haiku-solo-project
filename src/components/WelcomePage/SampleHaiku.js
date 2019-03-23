@@ -10,11 +10,11 @@ class SampleHaiku extends Component {
 
     render() {
         return (
-            <Paper style={{margin: '3rem', padding: '3rem'}}>
-                <Typography variant="body1" gutterBottom>Relax, let it go</Typography>
-                <Typography variant="body1" gutterBottom>Let creativity flow</Typography>
-                <Typography variant="body1" gutterBottom>Start with a word and ... </Typography>
-            </Paper>
+            <div style={{ marginTop: '4rem', marginBottom: '10rem', padding: '1rem'}}>
+                <Typography variant="h6" gutterBottom>Relax, let it go</Typography>
+                <Typography variant="h6" gutterBottom>Let creativity flow</Typography>
+                <Typography variant="h6" gutterBottom>Start with a word and ... </Typography>
+            </div>
         );
     }
 }
