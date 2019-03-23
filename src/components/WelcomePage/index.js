@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import SampleHaiku from './SampleHaiku';
 
 
 
@@ -36,11 +37,7 @@ class WelcomePage extends Component {
     render() {
         return (
             <div>
-                <div>
-                    <p>Relax, let it go.</p>
-                    <p>Let creativity flow.</p>
-                    <p>Start with a word and ...</p>
-                </div>
+                <SampleHaiku />
                 <div>
                     <button onClick={this.handleWriteClick}>Write a Haiku</button>
                 </div>
