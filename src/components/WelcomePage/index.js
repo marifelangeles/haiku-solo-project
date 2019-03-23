@@ -2,31 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import SampleHaiku from './SampleHaiku';
+import WriteHaikuButton from './WriteHaikuButton';
 
 
 
 class WelcomePage extends Component {
-
-    handleWriteClick = () => {
-        console.log('in handleClick');
-        // get random word before user goes to word page
-        this.props.dispatch({ type: 'GET_WORD_INFO' })
-        // make sure input field in word page is cleared
-        this.props.dispatch({
-            type: 'RESET_HAIKU',
-            payload: {
-                line1: '',
-                line2: '',
-                line3: '',
-                line1Match: false,
-                line2Match: false,
-                line3Match: false,
-            }
-        })
-        // go to word page
-        this.props.history.push('/word');
-
-    }
 
     handleLoginClick = () => {
         console.log('in handleLoginClick');
@@ -38,9 +18,7 @@ class WelcomePage extends Component {
         return (
             <div>
                 <SampleHaiku />
-                <div>
-                    <button onClick={this.handleWriteClick}>Write a Haiku</button>
-                </div>
+                <WriteHaikuButton />
                 <div>
                     <button onClick={this.handleLoginClick}>Login</button>
                 </div>
