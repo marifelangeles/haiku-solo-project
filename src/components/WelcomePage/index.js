@@ -6,7 +6,6 @@ import WriteHaikuButton from './WriteHaikuButton';
 import LoginButton from './LoginButton';
 // styles
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 
 
 
@@ -21,11 +20,9 @@ class WelcomePage extends Component {
                     container
                     justify="center"
                 >
-                    <Paper>
-                        <Grid item>
-                            <SampleHaiku />
-                        </Grid>
-                    </Paper>
+                    <Grid item>
+                        <SampleHaiku />
+                    </Grid>
                 </Grid>
 
                 <Grid 
