@@ -35,7 +35,7 @@ class NextButton extends Component {
         
         // when done is clicked...
         
-        if (!this.props.user) {
+        if (!this.props.user.id) {
             // if user is not logged in, go to login page
             this.props.history.push('/login');
 
