@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import SampleHaiku from './SampleHaiku';
-import WriteHaikuButton from './WriteHaikuButton';
-import LoginButton from './LoginButton';
 
 
+class LoginButton extends Component {
 
-class WelcomePage extends Component {
+    handleLoginClick = () => {
+        console.log('in handleLoginClick');
+        // go to login page
+        this.props.history.push('/login');
+    }
 
-   
     render() {
         return (
             <div>
-                <SampleHaiku />
-                <WriteHaikuButton />
-                <LoginButton />
+                <button onClick={this.handleLoginClick}>Login</button>
             </div>
         );
     }
@@ -28,4 +27,4 @@ const mapStateToProps = (reduxState) => {
     return reduxState;
 }
 
-export default connect(mapStateToProps)(withRouter(WelcomePage));
+export default connect(mapStateToProps)(withRouter(LoginButton));
