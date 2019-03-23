@@ -15,7 +15,6 @@ class WelcomePage extends Component {
     render() {
         return (
             <>
-
                 <Grid 
                     container
                     justify="center"
