@@ -8,8 +8,8 @@ class SampleHaiku extends Component {
     render() {
         return (
             <div>
-                <p>Relax, let it go.</p>
-                <p>Let creativity flow.</p>
+                <p>Relax, let it go</p>
+                <p>Let creativity flow</p>
                 <p>Start with a word and ...</p>
             </div>
         );

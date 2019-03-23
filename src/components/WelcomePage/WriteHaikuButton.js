@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 
 
@@ -32,7 +33,13 @@ class WriteHaikuButton extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.handleWriteClick}>Write a Haiku</button>
+                <Button 
+                    variant="outlined"
+                    color="primary"
+                    onClick={this.handleWriteClick}
+                >
+                    Write a Haiku
+                </Button>
             </div>
         );
     }

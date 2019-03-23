@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 
 class LoginButton extends Component {
@@ -14,7 +15,12 @@ class LoginButton extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.handleLoginClick}>Login</button>
+                <Button 
+                    color="primary"
+                    onClick={this.handleLoginClick}
+                >
+                    Login
+                </Button>
             </div>
         );
     }
