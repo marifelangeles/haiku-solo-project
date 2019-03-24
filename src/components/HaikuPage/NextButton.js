@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 
 
@@ -23,10 +24,27 @@ class NextButton extends Component {
             console.log('ok to go!');
             // word is used in input fields
             if (line1Match || line2Match || line3Match) {
-                return <button onClick={this.handleClick}>Done</button>
+                return (
+                    <Button
+                        variant="outlined"
+                        color="primary"
+                        onClick={this.handleClick}
+                    >
+                        Done
+                    </Button>
+                )
             }
         } else {
-            return <button disabled>Done</button>
+            return (
+                <Button
+                    variant="outlined"
+                    color="primary"
+                    disabled
+                    onClick={this.handleClick}
+                >
+                    Done
+                    </Button>
+            )
         }
     }
 
@@ -74,6 +92,7 @@ class NextButton extends Component {
                 <div>
                     {this.activateButton()}
                 </div>
+            
         );
     }
 }
