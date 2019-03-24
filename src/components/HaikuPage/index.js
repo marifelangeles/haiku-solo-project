@@ -4,6 +4,7 @@ import Line1 from './Line1';
 import Line2 from './Line2';
 import Line3 from './Line3';
 import NextButton from './NextButton';
+import { Grid } from '@material-ui/core';
 
 
 
@@ -36,17 +37,40 @@ class HaikuPage extends Component {
     render() {
 
         return (
-            <div>
-                <h2>{this.props.wordInfo.word}</h2>
+            <Grid 
+                container
+                spacing={16}
+                direction="column"
+                justify="center"
+                alignItems="center"
+                style={{
+                    marginTop: '3rem',
+                    marginBottom: '3rem',
+
+                }}
+            >
+                <Grid item>
+                    <h2>{this.props.wordInfo.word}</h2>
+                </Grid>
+                
 
                 {/* <p>haiku reducer: {JSON.stringify(this.props.haiku)}</p>
                 <p>userReducer: {JSON.stringify(this.props.user)}</p> */}
-
-                <Line1 getMatch={this.getMatch}/>
-                <Line2 getMatch={this.getMatch}/>
-                <Line3 getMatch={this.getMatch}/>
-                <NextButton />
-            </div>
+                <Grid item>
+                    <Line1 getMatch={this.getMatch} />
+                </Grid>
+                <Grid item>
+                    <Line2 getMatch={this.getMatch} />
+                </Grid>
+                <Grid item>
+                    <Line3 getMatch={this.getMatch} />
+                </Grid>
+                
+                <Grid item style={{marginTop: '3rem'}}>
+                    <NextButton />
+                </Grid>
+                
+            </Grid>
         );
     }
 }

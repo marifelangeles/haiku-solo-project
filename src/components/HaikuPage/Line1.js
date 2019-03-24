@@ -46,18 +46,13 @@ class Line1 extends Component {
     render() {
         return (
             <div>
-                {/* <input
-                    type="text"
-                    value={this.props.haiku.line1}
-                    onChange={this.handleChange}
-                />
-                <p>{this.props.haiku.count1 ? this.props.haiku.count1 : 0 }/5</p> */}
                 <TextField
                     id="line-1"
                     type="text"
                     defaultValue={this.props.haiku.line1}
                     helperText= {(this.props.haiku.count1 ? this.props.haiku.count1 : 0) + '/5'}
                     margin="normal"
+                    fullWidth
                     onChange={this.handleChange}
                 />
             </div>
