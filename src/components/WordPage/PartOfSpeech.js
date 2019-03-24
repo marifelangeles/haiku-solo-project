@@ -15,7 +15,9 @@ class PartOfSpeech extends Component {
     render() {
         return (
             <Typography
-                variant="subtitle1" gutterBottom
+                variant="subtitle1" 
+                gutterBottom
+                align="center"
             >
                 {this.getPartOfSpeech()}
             </Typography>

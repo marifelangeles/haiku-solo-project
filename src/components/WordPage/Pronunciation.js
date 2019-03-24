@@ -18,7 +18,9 @@ class Pronunciation extends Component {
     render() {
         return (
             <Typography
-                variant="subtitle1" gutterBottom
+                variant="subtitle1" 
+                gutterBottom
+                align="center"
             >
                 {this.getPronunciation()}
             </Typography>

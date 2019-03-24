@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import TextField from '@material-ui/core/TextField';
 
 
 class Line3 extends Component {
@@ -41,12 +42,14 @@ class Line3 extends Component {
     render() {
         return (
             <div>
-                <input
+                <TextField
+                    id="line-3"
                     type="text"
-                    value={this.props.haiku.line3}
+                    defaultValue={this.props.haiku.line3}
+                    helperText={(this.props.haiku.count3 ? this.props.haiku.count3 : 0) + '/5'}
+                    margin="normal"
                     onChange={this.handleChange}
                 />
-                <p>{this.props.haiku.count3 ? this.props.haiku.count3 : 0}/5</p>
             </div>
         );
     }

@@ -39,8 +39,8 @@ class HaikuPage extends Component {
             <div>
                 <h2>{this.props.wordInfo.word}</h2>
 
-                <p>haiku reducer: {JSON.stringify(this.props.haiku)}</p>
-                <p>userReducer: {JSON.stringify(this.props.user)}</p>
+                {/* <p>haiku reducer: {JSON.stringify(this.props.haiku)}</p>
+                <p>userReducer: {JSON.stringify(this.props.user)}</p> */}
 
                 <Line1 getMatch={this.getMatch}/>
                 <Line2 getMatch={this.getMatch}/>
