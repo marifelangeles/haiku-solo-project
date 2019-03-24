@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Grid, Button } from '@material-ui/core';
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 
 
@@ -17,14 +17,13 @@ class NextButton extends Component {
 
     render() {
         return (
-            <Grid item sm={12}>
-                <Button
-                    onClick={this.handleNextButton}
-                    color="primary"
-                >
-                    Next
-                </Button>
-            </Grid>
+            <Button
+                variant="outlined"
+                onClick={this.handleNextButton}
+                color="primary"
+            >
+                Next
+            </Button>
         );
     }
 }

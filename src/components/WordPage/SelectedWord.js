@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Grid } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 
 class SelectedWord extends Component {
 
 
     render() {
-
         return (
-            <Grid item sm={12}>
-                <h1>{this.props.wordInfo.word}</h1>
-            </Grid>
+            <Typography 
+                variant="h3" 
+                gutterBottom 
+                align="center"
+            >
+                {this.props.wordInfo.word}
+            </Typography >
         );
     }
 }

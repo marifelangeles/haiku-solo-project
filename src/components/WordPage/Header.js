@@ -1,12 +1,11 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 
 const Header = () => (
-    <>
-        <Grid item sm={12}>
-            <p>Write a haiku with the word</p>
-        </Grid>
-    </>
+        <Typography variant="subtitle1" gutterBottom
+        >
+            Write a haiku with the word
+        </Typography>
 );
 
 

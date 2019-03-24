@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Grid } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 
 
 class Definition extends Component {
@@ -14,9 +14,12 @@ class Definition extends Component {
 
     render() {
         return (
-            <Grid item sm={12}>
-                <p>{this.getDefinition()}</p>
-            </Grid>
+            <Typography
+                variant="h6" gutterBottom
+                align="center"
+            >
+                {this.getDefinition()}
+            </Typography>
         );
     }
 }

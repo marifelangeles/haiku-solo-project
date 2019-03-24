@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Grid } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 
 
 class PartOfSpeech extends Component {
@@ -14,9 +14,11 @@ class PartOfSpeech extends Component {
     }
     render() {
         return (
-            <Grid item sm={6}>
-                <p>{this.getPartOfSpeech()}</p>
-            </Grid>
+            <Typography
+                variant="subtitle1" gutterBottom
+            >
+                {this.getPartOfSpeech()}
+            </Typography>
         );
     }
 }

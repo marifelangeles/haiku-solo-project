@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Grid } from '@material-ui/core';
 import Header from './Header';
 import SelectedWord from './SelectedWord';
 import PartOfSpeech from './PartOfSpeech';
@@ -9,6 +8,10 @@ import Definition from './Definition';
 import NewWordButton from './NewWordButton';
 import NextButton from './NextButton';
 
+import { Grid } from '@material-ui/core';
+
+
+
 
 
 class WordPage extends Component {
@@ -16,27 +19,75 @@ class WordPage extends Component {
 
     render() {
         return (
-            <div>
-                <Grid container spacing={8} style={{padding: "2rem"}}>
-                    <Grid container>
-                        <Header />
-                    </Grid>
-                    <Grid container>
-                        <SelectedWord />
-                    </Grid>
-                    <Grid container spacing={16}>
-                        <PartOfSpeech />
-                        <Pronunciation />
-                    </Grid>
-                    <Grid container>
-                        <Definition  />
-                    </Grid>
-                    <Grid container>
-                        <NewWordButton  />
-                        <NextButton />
+            <Grid 
+                container
+                spacing={16}
+                direction="column"
+                justify="center"
+                alignItems="center"
+                style={{ 
+                    marginTop: '3rem', 
+                    marginBottom: '3rem',
+                    
+                }}
+            >
+
+                <Grid item sm={12}>
+                    <Header />
+                </Grid>
+
+                <Grid item sm={12}>
+                    <SelectedWord />
+                </Grid>
+
+                <Grid item sm={12}>
+                    <Grid 
+                        container
+                        spacing={16}
+                        direction="row"
+                        justify="center"
+                        alignItems="center"
+                    >
+                        <Grid item sm={6}>
+                            <PartOfSpeech />
+                        </Grid>
+                        <Grid item sm={6}>
+                            <Pronunciation />
+                        </Grid>
                     </Grid>
                 </Grid>
-            </div>
+
+                <Grid item sm={12} 
+                    style={{ 
+                        maxWidth: '375px', 
+                        padding: '2rem',
+                        marginBottom: '3rem',
+                        marginTop: '2rem'
+                    }}>
+                    <Definition />
+                </Grid>
+
+                
+
+                <Grid item sm={12}>
+                    <Grid
+                        container
+                        spacing={16}
+                        direction="row"
+                        justify="center"
+                        alignItems="center"
+                    >
+                        <Grid item>
+                            <NewWordButton />
+                        </Grid>
+                        <Grid item>
+                            <NextButton />
+                        </Grid>
+                        
+                    </Grid>
+                </Grid>
+
+            </Grid>
         );
     }
 }

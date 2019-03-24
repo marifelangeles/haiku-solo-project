@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Grid, Button } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 
 
 
@@ -16,14 +16,13 @@ class NewWordButton extends Component {
 
     render() {
         return (
-            <Grid item sm={12}>
-                <Button
-                    onClick={this.handleNewWord}
-                    color="primary"
-                >
-                    New Word
-                </Button>
-            </Grid>
+            <Button
+                variant="outlined"
+                onClick={this.handleNewWord}
+                color="primary"
+            >
+                New Word
+            </Button>
         );
     }
 }
