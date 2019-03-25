@@ -35,7 +35,7 @@ class HistoryPage extends Component {
             
         return (
             <div>
-                <h2>My Haikus</h2>
+                <Typography variant="h5" gutterBottom>My Haikus</Typography>
                 {/* {JSON.stringify(this.props.haikuList)} */}
                 <Grid
                     container

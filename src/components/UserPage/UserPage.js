@@ -2,44 +2,56 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import HistoryPage from '../HistoryPage';
+import WriteHaikuButton from '../WelcomePage/WriteHaikuButton';
+
+import { Grid } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
+
 
 // this could also be written with destructuring parameters as:
 // const UserPage = ({ user }) => (
 // and then instead of `props.user.username` you could use `user.username`
 class UserPage extends Component {
-  
-  handleClick = () => {
-    console.log('in handleClick');
-    // get random word before user goes to word page
-    this.props.dispatch({ type: 'GET_WORD_INFO' })
-    // make sure input field in word page is cleared
-    this.props.dispatch({
-      type: 'RESET_HAIKU',
-      payload: {
-        line1: '',
-        line2: '',
-        line3: '',
-        line1Match: false,
-        line2Match: false,
-        line3Match: false,
-      }
-    })
-    // go to word page
-    this.props.history.push('/word');
-    
-  }
 
   render() {
     return (
-      <div>
-        <h1 id="welcome">
-          Hi, {this.props.user.username}!
-        </h1>
+      <Grid 
+        container
+        spacing={16}
+        direction="column"
+        justify="center"        
+        // style={{
+        //   marginLeft: '3rem',
+        //   marginRight: '3rem'
 
-        <button onClick={this.handleClick}>Write a Haiku</button>
-        <HistoryPage />
+        // }}
+      >
+        <Grid item
+          style={{
+            alignItems: "center"
 
-      </div>
+          }}
+        >
+          <Typography
+            id="welcome"
+            variant="h4"
+            gutterBottom
+          >
+            Hi, {this.props.user.username}!
+        </Typography>
+        </Grid>
+        
+        <Grid item>
+          <WriteHaikuButton />
+        </Grid>
+        
+        <Grid item>
+          <HistoryPage />
+        </Grid>
+
+        
+
+      </Grid>
     );
   }
 }
