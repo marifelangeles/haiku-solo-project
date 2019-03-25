@@ -7,8 +7,8 @@ import Button from '@material-ui/core/Button';
 
 class NextButton extends Component {
 
-    activateButton = () => {
-        console.log('in activateButton');
+    showButton = () => {
+        console.log('in showButton');
         const line1Count = this.props.haiku.count1;
         const line2Count = this.props.haiku.count2;
         const line3Count = this.props.haiku.count3;
@@ -18,34 +18,41 @@ class NextButton extends Component {
         const line3Match = this.props.haiku.line3Match;
         console.log(line1Match, line2Match, line3Match);
 
-        // activate next button if...
-        // lines meet required syllable count
+
+        // check if lines meet required syllable count
         if (line1Count === 5 && line2Count === 7 && line3Count === 5) {
-            console.log('ok to go!');
-            // word is used in input fields
+            console.log('lines meet syllables');
+            // and word is used in haiku
             if (line1Match || line2Match || line3Match) {
-                return (
-                    <Button
+                console.log('word is used');
+                // if user is not logged in, prompt user to login 
+                if (!this.props.user.id) {
+                    console.log('user is not logged in');
+                    return (
+                        <Button
                         variant="outlined"
                         color="primary"
-                        onClick={this.handleClick}
-                    >
-                        Done
-                    </Button>
-                )
+                        onClick={this.handleLoginSaveClick}
+                        >
+                            Log In to Save Haiku
+                        </Button>
+                    );
+                } else {
+                    // else save the haiku and go to userpage home
+                    console.log('user is logged in');
+                    return (
+                        <Button
+                            variant="outlined"
+                            color="primary"
+                            onClick={this.handleSaveHaikuClick}
+                        >
+                            Save Haiku
+                        </Button>
+                    );
+                }
+                
             }
-        } else {
-            return (
-                <Button
-                    variant="outlined"
-                    color="primary"
-                    disabled
-                    onClick={this.handleClick}
-                >
-                    Done
-                    </Button>
-            )
-        }
+        } 
     }
 
     handleClick = () => {
@@ -100,7 +107,7 @@ class NextButton extends Component {
     render() {
         return (
                 <div>
-                    {this.activateButton()}
+                {this.showButton()}
                 </div>
             
         );
