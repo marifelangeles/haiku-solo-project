@@ -55,54 +55,41 @@ class NextButton extends Component {
         } 
     }
 
-    handleClick = () => {
-        console.log('in handleClick');
-        
-        // when done is clicked...
-        
-        if (!this.props.user.id) {
-            // if user is not logged in, go to login page and log in
-            this.props.history.push('/login');
-            // then save data in database
-            // this.props.dispatch({
-            //     type: 'POST_HAIKU',
-            //     payload: {
-            //         id: this.props.user.id,
-            //         word: this.props.wordInfo.word,
-            //         line1: this.props.haiku.line1,
-            //         line2: this.props.haiku.line2,
-            //         line3: this.props.haiku.line3,
-            //     }
-            // });
-        } else {
-            // if user is logged in
-            // save data in database
-            this.props.dispatch({
-                type: 'POST_HAIKU',
-                payload: {
-                    id: this.props.user.id,
-                    word: this.props.wordInfo.word,
-                    line1: this.props.haiku.line1,
-                    line2: this.props.haiku.line2,
-                    line3: this.props.haiku.line3,
-                } 
-            });
-            // clear input fields
-            this.props.dispatch({
-                type: 'RESET_HAIKU',
-                payload: {
-                    line1: '',
-                    line2: '',
-                    line3: '',
-                    line1Match: false,
-                    line2Match: false,
-                    line3Match: false,
-                }
-            })
-            // if user is logged in, go to history page
-            this.props.history.push('/history');
-        }
+    handleLoginSaveClick = () => {
+        console.log('handleLoginSaveClick hit');
+        // direct users to login page
+        this.props.history.push('/login');
     }
+
+    handleSaveHaikuClick = () => {
+        console.log('handleSaveHaikuClick hit');
+        // save data in database
+        this.props.dispatch({
+            type: 'POST_HAIKU',
+            payload: {
+                id: this.props.user.id,
+                word: this.props.wordInfo.word,
+                line1: this.props.haiku.line1,
+                line2: this.props.haiku.line2,
+                line3: this.props.haiku.line3,
+            }
+        });
+        // clear input fields
+        this.props.dispatch({
+            type: 'RESET_HAIKU',
+            payload: {
+                line1: '',
+                line2: '',
+                line3: '',
+                line1Match: false,
+                line2Match: false,
+                line3Match: false,
+            }
+        })
+        // direct user to history page
+        this.props.history.push('/history');
+    }
+    
 
     render() {
         return (
