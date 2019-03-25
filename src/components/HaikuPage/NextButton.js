@@ -7,8 +7,8 @@ import Button from '@material-ui/core/Button';
 
 class NextButton extends Component {
 
-    activateButton = () => {
-        console.log('in activateButton');
+    showButton = () => {
+        console.log('in showButton');
         const line1Count = this.props.haiku.count1;
         const line2Count = this.props.haiku.count2;
         const line3Count = this.props.haiku.count3;
@@ -18,89 +18,83 @@ class NextButton extends Component {
         const line3Match = this.props.haiku.line3Match;
         console.log(line1Match, line2Match, line3Match);
 
-        // activate next button if...
-        // lines meet required syllable count
+
+        // check if lines meet required syllable count
         if (line1Count === 5 && line2Count === 7 && line3Count === 5) {
-            console.log('ok to go!');
-            // word is used in input fields
+            console.log('lines meet syllables');
+            // and word is used in haiku
             if (line1Match || line2Match || line3Match) {
-                return (
-                    <Button
+                console.log('word is used');
+                // if user is not logged in, prompt user to login 
+                if (!this.props.user.id) {
+                    console.log('user is not logged in');
+                    return (
+                        <Button
                         variant="outlined"
                         color="primary"
-                        onClick={this.handleClick}
-                    >
-                        Done
-                    </Button>
-                )
+                        onClick={this.handleLoginSaveClick}
+                        >
+                            Log In to Save Haiku
+                        </Button>
+                    );
+                } else {
+                    // else save the haiku and go to userpage home
+                    console.log('user is logged in');
+                    return (
+                        <Button
+                            variant="outlined"
+                            color="primary"
+                            onClick={this.handleSaveHaikuClick}
+                        >
+                            Save Haiku
+                        </Button>
+                    );
+                }
+                
             }
-        } else {
-            return (
-                <Button
-                    variant="outlined"
-                    color="primary"
-                    disabled
-                    onClick={this.handleClick}
-                >
-                    Done
-                    </Button>
-            )
-        }
+        } 
     }
 
-    handleClick = () => {
-        console.log('in handleClick');
-        
-        // when done is clicked...
-        
-        if (!this.props.user.id) {
-            // if user is not logged in, go to login page and log in
-            this.props.history.push('/login');
-            // then save data in database
-            // this.props.dispatch({
-            //     type: 'POST_HAIKU',
-            //     payload: {
-            //         id: this.props.user.id,
-            //         word: this.props.wordInfo.word,
-            //         line1: this.props.haiku.line1,
-            //         line2: this.props.haiku.line2,
-            //         line3: this.props.haiku.line3,
-            //     }
-            // });
-        } else {
-            // if user is logged in
-            // save data in database
-            this.props.dispatch({
-                type: 'POST_HAIKU',
-                payload: {
-                    id: this.props.user.id,
-                    word: this.props.wordInfo.word,
-                    line1: this.props.haiku.line1,
-                    line2: this.props.haiku.line2,
-                    line3: this.props.haiku.line3,
-                } 
-            });
-            // clear input fields
-            this.props.dispatch({
-                type: 'RESET_HAIKU',
-                payload: {
-                    line1: '',
-                    line2: '',
-                    line3: '',
-                    line1Match: false,
-                    line2Match: false,
-                    line3Match: false,
-                }
-            })
-            // if user is logged in, go to history page
-            this.props.history.push('/history');
-        }
+    handleLoginSaveClick = () => {
+        console.log('handleLoginSaveClick hit');
+        // direct users to login page
+        this.props.history.push('/home');
     }
+
+    handleSaveHaikuClick = () => {
+        console.log('handleSaveHaikuClick hit');
+        // save data in database
+        this.props.dispatch({
+            type: 'POST_HAIKU',
+            payload: {
+                id: this.props.user.id,
+                word: this.props.wordInfo.word,
+                line1: this.props.haiku.line1,
+                line2: this.props.haiku.line2,
+                line3: this.props.haiku.line3,
+            }
+        });
+        // clear input fields
+        this.props.dispatch({
+            type: 'RESET_HAIKU',
+            payload: {
+                line1: '',
+                line2: '',
+                line3: '',
+                line1Match: false,
+                line2Match: false,
+                line3Match: false,
+            }
+        })
+        // direct user to history page
+        this.props.history.push('/home');
+    }
+    
 
     render() {
         return (
                 <div>
-                    {this.activateButton()}
+                {this.showButton()}
                 </div>
             
         );

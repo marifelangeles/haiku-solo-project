@@ -1,5 +1,6 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
+// import { connect } from 'react-redux';
 
 // worker Saga: will be fired on "LOGIN" actions
 function* loginUser(action) {
@@ -20,6 +21,19 @@ function* loginUser(action) {
     // after the user has logged in
     // get the user information from the server
     yield put({type: 'FETCH_USER'});
+
+    // when user logs in, if user created a haiku, post haiku to database
+    // const haikuToPost = {
+    //   id: this.props.user.id,
+    //   word: this.props.wordInfo.word,
+    //   line1: this.props.haiku.line1,
+    //   line2: this.props.haiku.line2,
+    //   line3: this.props.haiku.line3,
+    // }
+    // yield put({type: 'POST_HAIKU', payload: haikuToPost});
+    
+
+    
   } catch (error) {
     console.log('Error with user login:', error);
     if (error.response.status === 401) {
@@ -59,9 +73,17 @@ function* logoutUser(action) {
   }
 }
 
+
+
 function* loginSaga() {
   yield takeLatest('LOGIN', loginUser);
   yield takeLatest('LOGOUT', logoutUser);
+  // yield takeLatest('POST_HAIKU', postHaiku);
+
 }
+
+// const mapStateToProps = reduxState => {
+//   return reduxState;
+// };
 
 export default loginSaga;

@@ -6,12 +6,22 @@ import WriteHaikuButton from '../WelcomePage/WriteHaikuButton';
 
 import { Grid } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
+import CardToSave from './CardToSave';
 
 
-// this could also be written with destructuring parameters as:
-// const UserPage = ({ user }) => (
-// and then instead of `props.user.username` you could use `user.username`
+
 class UserPage extends Component {
+
+  showCardToSave = () => {
+    console.log('showCardToSave hit');
+    if(this.props.haiku.line3){
+      return (
+        <CardToSave />
+      )
+    } else if (!this.props.haiku.line3){
+      return <WriteHaikuButton />
+    }
+  }
 
   render() {
     return (
@@ -20,11 +30,7 @@ class UserPage extends Component {
         spacing={16}
         direction="column"
         justify="center"        
-        // style={{
-        //   marginLeft: '3rem',
-        //   marginRight: '3rem'
-
-        // }}
+        
       >
         <Grid item
           style={{
@@ -42,8 +48,13 @@ class UserPage extends Component {
         </Grid>
         
         <Grid item>
-          <WriteHaikuButton />
+          {this.showCardToSave()}
+          
         </Grid>
+
+        {/* <Grid item>
+          
+        </Grid> */}
         
         <Grid item>
           <HistoryPage />
