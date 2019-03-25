@@ -24,22 +24,22 @@ class LoginPage extends Component {
       this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
 
-    // if user created a haiku before login, post haiku to database
-    if (this.props.haiku.line3) {
-      console.log('posting haiku');
+    // // if user created a haiku before login, post haiku to database
+    // if (this.props.haiku.line3) {
+    //   console.log('posting haiku');
 
-      // post haiku
-      this.props.dispatch({
-        type: 'POST_HAIKU',
-        payload: {
-          id: this.props.user.id,
-          word: this.props.wordInfo.word,
-          line1: this.props.haiku.line1,
-          line2: this.props.haiku.line2,
-          line3: this.props.haiku.line3,
-        }
-      });
-    }
+    //   // post haiku
+    //   this.props.dispatch({
+    //     type: 'POST_HAIKU',
+    //     payload: {
+    //       id: this.props.user.id,
+    //       word: this.props.wordInfo.word,
+    //       line1: this.props.haiku.line1,
+    //       line2: this.props.haiku.line2,
+    //       line3: this.props.haiku.line3,
+    //     }
+    //   });
+    // }
 
     
     

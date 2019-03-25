@@ -54,9 +54,19 @@ class NextButton extends Component {
         // when done is clicked...
         
         if (!this.props.user.id) {
-            // if user is not logged in, go to login page
+            // if user is not logged in, go to login page and log in
             this.props.history.push('/login');
-
+            // then save data in database
+            // this.props.dispatch({
+            //     type: 'POST_HAIKU',
+            //     payload: {
+            //         id: this.props.user.id,
+            //         word: this.props.wordInfo.word,
+            //         line1: this.props.haiku.line1,
+            //         line2: this.props.haiku.line2,
+            //         line3: this.props.haiku.line3,
+            //     }
+            // });
         } else {
             // if user is logged in
             // save data in database
@@ -68,7 +78,7 @@ class NextButton extends Component {
                     line1: this.props.haiku.line1,
                     line2: this.props.haiku.line2,
                     line3: this.props.haiku.line3,
-                }
+                } 
             });
             // clear input fields
             this.props.dispatch({
