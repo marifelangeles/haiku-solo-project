@@ -25,18 +25,18 @@ class LoginPage extends Component {
       
 
       // save data in database
-      console.log('props', this.props);
+      // console.log('props', this.props);
       
-      this.props.dispatch({
-        type: 'POST_HAIKU',
-        payload: {
-          id: this.props.user.id,
-          word: this.props.wordInfo.word,
-          line1: this.props.haiku.line1,
-          line2: this.props.haiku.line2,
-          line3: this.props.haiku.line3,
-        }
-      });
+      // this.props.dispatch({
+      //   type: 'POST_HAIKU',
+      //   payload: {
+      //     id: this.props.user.id,
+      //     word: this.props.wordInfo.word,
+      //     line1: this.props.haiku.line1,
+      //     line2: this.props.haiku.line2,
+      //     line3: this.props.haiku.line3,
+      //   }
+      // });
 
       // direct user to user home page
       this.props.history.push('/home');
