@@ -58,7 +58,7 @@ class NextButton extends Component {
     handleLoginSaveClick = () => {
         console.log('handleLoginSaveClick hit');
         // direct users to login page
-        this.props.history.push('/login');
+        this.props.history.push('/home');
     }
 
     handleSaveHaikuClick = () => {

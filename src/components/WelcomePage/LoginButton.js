@@ -9,7 +9,7 @@ class LoginButton extends Component {
     handleLoginClick = () => {
         console.log('in handleLoginClick');
         // go to login page
-        this.props.history.push('/login');
+        this.props.history.push('/home');
     }
 
     render() {

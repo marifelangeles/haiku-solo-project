@@ -51,8 +51,8 @@ class CardToSave extends Component {
                 />
                 <CardContent>
                     <Typography variant="body1" gutterBottom>{this.props.haiku.line1}</Typography>
-                    <Typography variant="body1" gutterBottom>{this.props.haiku.line1}</Typography>
-                    <Typography variant="body1" gutterBottom>{this.props.haiku.line1}</Typography>
+                    <Typography variant="body1" gutterBottom>{this.props.haiku.line2}</Typography>
+                    <Typography variant="body1" gutterBottom>{this.props.haiku.line3}</Typography>
                 </CardContent>
                 <CardActions>
                     <Button size="small" onClick={this.handleWriteHaiku}>Write a Haiku</Button>
