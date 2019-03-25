@@ -26,6 +26,18 @@ class CardToSave extends Component {
           line3: this.props.haiku.line3,
         }
       });
+        // clear input fields
+        this.props.dispatch({
+            type: 'RESET_HAIKU',
+            payload: {
+                line1: '',
+                line2: '',
+                line3: '',
+                line1Match: false,
+                line2Match: false,
+                line3Match: false,
+            }
+        })
     }
 
 
