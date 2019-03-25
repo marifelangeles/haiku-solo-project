@@ -15,6 +15,8 @@ const haiku = (state = lines, action) => {
             return { ...state, [action.propertyName]: action.payload }
         case 'RESET_HAIKU':
             return action.payload;
+        case 'FETCH_HAIKU':
+            return state;
         default:
             return state;
     }

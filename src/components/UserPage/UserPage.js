@@ -20,11 +20,7 @@ class UserPage extends Component {
         spacing={16}
         direction="column"
         justify="center"        
-        // style={{
-        //   marginLeft: '3rem',
-        //   marginRight: '3rem'
-
-        // }}
+        
       >
         <Grid item
           style={{

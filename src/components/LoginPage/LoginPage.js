@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 class LoginPage extends Component {
   state = {
@@ -12,6 +13,7 @@ class LoginPage extends Component {
 
     // check if user entered username and password 
     if (this.state.username && this.state.password) {
+      // save login info in reducer
       this.props.dispatch({
         type: 'LOGIN',
         payload: {
@@ -20,26 +22,29 @@ class LoginPage extends Component {
         },
       });
       
+      
+
+      // save data in database
+      console.log('props', this.props);
+      
+      this.props.dispatch({
+        type: 'POST_HAIKU',
+        payload: {
+          id: this.props.user.id,
+          word: this.props.wordInfo.word,
+          line1: this.props.haiku.line1,
+          line2: this.props.haiku.line2,
+          line3: this.props.haiku.line3,
+        }
+      });
+
+      // direct user to user home page
+      this.props.history.push('/home');
     } else {
       this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
 
-    // // if user created a haiku before login, post haiku to database
-    // if (this.props.haiku.line3) {
-    //   console.log('posting haiku');
-
-    //   // post haiku
-    //   this.props.dispatch({
-    //     type: 'POST_HAIKU',
-    //     payload: {
-    //       id: this.props.user.id,
-    //       word: this.props.wordInfo.word,
-    //       line1: this.props.haiku.line1,
-    //       line2: this.props.haiku.line2,
-    //       line3: this.props.haiku.line3,
-    //     }
-    //   });
-    // }
+    
 
     
     
@@ -111,11 +116,9 @@ class LoginPage extends Component {
   }
 }
 
-// Instead of taking everything from state, we just want the error messages.
-// if you wanted you could write this code like this:
-// const mapStateToProps = ({errors}) => ({ errors });
-const mapStateToProps = state => ({
-  errors: state.errors,
-});
 
-export default connect(mapStateToProps)(LoginPage);
+const mapStateToProps = (reduxState) => {
+    return reduxState;
+}
+
+export default connect(mapStateToProps)(withRouter(LoginPage));

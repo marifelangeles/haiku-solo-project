@@ -57,15 +57,6 @@ class NextButton extends Component {
 
     handleLoginSaveClick = () => {
         console.log('handleLoginSaveClick hit');
-        // save haiku lines to haiku reducer
-        this.props.dispatch({
-            type: 'SET_HAIKU',
-            payload: {
-                line1: this.props.haiku.line1,
-                line2: this.props.haiku.line2,
-                line3: this.props.haiku.line3,
-            }
-        });
         // direct users to login page
         this.props.history.push('/login');
     }
