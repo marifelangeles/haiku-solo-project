@@ -87,7 +87,7 @@ class NextButton extends Component {
             }
         })
         // direct user to history page
-        this.props.history.push('/history');
+        this.props.history.push('/home');
     }
     
 
