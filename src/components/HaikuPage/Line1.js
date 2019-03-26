@@ -42,7 +42,7 @@ class Line1 extends Component {
         return 0;
     }
 
-
+    
     render() {
         return (
             <div>
@@ -50,7 +50,7 @@ class Line1 extends Component {
                     id="line-1"
                     type="text"
                     defaultValue={this.props.haiku.line1}
-                    helperText= {(this.props.haiku.count1 ? this.props.haiku.count1 : 0) + '/5'}
+                    helperText={this.props.countFeedback(this.props.haiku.count1, 5)  }
                     margin="normal"
                     fullWidth
                     onChange={this.handleChange}

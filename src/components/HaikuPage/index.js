@@ -5,6 +5,7 @@ import Line2 from './Line2';
 import Line3 from './Line3';
 import NextButton from './NextButton';
 import { Grid } from '@material-ui/core';
+import Word from './Word';
 
 
 
@@ -23,13 +24,30 @@ class HaikuPage extends Component {
                 type: 'SET_HAIKU',
                 payload: true,
                 propertyName: [lineMatch]
-            })
+            });
+            
         } else {
             this.props.dispatch({
                 type: 'SET_HAIKU',
                 payload: false,
                 propertyName: [lineMatch]
-            })
+            });
+            
+        }
+    }
+
+    countFeedback = (lineCount, limit) => {
+        console.log('countFeedback hit', lineCount, limit);
+        // if count is more than limit, display number in red color
+        // else display in gray
+        if (lineCount > limit) {
+            return (
+                <span style={{ color: 'red' }}>{lineCount} / {limit}</span>
+            );
+        } else {
+            return (
+                <span style={{ color: 'gray' }}>{lineCount ? lineCount : '0'} / {limit}</span>
+            );
         }
     }
 
@@ -49,21 +67,21 @@ class HaikuPage extends Component {
 
                 }}
             >
-                <Grid item>
+                {/* <Grid item>
                     <h2>{this.props.wordInfo.word}</h2>
-                </Grid>
-                
+                </Grid> */}
+                <Word />
 
-                {/* <p>haiku reducer: {JSON.stringify(this.props.haiku)}</p>
-                <p>userReducer: {JSON.stringify(this.props.user)}</p> */}
+                {/* <p>haiku reducer: {JSON.stringify(this.props.haiku)}</p> */}
+                {/* <p>userReducer: {JSON.stringify(this.props.user)}</p> */}
                 <Grid item>
-                    <Line1 getMatch={this.getMatch} />
+                    <Line1 getMatch={this.getMatch} countFeedback={this.countFeedback}/>
                 </Grid>
                 <Grid item>
-                    <Line2 getMatch={this.getMatch} />
+                    <Line2 getMatch={this.getMatch} countFeedback={this.countFeedback}/>
                 </Grid>
                 <Grid item>
-                    <Line3 getMatch={this.getMatch} />
+                    <Line3 getMatch={this.getMatch} countFeedback={this.countFeedback}/>
                 </Grid>
                 
                 <Grid item style={{marginTop: '3rem'}}>

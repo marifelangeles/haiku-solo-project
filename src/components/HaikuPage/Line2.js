@@ -46,7 +46,7 @@ class Line2 extends Component {
                     id="line-2"
                     type="text"
                     defaultValue={this.props.haiku.line2}
-                    helperText={(this.props.haiku.count2 ? this.props.haiku.count2 : 0) + '/7'}
+                    helperText={this.props.countFeedback(this.props.haiku.count2, 7)}
                     margin="normal"
                     onChange={this.handleChange}
                 />
