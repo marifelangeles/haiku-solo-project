@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
+import { Typography } from '@material-ui/core';
 
 
 class Line1 extends Component {
@@ -42,10 +43,22 @@ class Line1 extends Component {
         return 0;
     }
 
-    countFeedback = () => {
-        console.log('countFeedback hit');
+    countFeedback = (lineCount, limit) => {
+        console.log('countFeedback hit', lineCount, limit);
         // if count is more than 5, display number in red color
         // else display in gray
+        if (lineCount > limit) {
+            return (
+                <span style={{ color: 'red' }}>{lineCount} / {limit}</span> 
+            );
+        } else  {
+            return (
+                <span style={{ color: 'gray' }}>{lineCount ? lineCount : '0'} / {limit}</span>
+            );
+        } 
+        // else if (!lineCount) {
+        //     return <span style={{ color: 'gray' }}> 0 / {limit}</span>
+        // }
     }
     render() {
         return (
@@ -54,7 +67,8 @@ class Line1 extends Component {
                     id="line-1"
                     type="text"
                     defaultValue={this.props.haiku.line1}
-                    helperText= {(this.props.haiku.count1 ? this.props.haiku.count1 : 0) + '/5'}
+                    helperText={this.countFeedback(this.props.haiku.count1, 5)  }
+                    // helperText= {(this.props.haiku.count1 ? this.props.haiku.count1 : 0) + '/5'}
                     margin="normal"
                     fullWidth
                     onChange={this.handleChange}
