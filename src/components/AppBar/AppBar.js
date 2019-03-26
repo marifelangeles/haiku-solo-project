@@ -1,19 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-// import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-// import Switch from '@material-ui/core/Switch';
-// import FormControlLabel from '@material-ui/core/FormControlLabel';
-// import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 
@@ -55,6 +50,7 @@ class MenuAppBar extends React.Component {
 
     handleMyHaikus = () => {
         console.log('My Haikues menu clicked');
+        // direct to user page for logged in users
         this.props.history.push('/home');
     }
 
@@ -74,11 +70,28 @@ class MenuAppBar extends React.Component {
                 line3Match: false,
             }
         })
-        // go to word page
+        // direct to word page
         this.props.history.push('/word');
-
     }
 
+    handleLoginRegister = () => {
+        console.log('handleLoginRegister hit' );
+        // direct to welcome page for not logged in users
+        this.props.history.push('/home');
+    }
+
+    HaikuHome = () => {
+        console.log('HaikuHome hit');
+        // direct to user page for logged in users
+        this.props.history.push('/home');
+    }
+
+    HaikuWelcome = () => {
+        console.log('HaikuWelcome hit');
+        // direct to welcome page for non logged in users
+        this.props.history.push('/welcome');
+
+    }
     render() {
         const { classes } = this.props;
         const { anchorEl } = this.state;
@@ -92,13 +105,17 @@ class MenuAppBar extends React.Component {
                         {/* If user is logged in, logo directs to user page, 
                         if not, logo directs to welcome page*/}
                         {this.props.user.id ?
-                            <Link to="/home" className={classes.grow}  color="inherit">
-                                <Typography variant="h6">Haiku</Typography>
-                            </Link>
+                            <div className={classes.grow}>
+                                <Typography variant="h6">
+                                    <span onClick={this.HaikuHome}>Haiku</span>
+                                </Typography>
+                            </div>
                             :
-                            <Link to="/welcome" className={classes.grow} color="inherit">
-                                <Typography variant="h6">Haiku</Typography>
-                            </Link>
+                            <div className={classes.grow}>
+                                <Typography variant="h6">
+                                    <span onClick={this.HaikuWelcome}>Haiku</span>
+                                </Typography>
+                            </div>
                         }
 
                         {/* If user is logged in, show account icon with 
@@ -140,11 +157,10 @@ class MenuAppBar extends React.Component {
                             </div>
                             :
                             <div>
-                                <Link to="/home" className={classes.grow} color="inherit">
-                                    <Typography variant="button">Login / Register</Typography>
-                                </Link>
+                                <Typography variant="button">
+                                    <span onClick={this.handleLoginRegister}>Login / Register</span>
+                                </Typography>
                             </div>
-                            
                         }
                         
                     </Toolbar>
@@ -162,9 +178,6 @@ const mapStateToProps = state => ({
     user: state.user,
 });
 
-// export default withStyles(styles) ( 
-//     connect(mapStateToProps)(MenuAppBar) 
-//     );
 
 export default withRouter(
     withStyles(styles)(
