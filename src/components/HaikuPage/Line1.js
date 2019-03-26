@@ -42,7 +42,11 @@ class Line1 extends Component {
         return 0;
     }
 
-
+    countFeedback = () => {
+        console.log('countFeedback hit');
+        // if count is more than 5, display number in red color
+        // else display in gray
+    }
     render() {
         return (
             <div>

@@ -13,13 +13,16 @@ class Word extends Component {
         const line2Match = this.props.haiku.line2Match;
         const line3Match = this.props.haiku.line3Match;
         console.log(line1Match, line2Match, line3Match);
+        
+        // if word is used, display word in blue color
+        // else, display in gray
         if (line1Match || line2Match || line3Match) {
             console.log('word is used');
             return (
-                <Typography variant="h5"
+                <Typography variant="h4"
                     gutterBottom
                     align="center"
-                    style={{ color: 'blue' }}
+                    style={{ color: 'black' }}
                 >
                     {this.props.wordInfo.word}
 
@@ -27,7 +30,7 @@ class Word extends Component {
             );
         } else {
             return (
-                <Typography variant="h5"
+                <Typography variant="h4"
                     gutterBottom
                     align="center"
                     style={{color: 'gray'}}
