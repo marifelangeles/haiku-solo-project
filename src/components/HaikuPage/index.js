@@ -36,6 +36,21 @@ class HaikuPage extends Component {
         }
     }
 
+    countFeedback = (lineCount, limit) => {
+        console.log('countFeedback hit', lineCount, limit);
+        // if count is more than limit, display number in red color
+        // else display in gray
+        if (lineCount > limit) {
+            return (
+                <span style={{ color: 'red' }}>{lineCount} / {limit}</span>
+            );
+        } else {
+            return (
+                <span style={{ color: 'gray' }}>{lineCount ? lineCount : '0'} / {limit}</span>
+            );
+        }
+    }
+
     
     render() {
 
@@ -60,13 +75,13 @@ class HaikuPage extends Component {
                 {/* <p>haiku reducer: {JSON.stringify(this.props.haiku)}</p> */}
                 {/* <p>userReducer: {JSON.stringify(this.props.user)}</p> */}
                 <Grid item>
-                    <Line1 getMatch={this.getMatch} />
+                    <Line1 getMatch={this.getMatch} countFeedback={this.countFeedback}/>
                 </Grid>
                 <Grid item>
-                    <Line2 getMatch={this.getMatch} />
+                    <Line2 getMatch={this.getMatch} countFeedback={this.countFeedback}/>
                 </Grid>
                 <Grid item>
-                    <Line3 getMatch={this.getMatch} />
+                    <Line3 getMatch={this.getMatch} countFeedback={this.countFeedback}/>
                 </Grid>
                 
                 <Grid item style={{marginTop: '3rem'}}>
