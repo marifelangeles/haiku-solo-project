@@ -6,6 +6,7 @@ import Line3 from './Line3';
 import NextButton from './NextButton';
 import { Grid } from '@material-ui/core';
 import Word from './Word';
+import BackButton from './BackButton';
 
 
 
@@ -83,7 +84,16 @@ class HaikuPage extends Component {
                 </Grid>
                 
                 <Grid item style={{marginTop: '3rem'}}>
-                    <NextButton />
+                    <Grid container spacing={16}>
+                        <Grid item>
+                            <BackButton />
+                        </Grid>
+                        <Grid item>
+                            <NextButton />
+                        </Grid>
+                    </Grid>
+                    
+                    
                 </Grid>
                 
             </Grid>

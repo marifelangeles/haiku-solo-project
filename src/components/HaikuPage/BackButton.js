@@ -7,6 +7,10 @@ import Button from '@material-ui/core/Button';
 
 class BackButton extends Component {
 
+    handleBackButton = () => {
+        // direct user back to word page
+        this.props.history.push('/word');
+    }
     render() {
         return (
             <div>
