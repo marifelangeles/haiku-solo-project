@@ -17,7 +17,6 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 
-
 const styles = {
     root: {
         flexGrow: 1,
@@ -29,17 +28,15 @@ const styles = {
         marginLeft: -12,
         marginRight: 20,
     },
+    link: {
+        textDecoration: 'none',
+    }
 };
 
 class MenuAppBar extends React.Component {
     state = {
-        // auth: true,
         anchorEl: null,
     };
-
-    // handleChange = event => {
-    //     this.setState({ auth: event.target.checked });
-    // };
 
     handleMenu = event => {
         this.setState({ anchorEl: event.currentTarget });
@@ -84,20 +81,13 @@ class MenuAppBar extends React.Component {
 
         return (
             <div className={classes.root}>
-                {/* <FormGroup>
-                    <FormControlLabel
-                        control={
-                            <Switch checked={auth} onChange={this.handleChange} aria-label="LoginSwitch" />
-                        }
-                        label={auth ? 'Logout' : 'Login'}
-                    />
-                </FormGroup> */}
+                
                 <AppBar position="static">
                     <Toolbar>
                         {/* If user is logged in, logo directs to user page, 
                         if not, logo directs to welcome page*/}
                         {this.props.user.id ?
-                            <Link to="/home" className={classes.grow} color="inherit">
+                            <Link to="/home" className={classes.grow}  color="inherit">
                                 <Typography variant="h6">Haiku</Typography>
                             </Link>
                             :
@@ -133,10 +123,10 @@ class MenuAppBar extends React.Component {
                                     onClose={this.handleClose}
                                 >
                                     <MenuItem onClick={this.handleClose}>
-                                        <Link to="/word" onClick={this.handleWriteHaiku}>Write Haiku</Link>
+                                        <Link to="/word" className={classes.link} onClick={this.handleWriteHaiku}>Write Haiku</Link>
                                     </MenuItem>
                                     <MenuItem onClick={this.handleClose}>
-                                        <Link to="/home">My Haikus</Link>
+                                        <Link to="/home" className={classes.link}>My Haikus</Link>
                                     </MenuItem>
                                     <MenuItem onClick={this.handleClose}>
                                         <span onClick={this.handleLogout}>Log out</span>
@@ -144,9 +134,12 @@ class MenuAppBar extends React.Component {
                                 </Menu>
                             </div>
                             :
-                            <Link to="/welcome" className={classes.grow} color="inherit">
-                                <Typography variant="h6">Login / Register</Typography>
-                            </Link>
+                            <div>
+                                <Link to="/home" className={classes.grow} color="inherit">
+                                    <Typography variant="button">Login / Register</Typography>
+                                </Link>
+                            </div>
+                            
                         }
                         
                     </Toolbar>
