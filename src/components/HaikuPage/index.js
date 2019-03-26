@@ -67,9 +67,7 @@ class HaikuPage extends Component {
 
                 }}
             >
-                {/* <Grid item>
-                    <h2>{this.props.wordInfo.word}</h2>
-                </Grid> */}
+                
                 <Word />
 
                 {/* <p>haiku reducer: {JSON.stringify(this.props.haiku)}</p> */}
