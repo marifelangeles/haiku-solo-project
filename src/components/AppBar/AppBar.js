@@ -17,7 +17,6 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 
-import LogOutButton from '../LogOutButton/LogOutButton';
 
 const styles = {
     root: {
@@ -34,13 +33,13 @@ const styles = {
 
 class MenuAppBar extends React.Component {
     state = {
-        auth: true,
+        // auth: true,
         anchorEl: null,
     };
 
-    handleChange = event => {
-        this.setState({ auth: event.target.checked });
-    };
+    // handleChange = event => {
+    //     this.setState({ auth: event.target.checked });
+    // };
 
     handleMenu = event => {
         this.setState({ anchorEl: event.currentTarget });
@@ -51,14 +50,36 @@ class MenuAppBar extends React.Component {
     };
 
     handleLogout = () => {
-        console.log('log out clicked');
+        // log out and go to home
+        console.log('log out menu item clicked');
         this.props.dispatch({ type: 'LOGOUT' });
         this.props.history.push('../')
     }
 
+    handleWriteHaiku = () => {
+        console.log('Write Haiku menu item clicked');
+        // get random word before user goes to word page
+        this.props.dispatch({ type: 'GET_WORD_INFO' })
+        // make sure input field in word page is cleared
+        this.props.dispatch({
+            type: 'RESET_HAIKU',
+            payload: {
+                line1: '',
+                line2: '',
+                line3: '',
+                line1Match: false,
+                line2Match: false,
+                line3Match: false,
+            }
+        })
+        // go to word page
+        this.props.history.push('/word');
+
+    }
+
     render() {
         const { classes } = this.props;
-        const { auth, anchorEl } = this.state;
+        const { anchorEl } = this.state;
         const open = Boolean(anchorEl);
 
         return (
@@ -112,7 +133,7 @@ class MenuAppBar extends React.Component {
                                     onClose={this.handleClose}
                                 >
                                     <MenuItem onClick={this.handleClose}>
-                                        <Link to="/word">Write Haiku</Link>
+                                        <Link to="/word" onClick={this.handleWriteHaiku}>Write Haiku</Link>
                                     </MenuItem>
                                     <MenuItem onClick={this.handleClose}>
                                         <Link to="/home">My Haikus</Link>
