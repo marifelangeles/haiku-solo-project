@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
@@ -15,6 +16,8 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 // import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+
+import LogOutButton from '../LogOutButton/LogOutButton';
 
 const styles = {
     root: {
@@ -47,6 +50,12 @@ class MenuAppBar extends React.Component {
         this.setState({ anchorEl: null });
     };
 
+    handleLogout = () => {
+        console.log('log out clicked');
+        this.props.dispatch({ type: 'LOGOUT' });
+        this.props.history.push('../')
+    }
+
     render() {
         const { classes } = this.props;
         const { auth, anchorEl } = this.state;
@@ -76,6 +85,8 @@ class MenuAppBar extends React.Component {
                             </Link>
                         }
 
+                        {/* If user is logged in, show account icon with 
+                        menu to write haiku, see haikus, log out*/}
                         {this.props.user.id ? 
                             <div>
                                 <IconButton
@@ -106,7 +117,9 @@ class MenuAppBar extends React.Component {
                                     <MenuItem onClick={this.handleClose}>
                                         <Link to="/home">My Haikus</Link>
                                     </MenuItem>
-                                    <MenuItem onClick={this.handleClose}>Log Out</MenuItem>
+                                    <MenuItem onClick={this.handleClose}>
+                                        <span onClick={this.handleLogout}>Log out</span>
+                                    </MenuItem>
                                 </Menu>
                             </div>
                             :
@@ -115,36 +128,6 @@ class MenuAppBar extends React.Component {
                             </Link>
                         }
                         
-                        {/* {auth && (
-                            <div>
-                                <IconButton
-                                    aria-owns={open ? 'menu-appbar' : undefined}
-                                    aria-haspopup="true"
-                                    onClick={this.handleMenu}
-                                    color="inherit"
-                                >
-                                    <AccountCircle />
-                                </IconButton>
-                                <Menu
-                                    id="menu-appbar"
-                                    anchorEl={anchorEl}
-                                    anchorOrigin={{
-                                        vertical: 'top',
-                                        horizontal: 'right',
-                                    }}
-                                    transformOrigin={{
-                                        vertical: 'top',
-                                        horizontal: 'right',
-                                    }}
-                                    open={open}
-                                    onClose={this.handleClose}
-                                >
-                                    <MenuItem onClick={this.handleClose}>Write Haiku</MenuItem>
-                                    <MenuItem onClick={this.handleClose}>My Haikus</MenuItem>
-                                    <MenuItem onClick={this.handleClose}>Log Out</MenuItem>
-                                </Menu>
-                            </div>
-                        )} */}
                     </Toolbar>
                 </AppBar>
             </div>
@@ -160,6 +143,11 @@ const mapStateToProps = state => ({
     user: state.user,
 });
 
-export default withStyles(styles) ( 
-    connect(mapStateToProps)(MenuAppBar) 
-    );
+// export default withStyles(styles) ( 
+//     connect(mapStateToProps)(MenuAppBar) 
+//     );
+
+export default withRouter(
+    withStyles(styles)(
+    connect(mapStateToProps)(MenuAppBar)
+));
