@@ -98,8 +98,38 @@ class NextButton extends Component {
                 );
             }
             
+        } else if (this.props.user.id) {
+            // if logged in 
+            // and if haiku meets all requirements
+            if (line1Count === 5 && line2Count === 7 && line3Count === 5) {
+                console.log('lines meet syllables');
+                if (line1Match || line2Match || line3Match) {
+                    // show active log in to save
+                    return (
+                        <Button
+                            variant="outlined"
+                            color="primary"
+                            onClick={this.handleSaveHaikuClick}
+                        >
+                            Save Haiku
+                        </Button>
+                    );
+                } 
+            } else {
+                // but if haiku doesn't meet requirements
+                // show disabled log in to save
+                return (
+                    <Button
+                        disabled
+                        variant="outlined"
+                        color="primary"
+                        onClick={this.handleSaveHaikuClick}
+                    >
+                        Save Haiku
+                    </Button>
+                );
+            }
         }
-        // if logged in
     }
 
     handleLoginSaveClick = () => {
