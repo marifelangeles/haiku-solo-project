@@ -6,6 +6,8 @@ import './Nav.css';
 
 const Nav = (props) => (
   <div className="nav">
+    {/* If user is logged in, logo directs to user page, 
+    if not, logo directs to welcome page*/}
     {props.user.id ? 
       <Link to="/home">
         <h2 className="nav-title">Haiku</h2>

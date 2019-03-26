@@ -8,7 +8,7 @@ import {
 
 import {connect} from 'react-redux';
 
-import Nav from '../Nav/Nav';
+// import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
@@ -21,7 +21,7 @@ import HistoryPage from '../HistoryPage/index';
 import './App.css';
 import WelcomePage from '../WelcomePage/index';
 import LoginPage from '../LoginPage/LoginPage';
-
+import AppBar from '../AppBar/AppBar';
 class App extends Component {
   componentDidMount () {
     this.props.dispatch({type: 'FETCH_USER'})
@@ -31,7 +31,8 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Nav />
+          {/* <Nav /> */}
+          <AppBar />
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/welcome */}
             <Redirect exact from="/" to="/welcome" />
