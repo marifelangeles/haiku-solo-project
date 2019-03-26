@@ -53,6 +53,11 @@ class MenuAppBar extends React.Component {
         this.props.history.push('../')
     }
 
+    handleMyHaikus = () => {
+        console.log('My Haikues menu clicked');
+        this.props.history.push('/home');
+    }
+
     handleWriteHaiku = () => {
         console.log('Write Haiku menu item clicked');
         // get random word before user goes to word page
@@ -123,10 +128,10 @@ class MenuAppBar extends React.Component {
                                     onClose={this.handleClose}
                                 >
                                     <MenuItem onClick={this.handleClose}>
-                                        <Link to="/word" className={classes.link} onClick={this.handleWriteHaiku}>Write Haiku</Link>
+                                        <span onClick={this.handleWriteHaiku}>Write Haiku</span>
                                     </MenuItem>
                                     <MenuItem onClick={this.handleClose}>
-                                        <Link to="/home" className={classes.link}>My Haikus</Link>
+                                        <span onClick={this.handleMyHaikus}>My Haikus</span>
                                     </MenuItem>
                                     <MenuItem onClick={this.handleClose}>
                                         <span onClick={this.handleLogout}>Log out</span>
