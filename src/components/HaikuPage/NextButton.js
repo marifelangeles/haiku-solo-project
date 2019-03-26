@@ -7,54 +7,6 @@ import Button from '@material-ui/core/Button';
 
 class NextButton extends Component {
 
-    // showButton = () => {
-    //     console.log('in showButton');
-    //     const line1Count = this.props.haiku.count1;
-    //     const line2Count = this.props.haiku.count2;
-    //     const line3Count = this.props.haiku.count3;
-    //     console.log(line1Count, line2Count, line3Count);
-    //     const line1Match = this.props.haiku.line1Match;
-    //     const line2Match = this.props.haiku.line2Match;
-    //     const line3Match = this.props.haiku.line3Match;
-    //     console.log(line1Match, line2Match, line3Match);
-
-
-    //     // check if lines meet required syllable count
-    //     if (line1Count === 5 && line2Count === 7 && line3Count === 5) {
-    //         console.log('lines meet syllables');
-    //         // and word is used in haiku
-    //         if (line1Match || line2Match || line3Match) {
-    //             console.log('word is used');
-    //             // if user is not logged in, prompt user to login 
-    //             if (!this.props.user.id) {
-    //                 console.log('user is not logged in');
-    //                 return (
-    //                     <Button
-    //                     variant="outlined"
-    //                     color="primary"
-    //                     onClick={this.handleLoginSaveClick}
-    //                     >
-    //                         Log In to Save Haiku
-    //                     </Button>
-    //                 );
-    //             } else {
-    //                 // else save the haiku and go to userpage home
-    //                 console.log('user is logged in');
-    //                 return (
-    //                     <Button
-    //                         variant="outlined"
-    //                         color="primary"
-    //                         onClick={this.handleSaveHaikuClick}
-    //                     >
-    //                         Save Haiku
-    //                     </Button>
-    //                 );
-    //             }
-                
-    //         }
-    //     } 
-    // }
-
     showButton = () => {
         const line1Count = this.props.haiku.count1;
         const line2Count = this.props.haiku.count2;
@@ -132,6 +84,85 @@ class NextButton extends Component {
         }
     }
 
+    showLogInToSave = () => {
+        const line1Count = this.props.haiku.count1;
+        const line2Count = this.props.haiku.count2;
+        const line3Count = this.props.haiku.count3;
+        console.log(line1Count, line2Count, line3Count);
+        const line1Match = this.props.haiku.line1Match;
+        const line2Match = this.props.haiku.line2Match;
+        const line3Match = this.props.haiku.line3Match;
+        console.log(line1Match, line2Match, line3Match);
+
+        
+            // and if haiku meets requirements
+            if (line1Count === 5 && line2Count === 7 && line3Count === 5) {
+                console.log('lines meet syllables');
+                if (line1Match || line2Match || line3Match) {
+                    // show active log in to save
+                    return (
+                        <Button
+                            variant="outlined"
+                            color="primary"
+                            onClick={this.handleLoginSaveClick}
+                        >
+                            Log In to Save Haiku
+                        </Button>
+                    );
+                }
+
+            } else {
+                // but if haiku doesn't meet requirements
+                // show disabled log in to save
+                return (
+                    <Button
+                        disabled
+                        variant="outlined"
+                        color="primary"
+                        onClick={this.handleLoginSaveClick}
+                    >
+                        Log In to Save Haiku
+                            </Button>
+                );
+            }
+    }
+
+    showSaveHaiku = () => {
+        const line1Count = this.props.haiku.count1;
+        const line2Count = this.props.haiku.count2;
+        const line3Count = this.props.haiku.count3;
+        const line1Match = this.props.haiku.line1Match;
+        const line2Match = this.props.haiku.line2Match;
+        const line3Match = this.props.haiku.line3Match;
+        // if logged in 
+        // and if haiku meets all requirements
+        if ( (line1Count === 5 && line2Count === 7 && line3Count === 5) && (line1Match || line2Match || line3Match) ) {
+                return (
+                    <Button
+                        variant="outlined"
+                        color="primary"
+                        onClick={this.handleSaveHaikuClick}
+                    >
+                        Save Haiku
+                        </Button>
+                );
+            
+        } else {
+            // but if haiku doesn't meet requirements
+            // show disabled log in to save
+            return (
+                <Button
+                    disabled
+                    variant="outlined"
+                    color="primary"
+                    onClick={this.handleSaveHaikuClick}
+                >
+                    Save Haiku
+                    </Button>
+            );
+        }
+    }
+
     handleLoginSaveClick = () => {
         console.log('handleLoginSaveClick hit');
         // direct users to login page
@@ -171,7 +202,8 @@ class NextButton extends Component {
     render() {
         return (
                 <div>
-                {this.showButton()}
+                {/* {this.showButton()} */}
+                {this.props.user.id ? this.showSaveHaiku() : this.showLogInToSave()}
                 </div>
             
         );
