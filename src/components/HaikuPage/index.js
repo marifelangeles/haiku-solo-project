@@ -5,6 +5,7 @@ import Line2 from './Line2';
 import Line3 from './Line3';
 import NextButton from './NextButton';
 import { Grid } from '@material-ui/core';
+import Word from './Word';
 
 
 
@@ -23,13 +24,15 @@ class HaikuPage extends Component {
                 type: 'SET_HAIKU',
                 payload: true,
                 propertyName: [lineMatch]
-            })
+            });
+            
         } else {
             this.props.dispatch({
                 type: 'SET_HAIKU',
                 payload: false,
                 propertyName: [lineMatch]
-            })
+            });
+            
         }
     }
 
@@ -49,13 +52,13 @@ class HaikuPage extends Component {
 
                 }}
             >
-                <Grid item>
+                {/* <Grid item>
                     <h2>{this.props.wordInfo.word}</h2>
-                </Grid>
-                
+                </Grid> */}
+                <Word />
 
-                {/* <p>haiku reducer: {JSON.stringify(this.props.haiku)}</p>
-                <p>userReducer: {JSON.stringify(this.props.user)}</p> */}
+                {/* <p>haiku reducer: {JSON.stringify(this.props.haiku)}</p> */}
+                {/* <p>userReducer: {JSON.stringify(this.props.user)}</p> */}
                 <Grid item>
                     <Line1 getMatch={this.getMatch} />
                 </Grid>
