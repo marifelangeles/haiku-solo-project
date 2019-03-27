@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import Grid from '@material-ui/core/Grid';
 
 class LoginPage extends Component {
   state = {
@@ -28,9 +29,6 @@ class LoginPage extends Component {
           password: this.state.password,
         },
       });
-      
-      // direct user to user home page
-      this.props.history.push('/home');
     } else {
       this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
@@ -49,7 +47,7 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <div>
+      <Grid container>
         {this.props.errors.loginMessage && (
           <h2
             className="alert"
@@ -105,7 +103,7 @@ class LoginPage extends Component {
           </div>
         </form>
        
-      </div>
+      </Grid>
     );
   }
 }
