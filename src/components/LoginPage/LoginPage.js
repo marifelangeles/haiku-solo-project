@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+// import Typography from '@material-ui/core/Typography';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 
 class LoginPage extends Component {
   state = {
@@ -54,8 +59,20 @@ class LoginPage extends Component {
             {this.props.errors.loginMessage}
           </h2>
         )}
+
+        <Tabs
+          value={this.state.value}
+          onChange={this.handleChange}
+          indicatorColor="primary"
+          textColor="primary"
+          centered
+        >
+          <Tab label="Log In" />
+          <Tab label="Register" />
+        </Tabs>
+
         <form onSubmit={this.login}>
-          <h1>Login</h1>
+          {/* <Typography variant="h6" gutterBottom>Login</Typography> */}
           <div>
             <TextField
               id="standard-with-placeholder"
@@ -65,45 +82,29 @@ class LoginPage extends Component {
               value={this.state.username}
               onChange={this.handleInputChangeFor('username')}
             />
-            {/* <label htmlFor="username">
-              Username:
-              <input
-                type="text"
-                name="username"
-                value={this.state.username}
-                onChange={this.handleInputChangeFor('username')}
-              />
-            </label> */}
           </div>
 
           <div>
             <TextField
               id="standard-password-input"
               label="Password"
-              // className={classes.textField}
               type="password"
               autoComplete="current-password"
               margin="normal"
               value={this.state.password}
               onChange={this.handleInputChangeFor('password')}
             />
-            {/* <label htmlFor="password">
-              Password:
-              <input
-                type="password"
-                name="password"
-                value={this.state.password}
-                onChange={this.handleInputChangeFor('password')}
-              />
-            </label> */}
           </div>
           <div>
-            <input
+            <Button variant="outlined" color="primary">
+              Log In
+            </Button>
+            {/* <input
               className="log-in"
               type="submit"
               name="submit"
               value="Log In"
-            />
+            /> */}
           </div>
         </form>
         <center>
