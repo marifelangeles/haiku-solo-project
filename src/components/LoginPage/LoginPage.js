@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import TextField from '@material-ui/core/TextField';
 
 class LoginPage extends Component {
   state = {
@@ -56,7 +57,15 @@ class LoginPage extends Component {
         <form onSubmit={this.login}>
           <h1>Login</h1>
           <div>
-            <label htmlFor="username">
+            <TextField
+              id="standard-with-placeholder"
+              label="Username"
+              placeholder="Username"
+              margin="normal"
+              value={this.state.username}
+              onChange={this.handleInputChangeFor('username')}
+            />
+            {/* <label htmlFor="username">
               Username:
               <input
                 type="text"
@@ -64,10 +73,21 @@ class LoginPage extends Component {
                 value={this.state.username}
                 onChange={this.handleInputChangeFor('username')}
               />
-            </label>
+            </label> */}
           </div>
+
           <div>
-            <label htmlFor="password">
+            <TextField
+              id="standard-password-input"
+              label="Password"
+              // className={classes.textField}
+              type="password"
+              autoComplete="current-password"
+              margin="normal"
+              value={this.state.password}
+              onChange={this.handleInputChangeFor('password')}
+            />
+            {/* <label htmlFor="password">
               Password:
               <input
                 type="password"
@@ -75,7 +95,7 @@ class LoginPage extends Component {
                 value={this.state.password}
                 onChange={this.handleInputChangeFor('password')}
               />
-            </label>
+            </label> */}
           </div>
           <div>
             <input
