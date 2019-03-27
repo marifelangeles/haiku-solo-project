@@ -22,7 +22,7 @@ class Word extends Component {
                 <Typography variant="h4"
                     gutterBottom
                     align="center"
-                    style={{ color: 'black' }}
+                    style={{ color: 'blue' }}
                 >
                     {this.props.wordInfo.word}
 
