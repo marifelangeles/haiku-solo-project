@@ -12,6 +12,8 @@ class LoginPage extends Component {
   state = {
     username: '',
     password: '',
+    value: 0,
+
   };
 
   login = (event) => {
@@ -33,11 +35,6 @@ class LoginPage extends Component {
     } else {
       this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
-
-    
-
-    
-    
   } // end login
 
   handleInputChangeFor = propertyName => (event) => {
@@ -46,6 +43,9 @@ class LoginPage extends Component {
     });
   }
 
+  handleTabChange = (event, value) => {
+    this.setState({ value });
+  };
 
 
   render() {
@@ -62,7 +62,7 @@ class LoginPage extends Component {
 
         <Tabs
           value={this.state.value}
-          onChange={this.handleChange}
+          onChange={this.handleTabChange}
           indicatorColor="primary"
           textColor="primary"
           centered
@@ -96,15 +96,9 @@ class LoginPage extends Component {
             />
           </div>
           <div>
-            <Button variant="outlined" color="primary">
+            <Button variant="outlined" color="primary" type="submit">
               Log In
             </Button>
-            {/* <input
-              className="log-in"
-              type="submit"
-              name="submit"
-              value="Log In"
-            /> */}
           </div>
         </form>
         <center>
