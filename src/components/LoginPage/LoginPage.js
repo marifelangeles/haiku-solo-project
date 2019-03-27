@@ -67,8 +67,12 @@ class LoginPage extends Component {
           textColor="primary"
           centered
         >
-          <Tab label="Log In" />
-          <Tab label="Register" />
+          <Tab label="Log In" 
+            
+          />
+          <Tab label="Register" 
+            onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}
+          />
         </Tabs>
 
         <form onSubmit={this.login}>
@@ -102,13 +106,13 @@ class LoginPage extends Component {
           </div>
         </form>
         <center>
-          <button
+          {/* <button
             type="button"
             className="link-button"
             onClick={() => {this.props.dispatch({type: 'SET_TO_REGISTER_MODE'})}}
           >
             Register
-          </button>
+          </button> */}
         </center>
       </div>
     );
