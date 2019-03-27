@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-// import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
@@ -68,7 +67,7 @@ class LoginPage extends Component {
           centered
         >
           <Tab label="Log In" 
-            
+            onClick={() => { this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' }) }}
           />
           <Tab label="Register" 
             onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}
@@ -105,15 +104,7 @@ class LoginPage extends Component {
             </Button>
           </div>
         </form>
-        <center>
-          {/* <button
-            type="button"
-            className="link-button"
-            onClick={() => {this.props.dispatch({type: 'SET_TO_REGISTER_MODE'})}}
-          >
-            Register
-          </button> */}
-        </center>
+       
       </div>
     );
   }
