@@ -37,9 +37,28 @@ class CardToSave extends Component {
                 line2Match: false,
                 line3Match: false,
             }
-        })
+        });
     }
 
+    handleWriteHaiku = () => {
+        // get new word
+        this.props.dispatch({ type: 'GET_WORD_INFO' });
+        // clear input fields
+        this.props.dispatch({
+            type: 'RESET_HAIKU',
+            payload: {
+                line1: '',
+                line2: '',
+                line3: '',
+                line1Match: false,
+                line2Match: false,
+                line3Match: false,
+            }
+        });
+        // go to word page
+        this.props.history.push('/word');
+
+    }
 
 
     render() {
