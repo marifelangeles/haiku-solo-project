@@ -12,11 +12,10 @@ import BackButton from './BackButton';
 
 class HaikuPage extends Component {
     
-
+    // check if word is used in input fields
+    // update redux state lineMatch: true / false
     getMatch = (lineMatch) => (word, input) => {
         console.log('word:', word, 'input:', input);
-
-        // check if word is used in input fields
         let index = input.indexOf(word);
         console.log('index', index);
         if (index !== -1) {
@@ -37,10 +36,9 @@ class HaikuPage extends Component {
         }
     }
 
+    // guide users with syllable counter. Warn users if line is over syllable limit
     countFeedback = (lineCount, limit) => {
         console.log('countFeedback hit', lineCount, limit);
-        // if count is more than limit, display number in red color
-        // else display in gray
         if (lineCount > limit) {
             return (
                 <span style={{ color: 'red' }}>{lineCount} / {limit}</span>

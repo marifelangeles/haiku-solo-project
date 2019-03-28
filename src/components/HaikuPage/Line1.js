@@ -29,19 +29,6 @@ class Line1 extends Component {
 
     }
 
-    // count syllables in a word
-    // code found in https://stackoverflow.com/questions/5686483/how-to-compute-number-of-syllables-in-a-word-in-javascript
-    // new_count = (word) => {
-    //     if (word) {
-    //         word = word.toLowerCase();
-    //         if (word.length <= 3) { return 1; }
-    //         word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
-    //         word = word.replace(/^y/, '');
-    //         return word.match(/[aeiouy]{1,2}/g).length;
-    //     }
-    //     return 0;
-    // }
-
     new_count = (word) => {
         console.log('in new_count', word);
         let match = 0;
@@ -62,8 +49,6 @@ class Line1 extends Component {
             if (match !== null) {
                 return match.length;
             } 
-            
-            
         }
         return 0;
     }
