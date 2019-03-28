@@ -49,94 +49,92 @@ class LoginPage extends Component {
   render() {
     return (
       <>
-      <Grid
-        container
-        direction="column"
-        justify="center"
-        alignItems="center"
-        style={{ marginTop: '3rem' }}
-      >
-        <Grid item>
-          <Tabs
-            value={this.state.value}
-            onChange={this.handleTabChange}
-            indicatorColor="primary"
-            textColor="primary"
-            centered
-          >
-            <Tab label="Log In"
-              onClick={() => { this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' }) }}
-            />
-            <Tab label="Register"
-              onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}
-            />
-          </Tabs>
-        </Grid>
+        <Grid
+          container
+          direction="column"
+          justify="center"
+          alignItems="center"
+          style={{ marginTop: '3rem' }}
+        >
+          <Grid item>
+            <Tabs
+              value={this.state.value}
+              onChange={this.handleTabChange}
+              indicatorColor="primary"
+              textColor="primary"
+              centered
+            >
+              <Tab label="Log In"
+                onClick={() => { this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' }) }}
+              />
+              <Tab label="Register"
+                onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}
+              />
+            </Tabs>
+          </Grid>
 
-        <Grid item>
-          <Grid 
+          <Grid item>
+            <Grid
               container
               direction="column"
               justify="center"
               alignItems="center"
-              style={{marginTop: '2rem'}}
-          >
-            <form onSubmit={this.login}>
-              <Grid item>
-                {this.props.errors.loginMessage && (
-                  <Typography
-                    variant="subtitle1" gutterBottom
-                    className="alert"
-                    role="alert"
-                  >
-                    {this.props.errors.loginMessage}
-                  </Typography>
-                )}
-              </Grid>
+              style={{ marginTop: '2rem' }}
+            >
+              <form onSubmit={this.login}>
+                <Grid item>
+                  {this.props.errors.loginMessage && (
+                    <Typography
+                      variant="subtitle1" gutterBottom
+                      className="alert"
+                      role="alert"
+                    >
+                      {this.props.errors.loginMessage}
+                    </Typography>
+                  )}
+                </Grid>
 
-              <Grid item>
-                <TextField
-                  id="standard-with-placeholder"
-                  label="Username"
-                  placeholder="Username"
-                  margin="normal"
-                  fullWidth
-                  value={this.state.username}
-                  onChange={this.handleInputChangeFor('username')}
-                />
-              </Grid>
+                <Grid item>
+                  <TextField
+                    id="standard-with-placeholder"
+                    label="Username"
+                    placeholder="Username"
+                    margin="normal"
+                    value={this.state.username}
+                    onChange={this.handleInputChangeFor('username')}
+                  />
+                </Grid>
 
-              <Grid item>
-                <TextField
-                  id="standard-password-input"
-                  label="Password"
-                  type="password"
-                  autoComplete="current-password"
-                  margin="normal"
-                  fullWidth
-                  value={this.state.password}
-                  onChange={this.handleInputChangeFor('password')}
-                />
-              </Grid>
+                <Grid item>
+                  <TextField
+                    id="standard-password-input"
+                    label="Password"
+                    type="password"
+                    autoComplete="current-password"
+                    margin="normal"
+                    value={this.state.password}
+                    onChange={this.handleInputChangeFor('password')}
+                  />
+                </Grid>
 
-              <Grid item style={{marginTop: '3rem'}}>
-                <Button variant="outlined" color="primary" type="submit">
-                  Log In
+                <Grid item style={{ marginTop: '3rem' }}>
+                  <Button variant="outlined" color="primary" type="submit">
+                    Log In
                 </Button>
-              </Grid>
+                </Grid>
 
-            </form>
+              </form>
+            </Grid>
           </Grid>
         </Grid>
-      </Grid>
-    </>
+      </>
     );
   }
 }
 
 
 const mapStateToProps = (reduxState) => {
-    return reduxState;
+  return reduxState;
 }
 
 export default connect(mapStateToProps)(withRouter(LoginPage));
