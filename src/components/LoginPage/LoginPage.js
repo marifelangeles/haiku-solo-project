@@ -74,18 +74,19 @@ class LoginPage extends Component {
           </Grid>
 
           <Grid item>
-            <Grid
-              container
-              direction="column"
-              justify="center"
-              alignItems="center"
-              style={{ marginTop: '2rem' }}
-            >
+            
               <form onSubmit={this.login}>
+              <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems="center"
+                style={{ marginTop: '2rem' }}
+              >
                 <Grid item>
                   {this.props.errors.loginMessage && (
                     <Typography
-                      variant="subtitle1" gutterBottom
+                      variant="caption1" gutterBottom
                       className="alert"
                       role="alert"
                     >
@@ -100,6 +101,7 @@ class LoginPage extends Component {
                     label="Username"
                     placeholder="Username"
                     margin="normal"
+                    fullWidth
                     value={this.state.username}
                     onChange={this.handleInputChangeFor('username')}
                   />
@@ -112,6 +114,7 @@ class LoginPage extends Component {
                     type="password"
                     autoComplete="current-password"
                     margin="normal"
+                    fullWidth
                     value={this.state.password}
                     onChange={this.handleInputChangeFor('password')}
                   />
@@ -122,9 +125,9 @@ class LoginPage extends Component {
                     Log In
                 </Button>
                 </Grid>
+              </Grid>
 
               </form>
-            </Grid>
           </Grid>
         </Grid>
       </>

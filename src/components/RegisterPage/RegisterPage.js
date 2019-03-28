@@ -70,19 +70,20 @@ class RegisterPage extends Component {
           </Grid>
 
           <Grid item>
-            <Grid
-              container
-              direction="column"
-              justify="center"
-              alignItems="center"
-              style={{ marginTop: '2rem' }}
-            >
+            
 
               <form onSubmit={this.registerUser}>
+              <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems="center"
+                style={{ marginTop: '2rem' }}
+              >
                 <Grid item>
                   {this.props.errors.registrationMessage && (
                     <Typography
-                      variant="subtitle1" gutterBottom
+                      variant="caption1" gutterBottom
                       className="alert"
                       role="alert"
                     >
@@ -97,6 +98,7 @@ class RegisterPage extends Component {
                     label="Username"
                     placeholder="Username"
                     margin="normal"
+                    fullWidth
                     value={this.state.username}
                     onChange={this.handleInputChangeFor('username')}
                   />
@@ -109,6 +111,7 @@ class RegisterPage extends Component {
                     type="password"
                     autoComplete="current-password"
                     margin="normal"
+                    fullWidth
                     value={this.state.password}
                     onChange={this.handleInputChangeFor('password')}
                   />
@@ -117,11 +120,13 @@ class RegisterPage extends Component {
                 <Grid item style={{ marginTop: '3rem' }}>
                   <Button variant="outlined" color="primary" type="submit">
                     Register
-            </Button>
+                  </Button>
                 </Grid>
+              
+              </Grid>
+
               </form>
 
-            </Grid>
           </Grid>
         </Grid>
       </>
