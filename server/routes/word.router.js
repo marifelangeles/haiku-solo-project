@@ -65,7 +65,8 @@ router.get('/', async (req, res) => {
         console.log('isNotNumber line 61', isNotNumber(word));
 
 
-        // accept the first definition provided
+        // accept a random word if word...
+        // includes a definition, is not more than 7 syllables, is not a number
         if (wordResults && wordResults[0] && 
             wordResults[0].definition && 
             isSyllableLimit(word) && 
