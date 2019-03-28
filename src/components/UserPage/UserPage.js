@@ -12,14 +12,29 @@ import CardToSave from './CardToSave';
 
 class UserPage extends Component {
 
+  // showCardToSave = () => {
+  //   console.log('showCardToSave hit');
+  //   if(this.props.haiku.line3){
+  //     return (
+  //       <CardToSave />
+  //     )
+  //   } else if (!this.props.haiku.line3){
+  //     return <WriteHaikuButton />
+  //   }
+  // }
   showCardToSave = () => {
-    console.log('showCardToSave hit');
-    if(this.props.haiku.line3){
-      return (
-        <CardToSave />
-      )
-    } else if (!this.props.haiku.line3){
-      return <WriteHaikuButton />
+    const line1Count = this.props.haiku.count1;
+    const line2Count = this.props.haiku.count2;
+    const line3Count = this.props.haiku.count3;
+    const line1Match = this.props.haiku.line1Match;
+    const line2Match = this.props.haiku.line2Match;
+    const line3Match = this.props.haiku.line3Match;
+    // user created a haiku before logging in 
+    // and if haiku meets all requirements
+    if ((line1Count === 5 && line2Count === 7 && line3Count === 5) && (line1Match || line2Match || line3Match)) {
+      return <CardToSave />;
+    } else {
+      return <WriteHaikuButton />;
     }
   }
 
