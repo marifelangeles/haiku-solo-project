@@ -4,7 +4,6 @@ import { withRouter } from 'react-router-dom';
 import SampleHaiku from './SampleHaiku';
 import WriteHaikuButton from './WriteHaikuButton';
 import LoginButton from './LoginButton';
-// styles
 import Grid from '@material-ui/core/Grid';
 
 
@@ -44,9 +43,7 @@ class WelcomePage extends Component {
     }
 }
 
-// Instead of taking everything from state, we just want the user info.
-// if you wanted you could write this code like this:
-// const mapStateToProps = ({user}) => ({ user });
+
 const mapStateToProps = (reduxState) => {
     return reduxState;
 }
