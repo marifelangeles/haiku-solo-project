@@ -58,7 +58,7 @@ class Line1 extends Component {
             console.log('word replace line 57', word);
             match = word.match(/[aeiouy]{1,2}/g);
 
-            // allow user to continue typing with more than 3 consecutive consonants
+            // cannot get word length if word is null -- expect users to type jjjjjj
             if (match !== null) {
                 return match.length;
             } 
