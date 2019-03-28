@@ -177,6 +177,7 @@ class NextButton extends Component {
                 line1: this.props.haiku.line1,
                 line2: this.props.haiku.line2,
                 line3: this.props.haiku.line3,
+                date: this.getCurrentDate(),
         
             }
         });
@@ -194,6 +195,16 @@ class NextButton extends Component {
         })
         // direct user to user page
         this.props.history.push('/home');
+    }
+
+    getCurrentDate = () => {
+        console.log('in setDate');
+        
+        let date = new Date().getDate(); //Current Date
+        let month = new Date().getMonth() + 1; //Current Month
+        let year = new Date().getFullYear(); //Current Year
+        console.log('in getCurrentDate', date, month, year);
+        return `${year}-${month}-${date}`;
     }
     
 
