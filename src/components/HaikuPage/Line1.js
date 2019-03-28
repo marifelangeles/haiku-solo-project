@@ -28,7 +28,8 @@ class Line1 extends Component {
         })
 
         // check if target word is used in haiku
-        this.props.getMatch('line1Match')(this.props.wordInfo.word, this.props.haiku.line1);
+        // take in event.target.value to match in sync --> otherwise match is delayed
+        this.props.getMatch('line1Match')(this.props.wordInfo.word, event.target.value);
 
         // allow only words 
         // give error message if user types a number --> can't count syllables in numbers yet
