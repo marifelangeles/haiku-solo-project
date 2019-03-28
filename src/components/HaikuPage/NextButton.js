@@ -7,6 +7,8 @@ import Button from '@material-ui/core/Button';
 
 class NextButton extends Component {
 
+    // change next button according to login status
+    // this will allow users to create a haiku without an account or before logging in
     showButton = () => {
         const line1Count = this.props.haiku.count1;
         const line2Count = this.props.haiku.count2;
@@ -156,12 +158,14 @@ class NextButton extends Component {
         }
     }
 
+    // direct users to login page without saving haiku
+    // users will see haiku to be saved or deleted if created before log in
     handleLoginSaveClick = () => {
         console.log('handleLoginSaveClick hit');
-        // direct users to login page
         this.props.history.push('/home');
     }
 
+    // if user is logged in, allow users to immediately save haiku before going to user home page
     handleSaveHaikuClick = () => {
         console.log('handleSaveHaikuClick hit');
         // save data in database
@@ -173,6 +177,7 @@ class NextButton extends Component {
                 line1: this.props.haiku.line1,
                 line2: this.props.haiku.line2,
                 line3: this.props.haiku.line3,
+        
             }
         });
         // clear input fields
@@ -187,7 +192,7 @@ class NextButton extends Component {
                 line3Match: false,
             }
         })
-        // direct user to history page
+        // direct user to user page
         this.props.history.push('/home');
     }
     
