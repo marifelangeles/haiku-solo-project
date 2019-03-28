@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 
 class RegisterPage extends Component {
   state = {
     username: '',
     password: '',
+    value: 1,
   };
 
   registerUser = (event) => {
@@ -19,7 +27,7 @@ class RegisterPage extends Component {
         },
       });
     } else {
-      this.props.dispatch({type: 'REGISTRATION_INPUT_ERROR'});
+      this.props.dispatch({ type: 'REGISTRATION_INPUT_ERROR' });
     }
   } // end registerUser
 
@@ -29,60 +37,99 @@ class RegisterPage extends Component {
     });
   }
 
+  handleTabChange = (event, value) => {
+    this.setState({ value });
+  };
+
   render() {
     return (
-      <div>
-        {this.props.errors.registrationMessage && (
-          <h2
-            className="alert"
-            role="alert"
-          >
-            {this.props.errors.registrationMessage}
-          </h2>
-        )}
-        <form onSubmit={this.registerUser}>
-          <h1>Register User</h1>
-          <div>
-            <label htmlFor="username">
-              Username:
-              <input
-                type="text"
-                name="username"
-                value={this.state.username}
-                onChange={this.handleInputChangeFor('username')}
+      <>
+        <Grid
+          container
+          direction="column"
+          justify="center"
+          alignItems="center"
+          style={{ marginTop: '3rem' }}
+        >
+
+          <Grid item>
+            <Tabs
+              value={this.state.value}
+              onChange={this.handleTabChange}
+              indicatorColor="primary"
+              textColor="primary"
+              centered
+            >
+              <Tab label="Log In"
+                onClick={() => { this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' }) }}
               />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="password">
-              Password:
-              <input
-                type="password"
-                name="password"
-                value={this.state.password}
-                onChange={this.handleInputChangeFor('password')}
+              <Tab label="Register"
+                onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}
               />
-            </label>
-          </div>
-          <div>
-            <input
-              className="register"
-              type="submit"
-              name="submit"
-              value="Register"
-            />
-          </div>
-        </form>
-        <center>
-          <button
-            type="button"
-            className="link-button"
-            onClick={() => {this.props.dispatch({type: 'SET_TO_LOGIN_MODE'})}}
-          >
-            Login
-          </button>
-        </center>
-      </div>
+            </Tabs>
+          </Grid>
+
+          <Grid item>
+            
+
+              <form onSubmit={this.registerUser}>
+              <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems="center"
+                style={{ marginTop: '2rem' }}
+              >
+                <Grid item>
+                  {this.props.errors.registrationMessage && (
+                    <Typography
+                      variant="caption1" gutterBottom
+                      className="alert"
+                      role="alert"
+                    >
+                      {this.props.errors.registrationMessage}
+                    </Typography>
+                  )}
+                </Grid>
+
+                <Grid item>
+                  <TextField
+                    id="standard-with-placeholder"
+                    label="Username"
+                    placeholder="Username"
+                    margin="normal"
+                    fullWidth
+                    value={this.state.username}
+                    onChange={this.handleInputChangeFor('username')}
+                  />
+                </Grid>
+
+                <Grid item>
+                  <TextField
+                    id="standard-password-input"
+                    label="Password"
+                    type="password"
+                    autoComplete="current-password"
+                    margin="normal"
+                    fullWidth
+                    value={this.state.password}
+                    onChange={this.handleInputChangeFor('password')}
+                  />
+                </Grid>
+
+                <Grid item style={{ marginTop: '3rem' }}>
+                  <Button variant="outlined" color="primary" type="submit">
+                    Register
+                  </Button>
+                </Grid>
+              
+              </Grid>
+
+              </form>
+
+          </Grid>
+        </Grid>
+      </>
     );
   }
 }

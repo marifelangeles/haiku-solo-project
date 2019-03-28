@@ -4,23 +4,22 @@ body {
 }
 
 .alert {
-    background-color: #ff4545;
-    margin: 50px;
+    color: #ff4545;
+    /* margin: 50px; */
 }
 
-form {
-    background-color: #dbd5d5;
+/* form {
     width: 30%;
     height: 250px;
     margin: 20px auto;
     padding: 25px;
     border-radius: 2px;
-}
+} */
 
-input {
+/* input {
     margin: 5px;
     margin-bottom: 10px;
-}
+} */
 
 .log-in, .log-out, .register {
   background-color: #00acb0;
@@ -37,7 +36,7 @@ input {
 }
 
 /* This line makes the "Register" and "Login" buttons look like links */
-.link-button {
+/* .link-button {
     background:none;
     color:inherit;
     border:none;
@@ -46,4 +45,4 @@ input {
     outline:0;
     border-bottom:1px solid #444; 
     cursor: pointer;
-}
+} */

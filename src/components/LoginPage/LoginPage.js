@@ -2,10 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+
 class LoginPage extends Component {
   state = {
     username: '',
     password: '',
+    value: 0,
+
   };
 
   login = (event) => {
@@ -21,17 +30,9 @@ class LoginPage extends Component {
           password: this.state.password,
         },
       });
-      
-      // direct user to user home page
-      this.props.history.push('/home');
     } else {
       this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
-
-    
-
-    
-    
   } // end login
 
   handleInputChangeFor = propertyName => (event) => {
@@ -40,69 +41,103 @@ class LoginPage extends Component {
     });
   }
 
+  handleTabChange = (event, value) => {
+    this.setState({ value });
+  };
 
 
   render() {
     return (
-      <div>
-        {this.props.errors.loginMessage && (
-          <h2
-            className="alert"
-            role="alert"
-          >
-            {this.props.errors.loginMessage}
-          </h2>
-        )}
-        <form onSubmit={this.login}>
-          <h1>Login</h1>
-          <div>
-            <label htmlFor="username">
-              Username:
-              <input
-                type="text"
-                name="username"
-                value={this.state.username}
-                onChange={this.handleInputChangeFor('username')}
+      <>
+        <Grid
+          container
+          direction="column"
+          justify="center"
+          alignItems="center"
+          style={{ marginTop: '3rem' }}
+        >
+          <Grid item>
+            <Tabs
+              value={this.state.value}
+              onChange={this.handleTabChange}
+              indicatorColor="primary"
+              textColor="primary"
+              centered
+            >
+              <Tab label="Log In"
+                onClick={() => { this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' }) }}
               />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="password">
-              Password:
-              <input
-                type="password"
-                name="password"
-                value={this.state.password}
-                onChange={this.handleInputChangeFor('password')}
+              <Tab label="Register"
+                onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}
               />
-            </label>
-          </div>
-          <div>
-            <input
-              className="log-in"
-              type="submit"
-              name="submit"
-              value="Log In"
-            />
-          </div>
-        </form>
-        <center>
-          <button
-            type="button"
-            className="link-button"
-            onClick={() => {this.props.dispatch({type: 'SET_TO_REGISTER_MODE'})}}
-          >
-            Register
-          </button>
-        </center>
-      </div>
+            </Tabs>
+          </Grid>
+
+          <Grid item>
+            
+              <form onSubmit={this.login}>
+              <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems="center"
+                style={{ marginTop: '2rem' }}
+              >
+                <Grid item>
+                  {this.props.errors.loginMessage && (
+                    <Typography
+                      variant="caption1" gutterBottom
+                      className="alert"
+                      role="alert"
+                    >
+                      {this.props.errors.loginMessage}
+                    </Typography>
+                  )}
+                </Grid>
+
+                <Grid item>
+                  <TextField
+                    id="standard-with-placeholder"
+                    label="Username"
+                    placeholder="Username"
+                    margin="normal"
+                    fullWidth
+                    value={this.state.username}
+                    onChange={this.handleInputChangeFor('username')}
+                  />
+                </Grid>
+
+                <Grid item>
+                  <TextField
+                    id="standard-password-input"
+                    label="Password"
+                    type="password"
+                    autoComplete="current-password"
+                    margin="normal"
+                    fullWidth
+                    value={this.state.password}
+                    onChange={this.handleInputChangeFor('password')}
+                  />
+                </Grid>
+
+                <Grid item style={{ marginTop: '3rem' }}>
+                  <Button variant="outlined" color="primary" type="submit">
+                    Log In
+                </Button>
+                </Grid>
+              </Grid>
+
+              </form>
+          </Grid>
+        </Grid>
+      </>
     );
   }
 }
 
 
 const mapStateToProps = (reduxState) => {
-    return reduxState;
+  return reduxState;
 }
 
 export default connect(mapStateToProps)(withRouter(LoginPage));
