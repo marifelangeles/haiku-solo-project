@@ -5,6 +5,10 @@ import TextField from '@material-ui/core/TextField';
 
 class Line1 extends Component {
 
+    // state = {
+    //     line1: this.props.haiku.line1,
+    // }
+
     handleChange = (event) => {
         console.log('in handle change', event.target.value );
 
@@ -32,24 +36,25 @@ class Line1 extends Component {
 
     new_count = (word) => {
         console.log('in new_count', word);
-        let match = 0;
+        // let match = 0;
         if (word) {
             word = word.toLowerCase();            
             if (word.length <= 3) { 
-                console.log('word length', word.length);
                 return 1; 
             }
-            word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
-            console.log('word replace line 54', word);
-            
+            word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');            
             word = word.replace(/^y/, '');
-            console.log('word replace line 57', word);
-            match = word.match(/[aeiouy]{1,2}/g);
+            if (!word.match(/[aeiouy]{1,2}/g)) {
+                return `Sorry I don't understand`;
+            } else {
+                return word.match(/[aeiouy]{1,2}/g).length;
+            }
+            
 
             // cannot get word length if word is null -- expect users to type jjjjjj
-            if (match !== null) {
-                return match.length;
-            } 
+            // if (match !== null) {
+            //     return match.length;
+            // } 
         }
         return 0;
     }

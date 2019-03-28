@@ -7,18 +7,12 @@ const router = express.Router();
 
 // count number of syllables of incoming word from Word API
 new_count = (word) => {
-    let match = 0;
     if (word) {
         word = word.toLowerCase();
         if (word.length <= 3) { return 1; }
         word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
         word = word.replace(/^y/, '');
-        match = word.match(/[aeiouy]{1,2}/g);
-
-        // cannot get word length if word is null -- expect users to type jjjjjj
-        if (match !== null) {
-            return match.length;
-        }
+        return word.match(/[aeiouy]{1,2}/g).length;
     }
     return 0;
 }
