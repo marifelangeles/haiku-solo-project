@@ -1,4 +1,9 @@
-const wordInfo = (state = {}, action) => {
+const word = {
+    word: '',
+    
+}
+
+const wordInfo = (state = word, action) => {
     console.log('in wordInfo reducer');
     
     switch (action.type) {

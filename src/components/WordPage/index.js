@@ -16,23 +16,39 @@ import { Grid } from '@material-ui/core';
 
 class WordPage extends Component {
 
+
     handleNewWord = () => {
-        console.log('in handleNewWord');
-        // when new word is clicked, display random word
+        // when new word is clicked, fetch random word
         this.props.dispatch({ type: 'GET_WORD_INFO' })
-        // if (!this.props.wordInfo.word) {
-        //     return <div>Loading...</div>;
-        // } else {
-        //     return 
-        // }
+        this.showLoading();
     }
 
-    render() {
-        // if (!this.props.wordInfo.word) {
-        //     return <div>Loading...</div>;           
-        // }
-        
+    // toggle loading state if a word has been fetched
+    showLoading = () => {
+        console.log('in showLoading');
+        if (this.props.wordInfo.word === "") {
+            console.log('this.props.wordInfo.word', this.props.wordInfo.word);
+            this.props.dispatch({ type: 'START_LOADING', payload: true});
+
+        } else {
+            this.props.dispatch({ type: 'END_LOADING', payload: false });
+        }
+    }
+
+    // displayLoading = () => {
+    //     console.log('in displayLoading');
+    //     this.showLoading();
+    //     if (this.props.loading) {
+    //         return <div>Loading...</div>
+    //     } else {
+    //         return <div>word exists</div>
+    //     }
+    // }
+
+    render() {        
+        // this.showLoading();
         return (
+            <>
             <Grid 
                 container
                 spacing={16}
@@ -97,11 +113,14 @@ class WordPage extends Component {
                         <Grid item>
                             <NextButton />
                         </Grid>
+                            {this.props.loadingReducer ? <div>Loading...</div> :  <div>word exists</div>}            
+
                         
                     </Grid>
                 </Grid>
 
             </Grid>
+            </>
         );
     }
 }

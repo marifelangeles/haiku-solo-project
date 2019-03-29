@@ -5,6 +5,7 @@ import user from './userReducer';
 import wordInfo from './wordInfoReducer';
 import haiku from './haikuReducer';
 import haikuList from './haikuListReducer';
+import loadingReducer from './loadingReducer';
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
 // This is imported in index.js as rootSaga
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   wordInfo, // will have word, definition and maybe POS & pronunciation
   haiku, // have properties: line_1, line_2, line_3
   haikuList, // will have id, word, line1, line2, line3, date, user_id
+  loadingReducer, 
 });
 
 export default rootReducer;
