@@ -52,7 +52,7 @@ class HaikuPage extends Component {
 
     
     render() {
-
+        
         return (
             <Grid 
                 container

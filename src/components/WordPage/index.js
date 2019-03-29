@@ -16,8 +16,22 @@ import { Grid } from '@material-ui/core';
 
 class WordPage extends Component {
 
+    handleNewWord = () => {
+        console.log('in handleNewWord');
+        // when new word is clicked, display random word
+        this.props.dispatch({ type: 'GET_WORD_INFO' })
+        // if (!this.props.wordInfo.word) {
+        //     return <div>Loading...</div>;
+        // } else {
+        //     return 
+        // }
+    }
 
     render() {
+        // if (!this.props.wordInfo.word) {
+        //     return <div>Loading...</div>;           
+        // }
+        
         return (
             <Grid 
                 container
@@ -78,7 +92,7 @@ class WordPage extends Component {
                         alignItems="center"
                     >
                         <Grid item>
-                            <NewWordButton />
+                            <NewWordButton handleNewWord={this.handleNewWord}/>
                         </Grid>
                         <Grid item>
                             <NextButton />
