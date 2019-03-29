@@ -20,33 +20,9 @@ class WordPage extends Component {
     handleNewWord = () => {
         // when new word is clicked, fetch random word
         this.props.dispatch({ type: 'GET_WORD_INFO' })
-        this.showLoading();
     }
-
-    // toggle loading state if a word has been fetched
-    showLoading = () => {
-        console.log('in showLoading');
-        if (this.props.wordInfo.word === "") {
-            console.log('this.props.wordInfo.word', this.props.wordInfo.word);
-            this.props.dispatch({ type: 'START_LOADING', payload: true});
-
-        } else {
-            this.props.dispatch({ type: 'END_LOADING', payload: false });
-        }
-    }
-
-    // displayLoading = () => {
-    //     console.log('in displayLoading');
-    //     this.showLoading();
-    //     if (this.props.loading) {
-    //         return <div>Loading...</div>
-    //     } else {
-    //         return <div>word exists</div>
-    //     }
-    // }
 
     render() {        
-        // this.showLoading();
         return (
             <>
             <Grid 
