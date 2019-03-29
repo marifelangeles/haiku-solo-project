@@ -37,7 +37,6 @@ class Line1 extends Component {
 
     new_count = (word) => {
         console.log('in new_count', word);
-        // let match = 0;
         if (word) {
             word = word.toLowerCase();            
             if (word.length <= 3) { 
@@ -51,11 +50,6 @@ class Line1 extends Component {
                 return word.match(/[aeiouy]{1,2}/g).length;
             }
             
-
-            // cannot get word length if word is null -- expect users to type jjjjjj
-            // if (match !== null) {
-            //     return match.length;
-            // } 
         }
         return 0;
     }

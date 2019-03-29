@@ -204,7 +204,9 @@ class NextButton extends Component {
         let month = new Date().getMonth() + 1; //Current Month
         let year = new Date().getFullYear(); //Current Year
         console.log('in getCurrentDate', date, month, year);
+        // return `${year}-${month}-${date}`;
         return `${year}-${month}-${date}`;
+
     }
     
 
