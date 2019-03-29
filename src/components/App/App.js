@@ -23,11 +23,13 @@ import WelcomePage from '../WelcomePage/index';
 import LoginPage from '../LoginPage/LoginPage';
 import AppBar from '../AppBar/AppBar';
 class App extends Component {
+  
   componentDidMount () {
     this.props.dispatch({type: 'FETCH_USER'})
   }
 
   render() {
+    
     return (
       <Router>
         <div>

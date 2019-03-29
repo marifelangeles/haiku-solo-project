@@ -10,10 +10,26 @@ import Grid from '@material-ui/core/Grid';
 
 class WelcomePage extends Component {
 
+    
+
+    // handleNewWord = () => {
+    //     console.log('in handleNewWord');
+    //     // when new word is clicked, display random word
+    //     this.props.dispatch({ type: 'GET_WORD_INFO' })
+
+    // }
+
+    
+
+
    
     render() {
+        // if (this.state.isLoading) {
+        //     return <div>Loading...</div>
+        // }
         return (
             <>
+                
                 <Grid 
                     container
                     justify="center"
