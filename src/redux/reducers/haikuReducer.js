@@ -8,6 +8,7 @@ const lines = {
     line1Match: false,
     line2Match: false,
     line3Match: false,
+    date: '',
 }
 
 const haiku = (state = lines, action) => {

@@ -33,14 +33,16 @@ router.get('/', (req, res) => {
  */
 router.post('/', (req, res) => {
     const updatedHaiku = req.body;
-    const queryText = `INSERT INTO "haiku" ("word", "line1", "line2", "line3", "user_id" ) 
-                    VALUES ($1, $2, $3, $4, $5);`
+    const queryText = `INSERT INTO "haiku" ("word", "line1", "line2", "line3", "user_id", "date" ) 
+                    VALUES ($1, $2, $3, $4, $5, $6);`
     const queryValues = [
         updatedHaiku.word,
         updatedHaiku.line1, 
         updatedHaiku.line2,
         updatedHaiku.line3,
-        updatedHaiku.id,]
+        updatedHaiku.id,
+        updatedHaiku.date,
+    ]
     pool.query(queryText, queryValues)
         .then(() => { res.sendStatus(200); })
         .catch((error) => {

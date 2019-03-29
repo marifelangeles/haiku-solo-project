@@ -12,16 +12,6 @@ import CardToSave from './CardToSave';
 
 class UserPage extends Component {
 
-  // showCardToSave = () => {
-  //   console.log('showCardToSave hit');
-  //   if(this.props.haiku.line3){
-  //     return (
-  //       <CardToSave />
-  //     )
-  //   } else if (!this.props.haiku.line3){
-  //     return <WriteHaikuButton />
-  //   }
-  // }
   showCardToSave = () => {
     const line1Count = this.props.haiku.count1;
     const line2Count = this.props.haiku.count2;

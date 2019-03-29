@@ -66,7 +66,8 @@ class CardToSave extends Component {
             <Card>
                 <CardHeader
                     title={this.props.wordInfo.word}
-                    // subheader={haiku.date}
+                    subheader={this.props.haikuList.date}
+                    // format={'DD/MM/YYYY'}
                 />
                 <CardContent>
                     <Typography variant="body1" gutterBottom>{this.props.haiku.line1}</Typography>

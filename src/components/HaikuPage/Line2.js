@@ -22,7 +22,7 @@ class Line2 extends Component {
         })
 
         // check if target word is used in haiku
-        this.props.getMatch('line2Match')(this.props.wordInfo.word, this.props.haiku.line2);
+        this.props.getMatch('line2Match')(this.props.wordInfo.word, event.target.value);
     }
 
     // count syllables in a word
