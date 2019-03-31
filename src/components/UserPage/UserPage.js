@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
+
+import '../App/App.css'
 import HistoryPage from '../HistoryPage';
 import WriteHaikuButton from '../WelcomePage/WriteHaikuButton';
 
@@ -34,7 +36,8 @@ class UserPage extends Component {
         container
         spacing={16}
         direction="column"
-        justify="center"        
+        justify="center"  
+        className="user-home"      
         
       >
         <Grid item
@@ -52,14 +55,10 @@ class UserPage extends Component {
         </Typography>
         </Grid>
         
-        <Grid item>
+        <Grid item sm={6}>
           {this.showCardToSave()}
           
         </Grid>
-
-        {/* <Grid item>
-          
-        </Grid> */}
         
         <Grid item>
           <HistoryPage />
