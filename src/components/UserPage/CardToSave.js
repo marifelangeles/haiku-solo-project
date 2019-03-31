@@ -56,7 +56,7 @@ class CardToSave extends Component {
             }
         });
         // go to word page
-        this.props.history.push('/word');
+        // this.props.history.push('/word');
 
     }
 
@@ -75,8 +75,8 @@ class CardToSave extends Component {
                     <Typography variant="body1" gutterBottom>{this.props.haiku.line3}</Typography>
                 </CardContent>
                 <CardActions>
-                    <Button size="small" onClick={this.handleWriteHaiku}>Write a Haiku</Button>
-                    <Button size="small" onClick={this.handleSaveHaiku}>Save Haiku</Button>
+                    <Button size="small" onClick={this.handleWriteHaiku}>Delete</Button>
+                    <Button size="small" onClick={this.handleSaveHaiku}>Save</Button>
                 </CardActions>
             </Card>
         );
