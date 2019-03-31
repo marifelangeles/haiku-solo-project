@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import '../App/App.css'
 import Header from './Header';
 import SelectedWord from './SelectedWord';
 import PartOfSpeech from './PartOfSpeech';
@@ -15,7 +16,7 @@ import { Grid } from '@material-ui/core';
 
 
 class WordPage extends Component {
-
+   
 
     handleNewWord = () => {
         // when new word is clicked, fetch random word
@@ -27,7 +28,7 @@ class WordPage extends Component {
         return (
             <>
             {this.props.loadingReducer ? 
-                <div>Loading...</div> 
+                <div className="loader">Loading...</div>
             : 
                       
             (<Grid 
