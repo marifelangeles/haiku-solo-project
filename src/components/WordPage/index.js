@@ -22,10 +22,15 @@ class WordPage extends Component {
         this.props.dispatch({ type: 'GET_WORD_INFO' })
     }
 
-    render() {        
+    render() {  
+       
         return (
             <>
-            <Grid 
+            {this.props.loadingReducer ? 
+                <div>Loading...</div> 
+            : 
+                      
+            (<Grid 
                 container
                 spacing={16}
                 direction="column"
@@ -37,7 +42,7 @@ class WordPage extends Component {
                     
                 }}
             >
-
+                
                 <Grid item sm={12}>
                     <Header />
                 </Grid>
@@ -89,15 +94,15 @@ class WordPage extends Component {
                         <Grid item>
                             <NextButton />
                         </Grid>
-                            {this.props.loadingReducer ? <div>Loading...</div> :  <div>word exists</div>}            
-
                         
                     </Grid>
                 </Grid>
-
+                    
             </Grid>
+            )}
             </>
         );
+                
     }
 }
 
