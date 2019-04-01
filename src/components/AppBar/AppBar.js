@@ -106,13 +106,13 @@ class MenuAppBar extends React.Component {
                         if not, logo directs to welcome page*/}
                         {this.props.user.id ?
                             <div className={classes.grow} style={{ cursor: 'grab'}}>
-                                <Typography variant="h6">
+                                <Typography variant="h6" color="inherit">
                                     <span onClick={this.HaikuHome}>Haiku</span>
                                 </Typography>
                             </div>
                             :
-                            <div className={classes.grow} style={{ cursor: 'grab'}}>
-                                <Typography variant="h6">
+                            <div className={classes.grow} style={{ cursor: 'grab' }} >
+                                <Typography variant="h6" color="inherit">
                                     <span onClick={this.HaikuWelcome}>Haiku</span>
                                 </Typography>
                             </div>
@@ -157,7 +157,7 @@ class MenuAppBar extends React.Component {
                             </div>
                             :
                             <div style={{ cursor: 'grab'}}>
-                                <Typography variant="button">
+                                <Typography variant="button" color="inherit">
                                     <span onClick={this.handleLoginRegister}>Login / Register</span>
                                 </Typography>
                             </div>
