@@ -47,7 +47,7 @@ class HistoryPage extends Component {
                             <Card style={{height: '250px'}}>
                                 <CardHeader 
                                     title={haiku.word}
-                                    subheader={haiku.date}
+                                    // subheader={haiku.date}
                                 />
                                 <CardContent>
                                     <Typography variant="body1" gutterBottom>{haiku.line1}</Typography>
