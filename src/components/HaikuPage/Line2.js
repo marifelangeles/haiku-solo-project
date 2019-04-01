@@ -49,6 +49,8 @@ class Line2 extends Component {
                 <TextField
                     id="line-2"
                     type="text"
+                    multiline
+                    rowsMax="4"
                     defaultValue={this.props.haiku.line2}
                     helperText={this.props.countFeedback(this.props.haiku.count2, 7)}
                     margin="normal"
