@@ -5,10 +5,11 @@ import {withRouter} from 'react-router-dom';
 import '../App/App.css'
 import HistoryPage from '../HistoryPage';
 import WriteHaikuButton from '../WelcomePage/WriteHaikuButton';
+import CardToSave from './CardToSave';
 
 import { Grid } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
-import CardToSave from './CardToSave';
+
 
 
 
@@ -24,26 +25,30 @@ class UserPage extends Component {
     // user created a haiku before logging in 
     // and if haiku meets all requirements
     if ((line1Count === 5 && line2Count === 7 && line3Count === 5) && (line1Match || line2Match || line3Match)) {
-      return <CardToSave />;
+      return true;
+      // <CardToSave />;
     } else {
-      return <WriteHaikuButton />;
+      return false;
+      // <WriteHaikuButton />;
     }
   }
 
   render() {
     return (
+      <>
       <Grid 
         container
         spacing={16}
         direction="column"
         justify="center"  
+        alignItems= "center"
         className="user-home"      
         
       >
-        <Grid item
+
+        <Grid item sm={12}
           style={{
             alignItems: "center"
-
           }}
         >
           <Typography
@@ -52,21 +57,20 @@ class UserPage extends Component {
             gutterBottom
           >
             Hi, {this.props.user.username}!
-        </Typography>
-        </Grid>
-        
-        <Grid item sm={6}>
-          {this.showCardToSave()}
-          
+          </Typography>  
         </Grid>
         
         <Grid item>
-          <HistoryPage />
+          {this.showCardToSave() ? <CardToSave /> : <WriteHaikuButton />}
         </Grid>
-
-        
-
       </Grid>
+
+      <Grid container className="my-haikus-container">
+          <Grid item sm={12}>
+            <HistoryPage />
+          </Grid>
+      </Grid>
+      </>
     );
   }
 }

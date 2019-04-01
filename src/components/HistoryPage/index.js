@@ -34,7 +34,7 @@ class HistoryPage extends Component {
     render() {
             
         return (
-            <div>
+            <>
                 <Typography variant="h5" gutterBottom>My Haikus</Typography>
                 {/* {JSON.stringify(this.props.haikuList)} */}
                 <Grid
@@ -69,7 +69,7 @@ class HistoryPage extends Component {
                         </Grid>
                     )}
                 </Grid>
-            </div>
+            </>
         );
     }
 }

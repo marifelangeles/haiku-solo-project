@@ -88,9 +88,9 @@ class CardToSave extends Component {
                     <Typography variant="body1" gutterBottom>{this.props.haiku.line2}</Typography>
                     <Typography variant="body1" gutterBottom>{this.props.haiku.line3}</Typography>
                 </CardContent>
-                <CardContent>
+                {/* <CardContent>
                     <Typography><span format={'DD/MM/YYYY'}>{this.props.haikuList.date}</span></Typography>
-                </CardContent>
+                </CardContent> */}
                 <CardActions>
                     <Button size="small" onClick={this.handleWriteHaiku}>Delete</Button>
                     <Button size="small" onClick={this.handleSaveHaiku}>Save</Button>

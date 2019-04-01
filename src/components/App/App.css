@@ -88,9 +88,20 @@ body {
 
 /* style user home page*/
 .user-home {
-    background: #ff4545;
+    /* background: #ff4545; */
+    /* padding-left: 1rem; */
+    /* padding-right: 1rem; */
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    /* border-bottom: 1px solid black; */
+    
+
+}
+
+.my-haikus-container {
+    /* background: #008183; */
     padding-left: 1rem;
     padding-right: 1rem;
     padding-top: 2rem;
-
+    padding-bottom: 2rem;
 }
