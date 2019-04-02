@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import { CardHeader, Grid } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
-import ShareIcon from '@material-ui/icons/Share';
+import Share from './Share';
 
 
 class HistoryPage extends Component {
@@ -61,9 +61,11 @@ class HistoryPage extends Component {
                                     >
                                         <DeleteIcon />
                                     </IconButton>
-                                    <IconButton aria-label="Share">
+                                    <Share />
+                                    {/* <IconButton aria-label="Share">
                                         <ShareIcon />
-                                    </IconButton>
+                                    </IconButton> */}
+
                                 </CardActions>
                             </Card>
                         </Grid>
