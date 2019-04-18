@@ -82,7 +82,13 @@ class HaikuPage extends Component {
                 </Grid>
                 
                 <Grid item style={{marginTop: '3rem'}}>
-                    <Grid container spacing={16}>
+                    <Grid
+                        container
+                        spacing={24}
+                        direction="column"
+                        justify="center"
+                        alignItems="center"
+                    >
                         <Grid item>
                             <BackButton />
                         </Grid>
