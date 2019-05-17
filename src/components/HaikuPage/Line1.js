@@ -5,15 +5,10 @@ import TextField from '@material-ui/core/TextField';
 
 class Line1 extends Component {
 
-    // state = {
-    //     line1: this.props.haiku.line1,
-    // }
-
     handleChange = (event) => {
         console.log('in handle change', event.target.value );
-
-        // save input to redux as user type real-time
-        // this will allow users to hit back button without losing their haiku
+        // save input to redux as user types real-time
+        // this will allow users to hit back and forward button without losing their haiku
         this.props.dispatch({
             type: 'SET_HAIKU',
             payload: event.target.value,
@@ -23,7 +18,7 @@ class Line1 extends Component {
         // keep a real-time count of syllables in each haiku line
         this.props.dispatch({
             type: 'SET_HAIKU',
-            payload: this.new_count(event.target.value),
+            payload: this.props.new_count(event.target.value),
             propertyName: "count1"
         })
 
@@ -31,30 +26,8 @@ class Line1 extends Component {
         // take in event.target.value to match in sync --> otherwise match is delayed
         this.props.getMatch('line1Match')(this.props.wordInfo.word, event.target.value);
 
-        // allow only words 
-        // give error message if user types a number --> can't count syllables in numbers yet
-    }
+    };
 
-    new_count = (word) => {
-        console.log('in new_count', word);
-        if (word) {
-            word = word.toLowerCase();            
-            if (word.length <= 3) { 
-                return 1; 
-            }
-            word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');            
-            word = word.replace(/^y/, '');
-            if (!word.match(/[aeiouy]{1,2}/g)) {
-                return `Sorry I don't understand`;
-            } else {
-                return word.match(/[aeiouy]{1,2}/g).length;
-            }
-            
-        }
-        return 0;
-    }
-
-    
     render() {
         return (
             <div>
