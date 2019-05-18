@@ -15,6 +15,7 @@ import Typography from '@material-ui/core/Typography';
 
 class UserPage extends Component {
 
+  // allow user to see card created after logging in or creating an account
   showCardToSave = () => {
     const line1Count = this.props.haiku.count1;
     const line2Count = this.props.haiku.count2;
@@ -24,14 +25,13 @@ class UserPage extends Component {
     const line3Match = this.props.haiku.line3Match;
     // user created a haiku before logging in 
     // and if haiku meets all requirements
-    if ((line1Count === 5 && line2Count === 7 && line3Count === 5) && (line1Match || line2Match || line3Match)) {
+    if ((line1Count === 5 && line2Count === 7 && line3Count === 5) && 
+      (line1Match || line2Match || line3Match)) {
       return true;
-      // <CardToSave />;
     } else {
       return false;
-      // <WriteHaikuButton />;
     }
-  }
+  };
 
   render() {
     return (
@@ -43,7 +43,6 @@ class UserPage extends Component {
         justify="center"  
         alignItems= "center"
         className="user-home"      
-        
       >
 
         <Grid item sm={12}
@@ -61,6 +60,7 @@ class UserPage extends Component {
         </Grid>
         
         <Grid item>
+          {/* if user is already logged in, show write haiku button at top of page*/}
           {this.showCardToSave() ? <CardToSave /> : <WriteHaikuButton />}
         </Grid>
       </Grid>
@@ -75,9 +75,7 @@ class UserPage extends Component {
   }
 }
 
-// Instead of taking everything from state, we just want the user info.
-// if you wanted you could write this code like this:
-// const mapStateToProps = ({user}) => ({ user });
+
 const mapStateToProps = (reduxState) => {
     return reduxState;
 }

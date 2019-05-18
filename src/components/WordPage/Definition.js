@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 
 class Definition extends Component {
     
+    // check if server-side request has found a word with a definition
     getDefinition = () => {
         const results = this.props.wordInfo.results;
         if (results && results[0] && results[0].definition) {

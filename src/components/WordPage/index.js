@@ -16,19 +16,13 @@ import { Grid } from '@material-ui/core';
 
 
 class WordPage extends Component {
-   
-
-    handleNewWord = () => {
-        // when new word is clicked, fetch random word
-        this.props.dispatch({ type: 'GET_WORD_INFO' })
-    }
 
     render() {  
        
         return (
             <>
             {this.props.loadingReducer ? 
-                <div className="loader">Loading...</div>
+                <div className="loader"></div>
             : 
                       
             (<Grid 
@@ -90,7 +84,7 @@ class WordPage extends Component {
                         alignItems="center"
                     >
                         <Grid item>
-                            <NewWordButton handleNewWord={this.handleNewWord}/>
+                            <NewWordButton />
                         </Grid>
                         <Grid item>
                             <NextButton />

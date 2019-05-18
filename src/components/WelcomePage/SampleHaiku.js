@@ -19,8 +19,5 @@ class SampleHaiku extends Component {
 }
 
 
-const mapStateToProps = (reduxState) => {
-    return reduxState;
-}
 
-export default connect(mapStateToProps)(SampleHaiku);
+export default connect()(SampleHaiku);
