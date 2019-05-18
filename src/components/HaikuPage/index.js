@@ -16,28 +16,33 @@ class HaikuPage extends Component {
     
     // check if selected word is used in each input field
     // update lineMatch to true / false in redux
+
     getMatch = (lineMatch) => (word, input) => {
         console.log('word:', word, 'input:', input);
-        let index = input.indexOf(word);
-        console.log('index', index);
-        if (index !== -1) {
+        // make word case insensitive
+        let wordRegEx = new RegExp(word, "i");
+        // test for match in string
+        let wordExists = wordRegEx.test(input); 
+
+        console.log('wordExists', wordExists);
+        if (wordExists) {
             console.log('match!');
             this.props.dispatch({
                 type: 'SET_HAIKU',
                 payload: true,
                 propertyName: [lineMatch]
             });
-            
+
         } else {
             this.props.dispatch({
                 type: 'SET_HAIKU',
                 payload: false,
                 propertyName: [lineMatch]
             });
-            
+
         }
     };
-
+    
     // guide users with syllable counter
     // Warn users if line is over syllable limit
     countFeedback = (lineCount, limit) => {
@@ -56,19 +61,27 @@ class HaikuPage extends Component {
 
     // count syllables in a word
     // adapted from in https://stackoverflow.com/questions/5686483/how-to-compute-number-of-syllables-in-a-word-in-javascript
+    // based on gunning fog index
     new_count = (word) => {
         console.log('in new_count', word);
         if (word) {
+            // word = word.trim();
             word = word.toLowerCase();
             if (word.length <= 3) {
                 return 1;
             }
+            // PROBLEM!  --> adds an extra syllable after space with words ending with "e"
             word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
+            console.log('line 67', word);
             word = word.replace(/^y/, '');
+            console.log('line 69', word);
+
             if (!word.match(/[aeiouy]{1,2}/g)) {
                 return `Sorry, I don't understand`;
             } else {
+                console.log('line 75 ',word.match(/[aeiouy]{1,2}/g));
                 return word.match(/[aeiouy]{1,2}/g).length;
+
             }
         }
         return 0;

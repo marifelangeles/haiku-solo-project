@@ -6,7 +6,12 @@ import Button from '@material-ui/core/Button';
 
 
 class NextButton extends Component {
-
+    
+    // haikuLines = {
+    //     line1Count: this.props.haiku.count1,
+    //     line2Count: this.props.haiku.count2,
+    //     line3Count: this.props.haiku.count3
+    // }
     // change next button according to login status
     // this will allow users to create a haiku without an account or before logging in
     showButton = () => {
@@ -14,6 +19,10 @@ class NextButton extends Component {
         const line2Count = this.props.haiku.count2;
         const line3Count = this.props.haiku.count3;
         console.log(line1Count, line2Count, line3Count);
+        console.log(this.haikuLines.line1Count);
+        console.log(this.haikuLines.line2Count);
+        console.log(this.haikuLines.line3Count);
+        
         const line1Match = this.props.haiku.line1Match;
         const line2Match = this.props.haiku.line2Match;
         const line3Match = this.props.haiku.line3Match;
