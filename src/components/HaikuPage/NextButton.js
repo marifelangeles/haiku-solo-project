@@ -6,85 +6,90 @@ import Button from '@material-ui/core/Button';
 
 
 class NextButton extends Component {
-
+    
+    
     // change next button according to login status
     // this will allow users to create a haiku without an account or before logging in
-    showButton = () => {
-        const line1Count = this.props.haiku.count1;
-        const line2Count = this.props.haiku.count2;
-        const line3Count = this.props.haiku.count3;
-        console.log(line1Count, line2Count, line3Count);
-        const line1Match = this.props.haiku.line1Match;
-        const line2Match = this.props.haiku.line2Match;
-        const line3Match = this.props.haiku.line3Match;
-        console.log(line1Match, line2Match, line3Match);
+    // showButton = () => {
+    //     const line1Count = this.props.haiku.count1;
+    //     const line2Count = this.props.haiku.count2;
+    //     const line3Count = this.props.haiku.count3;
+    //     console.log(line1Count, line2Count, line3Count);
+    //     console.log(this.haikuLines.line1Count);
+    //     console.log(this.haikuLines.line2Count);
+    //     console.log(this.haikuLines.line3Count);
+        
+    //     const line1Match = this.props.haiku.line1Match;
+    //     const line2Match = this.props.haiku.line2Match;
+    //     const line3Match = this.props.haiku.line3Match;
+    //     console.log(line1Match, line2Match, line3Match);
 
-        // if not logged in
-        if (!this.props.user.id) {
-            // and if haiku meets requirements
-            if (line1Count === 5 && line2Count === 7 && line3Count === 5) {
-                console.log('lines meet syllables');
-                if (line1Match || line2Match || line3Match) {
-                    // show active log in to save
-                    return (
-                        <Button
-                        variant="outlined"
-                        color="primary"
-                        onClick={this.handleLoginSaveClick}
-                        >
-                            Log In to Save Haiku
-                        </Button>
-                    );
-                } 
+    //     // if not logged in
+    //     if (!this.props.user.id) {
+    //         // and if haiku meets requirements
+    //         if (line1Count === 5 && line2Count === 7 && line3Count === 5) {
+    //             console.log('lines meet syllables');
+    //             if (line1Match || line2Match || line3Match) {
+    //                 // show active log in to save
+    //                 return (
+    //                     <Button
+    //                     variant="outlined"
+    //                     color="primary"
+    //                     onClick={this.handleLoginSaveClick}
+    //                     >
+    //                         Log In to Save Haiku
+    //                     </Button>
+    //                 );
+    //             } 
     
-            } else {
-                // but if haiku doesn't meet requirements
-                // show disabled log in to save
-                return (
-                    <Button
-                        disabled
-                        variant="outlined"
-                        color="primary"
-                        onClick={this.handleLoginSaveClick}
-                    >
-                        Log In to Save Haiku
-                            </Button>
-                );
-            }
+    //         } else {
+    //             // but if haiku doesn't meet requirements
+    //             // show disabled log in to save
+    //             return (
+    //                 <Button
+    //                     disabled
+    //                     variant="outlined"
+    //                     color="primary"
+    //                     onClick={this.handleLoginSaveClick}
+    //                 >
+    //                     Log In to Save Haiku
+    //                         </Button>
+    //             );
+    //         }
             
-        } else if (this.props.user.id) {
-            // if logged in 
-            // and if haiku meets all requirements
-            if (line1Count === 5 && line2Count === 7 && line3Count === 5) {
-                console.log('lines meet syllables');
-                if (line1Match || line2Match || line3Match) {
-                    // show active log in to save
-                    return (
-                        <Button
-                            variant="outlined"
-                            color="primary"
-                            onClick={this.handleSaveHaikuClick}
-                        >
-                            Save Haiku
-                        </Button>
-                    );
-                } 
-            } else {
-                // but if haiku doesn't meet requirements
-                // show disabled log in to save
-                return (
-                    <Button
-                        disabled
-                        variant="outlined"
-                        color="primary"
-                        onClick={this.handleSaveHaikuClick}
-                    >
-                        Save Haiku
-                    </Button>
-                );
-            }
-        }
-    }
+    //     } else if (this.props.user.id) {
+    //         // if logged in 
+    //         // and if haiku meets all requirements
+    //         if (line1Count === 5 && line2Count === 7 && line3Count === 5) {
+    //             console.log('lines meet syllables');
+    //             if (line1Match || line2Match || line3Match) {
+    //                 // show active log in to save
+    //                 return (
+    //                     <Button
+    //                         variant="outlined"
+    //                         color="primary"
+    //                         onClick={this.handleSaveHaikuClick}
+    //                     >
+    //                         Save Haiku
+    //                     </Button>
+    //                 );
+    //             } 
+    //         } else {
+    //             // but if haiku doesn't meet requirements
+    //             // show disabled log in to save
+    //             return (
+    //                 <Button
+    //                     disabled
+    //                     variant="outlined"
+    //                     color="primary"
+    //                     onClick={this.handleSaveHaikuClick}
+    //                 >
+    //                     Save Haiku
+    //                 </Button>
+    //             );
+    //         }
+    //     }
+    // }
 
     showLogInToSave = () => {
         const line1Count = this.props.haiku.count1;
@@ -96,7 +101,8 @@ class NextButton extends Component {
 
         // if user is not logged in and
         // if haiku meets requirements
-        if ((line1Count === 5 && line2Count === 7 && line3Count === 5) && (line1Match || line2Match || line3Match)) {
+        if ((line1Count === 5 && line2Count === 7 && line3Count === 5) && 
+            (line1Match || line2Match || line3Match)) {
             return (
                 <Button
                     variant="outlined"
@@ -129,9 +135,10 @@ class NextButton extends Component {
         const line1Match = this.props.haiku.line1Match;
         const line2Match = this.props.haiku.line2Match;
         const line3Match = this.props.haiku.line3Match;
-        // if logged in 
+        // if user is logged in 
         // and if haiku meets all requirements
-        if ( (line1Count === 5 && line2Count === 7 && line3Count === 5) && (line1Match || line2Match || line3Match) ) {
+        if ( (line1Count === 5 && line2Count === 7 && line3Count === 5) && 
+            (line1Match || line2Match || line3Match) ) {
                 return (
                     <Button
                         variant="outlined"
@@ -156,7 +163,7 @@ class NextButton extends Component {
                     </Button>
             );
         }
-    }
+    };
 
     // direct users to login page without saving haiku
     // users will see haiku to be saved or deleted if created before log in
@@ -207,14 +214,13 @@ class NextButton extends Component {
         // return `${year}-${month}-${date}`;
         return `${year}-${month}-${date}`;
 
-    }
+    };
     
 
     render() {
         return (
                 <div>
-                {/* {this.showButton()} */}
-                {this.props.user.id ? this.showSaveHaiku() : this.showLogInToSave()}
+                    {this.props.user.id ? this.showSaveHaiku() : this.showLogInToSave()}
                 </div>
             
         );

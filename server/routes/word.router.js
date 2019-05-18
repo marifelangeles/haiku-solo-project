@@ -1,9 +1,9 @@
 require('dotenv').config();
-// const axios = require('axios');
-const unirest = require('unirest');
-
 const express = require('express');
 const router = express.Router();
+// api uses unirest, instead of axios
+const unirest = require('unirest');
+
 
 // count number of syllables of incoming word from Word API
 new_count = (word) => {
@@ -17,6 +17,7 @@ new_count = (word) => {
     return 0;
 }
 
+
 // determine if number of syllables are within haiku limit (7)
 isSyllableLimit = (word) => {
     // console.log('in isSyllableLimit', word);
@@ -27,7 +28,7 @@ isSyllableLimit = (word) => {
     }
 }
 
-// determine if word includes a number
+// determine if word doesn't include a number
 isNotNumber = (word) => {
     // console.log('in isNotNumber', word);
     var num = /[0-9]/g;
@@ -40,10 +41,10 @@ isNotNumber = (word) => {
     }
 }
 
+// filter random words from Word API (must include a definition, be <= 7 syllables, and not a number)
 router.get('/', async (req, res) => {
     console.log('in get /word');
-    // get random word only if definition exists --> definition needed for MVP
-    // for loop to avoid infinite loop searching for word with definition
+    // for loop to avoid infinite loop searching 
     for (let i = 0; i < 1000; i++) {
         const response = await unirest.get("https://wordsapiv1.p.rapidapi.com/words/?random=true")
             .header("X-RapidAPI-Key", process.env.WORDS_API_KEY)
@@ -51,22 +52,20 @@ router.get('/', async (req, res) => {
         // definition is a property of results.  Word API may not provide a definition 
         const wordResults = response.body.results;
 
-        // don't accept a word if it's more than 7 syllables
         console.log('word line 57', response.body.word);
         const word = response.body.word;
         console.log('count word syllales line 59', new_count(word));
         console.log('isSyllableLimit line 60', isSyllableLimit(word));
         console.log('isNotNumber line 61', isNotNumber(word));
 
-
-        // accept a random word if word...
+        // accept a random word if...
         // includes a definition, is not more than 7 syllables, is not a number
         if (wordResults && wordResults[0] && 
             wordResults[0].definition && 
             isSyllableLimit(word) && 
-            isNotNumber(word) ) {
-            res.send(response.body);
-            break;
+            isNotNumber(word)) {
+                res.send(response.body);
+                break;
         }
     }
 });

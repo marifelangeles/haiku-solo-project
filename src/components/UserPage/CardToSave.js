@@ -10,9 +10,7 @@ import { CardHeader } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 
 
-// this could also be written with destructuring parameters as:
-// const UserPage = ({ user }) => (
-// and then instead of `props.user.username` you could use `user.username`
+
 class CardToSave extends Component {
 
     handleSaveHaiku = () => {

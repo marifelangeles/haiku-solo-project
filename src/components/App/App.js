@@ -5,23 +5,19 @@ import {
   Redirect,
   Switch,
 } from 'react-router-dom';
-
 import {connect} from 'react-redux';
+import './App.css';
 
-// import Nav from '../Nav/Nav';
-// import Footer from '../Footer/Footer';
-
+// components
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
-
 import UserPage from '../UserPage/UserPage';
 import WordPage from '../WordPage/index';
 import HaikuPage from '../HaikuPage/index';
-import HistoryPage from '../HistoryPage/index';
-
-import './App.css';
 import WelcomePage from '../WelcomePage/index';
 import LoginPage from '../LoginPage/LoginPage';
 import AppBar from '../AppBar/AppBar';
+
+
 class App extends Component {
   
   componentDidMount () {
@@ -29,14 +25,13 @@ class App extends Component {
   }
 
   render() {
-    
     return (
       <Router>
         <div>
-          {/* <Nav /> */}
           <AppBar />
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/welcome */}
+            {/* Users not logged in can write a haiku (without saving)*/}
             <Redirect exact from="/" to="/welcome" />
             <Route
               exact path="/welcome"
@@ -63,15 +58,9 @@ class App extends Component {
               path="/home"
               component={UserPage}
             />
-            <ProtectedRoute
-              exact path="/history"
-              component={HistoryPage}
-            />
-            
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>
-          {/* <Footer /> */}
         </div>
       </Router>
   )}

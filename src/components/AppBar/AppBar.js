@@ -33,6 +33,27 @@ class MenuAppBar extends React.Component {
         anchorEl: null,
     };
 
+    goToHome = () => {
+        console.log('HaikuHome hit');
+        // direct to user page for logged in users
+        this.props.history.push('/home');
+    }
+
+    goToWelcome = () => {
+        console.log('HaikuWelcome hit');
+        // direct to welcome page for non logged in users
+        this.props.history.push('/welcome');
+
+    }
+
+    logoRedirect = () => {
+        let logo = this.props.user.id ?
+            <span onClick={this.goToHome}>Haiku</span>
+            :
+            <span onClick={this.goToWelcome}>Haiku</span>;
+        return logo;
+    };
+
     handleMenu = event => {
         this.setState({ anchorEl: event.currentTarget });
     };
@@ -42,11 +63,11 @@ class MenuAppBar extends React.Component {
     };
 
     handleLogout = () => {
-        // log out and go to home
         console.log('log out menu item clicked');
+        // log out and go to home
         this.props.dispatch({ type: 'LOGOUT' });
         this.props.history.push('../')
-    }
+    };
 
     handleMyHaikus = () => {
         console.log('My Haikues menu clicked');
@@ -58,7 +79,7 @@ class MenuAppBar extends React.Component {
         console.log('Write Haiku menu item clicked');
         // get random word before user goes to word page
         this.props.dispatch({ type: 'GET_WORD_INFO' })
-        // make sure input field in word page is cleared
+        // clear input field in word page 
         this.props.dispatch({
             type: 'RESET_HAIKU',
             payload: {
@@ -69,29 +90,19 @@ class MenuAppBar extends React.Component {
                 line2Match: false,
                 line3Match: false,
             }
-        })
+        });
         // direct to word page
         this.props.history.push('/word');
-    }
+    };
 
     handleLoginRegister = () => {
         console.log('handleLoginRegister hit' );
         // direct to welcome page for not logged in users
         this.props.history.push('/home');
-    }
+    };
 
-    HaikuHome = () => {
-        console.log('HaikuHome hit');
-        // direct to user page for logged in users
-        this.props.history.push('/home');
-    }
+    
 
-    HaikuWelcome = () => {
-        console.log('HaikuWelcome hit');
-        // direct to welcome page for non logged in users
-        this.props.history.push('/welcome');
-
-    }
     render() {
         const { classes } = this.props;
         const { anchorEl } = this.state;
@@ -104,20 +115,12 @@ class MenuAppBar extends React.Component {
                     <Toolbar>
                         {/* If user is logged in, logo directs to user page, 
                         if not, logo directs to welcome page*/}
-                        {this.props.user.id ?
-                            <div className={classes.grow} style={{ cursor: 'grab'}}>
-                                <Typography variant="h6" color="inherit">
-                                    <span onClick={this.HaikuHome}>Haiku</span>
-                                </Typography>
-                            </div>
-                            :
-                            <div className={classes.grow} style={{ cursor: 'grab' }} >
-                                <Typography variant="h6" color="inherit">
-                                    <span onClick={this.HaikuWelcome}>Haiku</span>
-                                </Typography>
-                            </div>
-                        }
-
+                        <div className={classes.grow} style={{ cursor: 'pointer' }}>
+                            <Typography variant="h6" color="inherit">
+                                {this.logoRedirect()}
+                            </Typography>
+                        </div>
+                        
                         {/* If user is logged in, show account icon with 
                         menu to write haiku, see haikus, log out*/}
                         {this.props.user.id ? 
@@ -156,13 +159,12 @@ class MenuAppBar extends React.Component {
                                 </Menu>
                             </div>
                             :
-                            <div style={{ cursor: 'grab'}}>
+                            <div style={{ cursor: 'pointer'}}>
                                 <Typography variant="button" color="inherit">
                                     <span onClick={this.handleLoginRegister}>Login / Register</span>
                                 </Typography>
                             </div>
                         }
-                        
                     </Toolbar>
                 </AppBar>
             </div>
@@ -182,4 +184,4 @@ const mapStateToProps = state => ({
 export default withRouter(
     withStyles(styles)(
     connect(mapStateToProps)(MenuAppBar)
-));
+    ));

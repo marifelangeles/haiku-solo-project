@@ -19,7 +19,7 @@ const rootReducer = combineReducers({
   wordInfo, // will have word, definition and maybe POS & pronunciation
   haiku, // have properties: line_1, line_2, line_3
   haikuList, // will have id, word, line1, line2, line3, date, user_id
-  loadingReducer, 
+  loadingReducer, // boolean to indicate if word is loading
 });
 
 export default rootReducer;

@@ -7,7 +7,6 @@ import Typography from '@material-ui/core/Typography';
 import { CardHeader, Grid } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
-// import Share from './Share';
 
 
 class HistoryPage extends Component {
@@ -16,13 +15,13 @@ class HistoryPage extends Component {
         this.getHaikuList();
     }
 
-    // get updated haiku list
+    // get updated haiku list from database
     getHaikuList = () => {
         console.log('in getHaikuList');
         this.props.dispatch({ type: 'GET_HAIKU'});
     }
 
-    // delete selected haiku
+    // delete selected haiku from database
     handleDeleteClick = (id) => {
         console.log('in handleDeleteClick', id);
         this.props.dispatch({
@@ -61,11 +60,6 @@ class HistoryPage extends Component {
                                     >
                                         <DeleteIcon />
                                     </IconButton>
-                                    {/* <Share /> */}
-                                    {/* <IconButton aria-label="Share">
-                                        <ShareIcon />
-                                    </IconButton> */}
-
                                 </CardActions>
                             </Card>
                         </Grid>

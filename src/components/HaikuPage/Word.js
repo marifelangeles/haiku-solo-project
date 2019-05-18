@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import { Grid, Typography } from '@material-ui/core';
 
 
 
 class Word extends Component {
     
-    confirmWord = () => {
+    // display selected random word
+    // show word as gray if not yet used
+    // show word as blue if used in any of the line inputs
+    showSelectedWord = () => {
         console.log('confirmWord hit');
         const line1Match = this.props.haiku.line1Match;
         const line2Match = this.props.haiku.line2Match;
@@ -47,7 +49,7 @@ class Word extends Component {
 
         return (
                 <Grid item>
-                    {this.confirmWord()}
+                    {this.showSelectedWord()}
                 </Grid>
         );
     }
