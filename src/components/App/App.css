@@ -105,3 +105,19 @@ body {
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
+
+/* haiku page*/
+
+.unused-word {
+  color: orange;
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: orange;
+}
+
+.used-word {
+  color: orange;
+  -webkit-text-fill-color: orange; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: orange;
+}
