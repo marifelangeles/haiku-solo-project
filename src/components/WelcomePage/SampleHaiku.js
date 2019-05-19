@@ -14,7 +14,7 @@ class SampleHaiku extends Component {
                 <Typography variant="h6" gutterBottom>Start with a word and ... </Typography> */}
                 <p>Relax, let it go</p>
                 <p>Let creativity flow</p>
-                <p>And embrace constraints</p>
+                <p>Use constraints to grow</p>
             </div>
         );
     }

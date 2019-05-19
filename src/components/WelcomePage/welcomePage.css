@@ -1,22 +1,25 @@
+
 /* typewriter effect
 adapted from https://css-tricks.com/snippets/css/typewriter-effect/
 */
 
+
 .css-typing {
-    /* border: 1px red solid; */
     align-content: center;
-    width: 400px;
+    max-width: 375px;    
     margin-top: 4rem;
     margin-bottom: 4rem;
     padding: 2rem;    
+    line-height: 1.5rem;
 }
 
 .css-typing p {
   border-right: .15em solid orange;
   font-family: "Courier";
-  font-size: 30px;
+  font-size: 1rem;
   white-space: nowrap;
   overflow: hidden;
+  margin: auto;
 }
 
 .css-typing p:nth-child(1) {
