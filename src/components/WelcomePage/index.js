@@ -14,30 +14,6 @@ class WelcomePage extends Component {
         
         return (
             <>
-                {/* <Grid 
-                    container
-                    justify="center"
-                >
-                    <Grid item>
-                        <SampleHaiku />
-                    </Grid>
-                </Grid>
-
-                <Grid 
-                    container
-                    spacing={24}
-                    direction="column"
-                    justify="center"
-                    alignItems="center"
-                >
-                    <Grid item>
-                        <WriteHaikuButton />
-                    </Grid>
-                    <Grid item>
-                        <LoginButton />
-                    </Grid>
-                </Grid> */}
-
                 <Grid
                     container
                     spacing={24}
