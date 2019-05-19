@@ -11,6 +11,7 @@ adapted from https://css-tricks.com/snippets/css/typewriter-effect/
     margin-bottom: 4rem;
     padding: 2rem;    
     line-height: 1.5rem;
+    text-align: center;
 }
 
 .css-typing p {
@@ -140,5 +141,13 @@ adapted from https://css-tricks.com/snippets/css/typewriter-effect/
 @-webkit-keyframes blink {
   50% {
     border-color: tranparent;
+  }
+}
+
+
+@media screen and (min-width: 700px) {
+  .css-typing p {
+    font-size: 1.5rem;
+    line-height: 3rem;
   }
 }
