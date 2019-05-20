@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
 
-import '../App/App.css'
+import './userPage.css';
 import HistoryPage from '../HistoryPage';
 import WriteHaikuButton from '../WelcomePage/WriteHaikuButton';
 import CardToSave from './CardToSave';
 
-import { Grid } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 
 
@@ -36,40 +35,25 @@ class UserPage extends Component {
   render() {
     return (
       <>
-      <Grid 
-        container
-        spacing={16}
-        direction="column"
-        justify="center"  
-        alignItems= "center"
-        className="user-home"      
-      >
+      <div className="userpage-container">
+        <div className="content-header">
+          <div className="username">
+            <Typography variant="h4" gutterBottom>
+              Hi, {this.props.user.username}!
+            </Typography>  
+          </div>
+          
+          <div className="card-button">
+            {/* if user is already logged in, show write haiku button at top of page*/}
+            {this.showCardToSave() ? <CardToSave /> : <WriteHaikuButton />}
+          </div>
+        </div>
 
-        <Grid item sm={12}
-          style={{
-            alignItems: "center"
-          }}
-        >
-          <Typography
-            id="welcome"
-            variant="h4"
-            gutterBottom
-          >
-            Hi, {this.props.user.username}!
-          </Typography>  
-        </Grid>
-        
-        <Grid item>
-          {/* if user is already logged in, show write haiku button at top of page*/}
-          {this.showCardToSave() ? <CardToSave /> : <WriteHaikuButton />}
-        </Grid>
-      </Grid>
+        <div className="history-container">
+          <HistoryPage />
+        </div>
 
-      <Grid container className="my-haikus-container">
-          <Grid item sm={12}>
-            <HistoryPage />
-          </Grid>
-      </Grid>
+      </div>
       </>
     );
   }

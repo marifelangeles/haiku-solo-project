@@ -1,0 +1,91 @@
+/*  user home page*/
+
+.bg-card {
+    background-image: url("https://i.pinimg.com/originals/45/17/06/451706e975ea59409e3639b96868aa93.jpg");
+    background-size: cover;
+    height: 30%;
+    vertical-align: -webkit-baseline-middle middle;
+}
+
+.haiku-text{
+    font-size: 1rem;
+    text-align: center;
+}
+
+.content-header {
+  padding: 2rem;
+  padding-bottom: 5rem;
+  vertical-align: -webkit-baseline-middle middle;
+  border-bottom: 1px solid lightgray;
+  
+}
+.username {
+  margin-bottom: 2rem;
+  text-align: center;  
+}
+
+.card-button {
+  text-align: center;
+}
+
+.history-container {
+  padding: 2rem;
+  
+}
+
+
+@media screen and (min-width: 375px) {
+  .bg-card {
+    background-image: url("https://i.pinimg.com/originals/45/17/06/451706e975ea59409e3639b96868aa93.jpg");
+    background-size: cover;
+    height: 28%;
+    vertical-align: -webkit-baseline-middle middle;
+    }  
+
+    .haiku-text{
+        font-size: 1.2rem;
+    }
+}
+@media screen and (min-width: 768px) {
+  .card-button {
+    width: 60%;
+    margin: auto;
+  }
+  .username {
+    width: 60%;
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+  .bg-card {
+    background-image: url("https://i.pinimg.com/originals/45/17/06/451706e975ea59409e3639b96868aa93.jpg");
+    background-size: cover;
+    height: 25%;
+    vertical-align: -webkit-baseline-middle middle;
+    }  
+
+    .haiku-text{
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+  .card-button {
+    width: 60%;
+    margin: auto;
+  }
+  .username {
+    width: 60%;
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+  .bg-card {
+    background-image: url("https://i.pinimg.com/originals/45/17/06/451706e975ea59409e3639b96868aa93.jpg");
+    background-size: cover;
+    height: 25%;
+    vertical-align: -webkit-baseline-middle middle;
+    }  
+
+    .haiku-text{
+        font-size: 1.3rem;
+    }
+}

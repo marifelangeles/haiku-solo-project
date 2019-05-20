@@ -14,30 +14,53 @@ class WelcomePage extends Component {
         
         return (
             <>
-                <Grid 
-                    container
-                    justify="center"
-                >
-                    <Grid item>
-                        <SampleHaiku />
-                    </Grid>
-                </Grid>
-
-                <Grid 
+                <Grid
                     container
                     spacing={24}
                     direction="column"
                     justify="center"
                     alignItems="center"
+                    className="container"
                 >
                     <Grid item>
-                        <WriteHaikuButton />
+                        <SampleHaiku />
                     </Grid>
                     <Grid item>
-                        <LoginButton />
+                        <Grid 
+                            container
+                            spacing={24}
+                            direction="column"
+                            justify="center"
+                            alignItems="center"
+                            className="buttons-container"
+                        >
+                            <Grid item>
+                                <WriteHaikuButton />
+                            </Grid>
+                            <Grid item>
+                                <LoginButton />
+                            </Grid>
+                        </Grid>
                     </Grid>
+                    
                 </Grid>
 
+    
+                    
+
+                {/* <div container>
+                    <div id="sample-haiku">
+                        <SampleHaiku />
+                    </div>
+                    <div id="buttons">
+                        <div>   
+                            <WriteHaikuButton />
+                        </div>
+                        <div>
+                            <LoginButton />
+                        </div>
+                    </div>
+                </div> */}
             </>
         );
     }

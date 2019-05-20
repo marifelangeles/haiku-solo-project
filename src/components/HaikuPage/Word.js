@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Grid, Typography } from '@material-ui/core';
-
+import '../App/App.css';
 
 
 class Word extends Component {
@@ -24,7 +24,8 @@ class Word extends Component {
                 <Typography variant="h4"
                     gutterBottom
                     align="center"
-                    style={{ color: 'blue' }}
+                    style={{ color: 'orange' }}
+                    className="used-word"
                 >
                     {this.props.wordInfo.word}
 
@@ -36,6 +37,7 @@ class Word extends Component {
                     gutterBottom
                     align="center"
                     style={{color: 'gray'}}
+                    className="unused-word"
                 >
                     {this.props.wordInfo.word}
 

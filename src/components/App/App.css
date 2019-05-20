@@ -8,18 +8,19 @@ body {
     /* margin: 50px; */
 }
 
-/* https://projects.lukehaas.me/css-loaders/*/
+/* loader for word page */
+/* adapted from https://projects.lukehaas.me/css-loaders/*/
 .loader,
 .loader:before,
 .loader:after {
-  background: blue;
+  background: orange;
   -webkit-animation: load1 1s infinite ease-in-out;
   animation: load1 1s infinite ease-in-out;
   width: 1em;
   height: 4em;
 }
 .loader {
-  color: blue;
+  color: orange;
   text-indent: -9999em;
   margin: 88px auto;
   position: relative;
@@ -31,21 +32,23 @@ body {
   animation-delay: -0.16s;
 }
 
-
 .loader:before,
 .loader:after {
   position: absolute;
   top: 0;
   content: '';
 }
+
 .loader:before {
   left: -1.5em;
   -webkit-animation-delay: -0.32s;
   animation-delay: -0.32s;
 }
+
 .loader:after {
   left: 1.5em;
 }
+
 @-webkit-keyframes load1 {
   0%,
   80%,
@@ -58,6 +61,7 @@ body {
     height: 5em;
   }
 }
+
 @keyframes load1 {
   0%,
   80%,
@@ -71,6 +75,7 @@ body {
   }
 }
 
+/* login / register page*/
 
 .log-in, .log-out, .register {
   background-color: #00acb0;
@@ -86,22 +91,22 @@ body {
   background-color: #008183;
 }
 
-/* style user home page*/
-.user-home {
-    /* background: #ff4545; */
-    /* padding-left: 1rem; */
-    /* padding-right: 1rem; */
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    /* border-bottom: 1px solid black; */
-    
 
+
+
+
+/* haiku page*/
+
+.unused-word {
+  color: orange;
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: orange;
 }
 
-.my-haikus-container {
-    /* background: #008183; */
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+.used-word {
+  color: orange;
+  -webkit-text-fill-color: orange; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: orange;
 }

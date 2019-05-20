@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-
+import './userPage.css';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -76,19 +76,16 @@ class CardToSave extends Component {
     render() {
         return (
             <Card>
-                <CardHeader
+                {/* <CardHeader
                     title={this.props.wordInfo.word}
-                    // subheader={this.props.haikuList.date}
-                    // format={'DD/MM/YYYY'}
-                />
-                <CardContent>
-                    <Typography variant="body1" gutterBottom>{this.props.haiku.line1}</Typography>
-                    <Typography variant="body1" gutterBottom>{this.props.haiku.line2}</Typography>
-                    <Typography variant="body1" gutterBottom>{this.props.haiku.line3}</Typography>
-                </CardContent>
-                {/* <CardContent>
-                    <Typography><span format={'DD/MM/YYYY'}>{this.props.haikuList.date}</span></Typography>
-                </CardContent> */}
+                /> */}
+                <div className="bg-card">
+                    <CardContent>
+                        <p className="haiku-text">{this.props.haiku.line1}</p>
+                        <p className="haiku-text">{this.props.haiku.line2}</p>
+                        <p className="haiku-text">{this.props.haiku.line3}</p>
+                    </CardContent>
+                </div>
                 <CardActions>
                     <Button size="small" onClick={this.handleWriteHaiku}>Delete</Button>
                     <Button size="small" onClick={this.handleSaveHaiku}>Save</Button>
