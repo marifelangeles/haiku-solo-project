@@ -9,6 +9,7 @@
 
 .haiku-text{
     font-size: 1rem;
+    text-align: center;
 }
 
 .content-header {
@@ -64,14 +65,14 @@
     margin: auto;
     margin-bottom: 2rem;
   }
-  /* .bg-card {
+  .bg-card {
     background-image: url("https://i.pinimg.com/originals/45/17/06/451706e975ea59409e3639b96868aa93.jpg");
     background-size: cover;
-    height: 25vh;
+    height: 28vh;
     vertical-align: -webkit-baseline-middle middle;
     }  
 
     .haiku-text{
         font-size: 1.3rem;
-    } */
+    }
 }
