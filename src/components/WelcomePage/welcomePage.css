@@ -25,8 +25,8 @@ adapted from https://css-tricks.com/snippets/css/typewriter-effect/
 
 .css-typing p:nth-child(1) {
   width: 10em;
-  -webkit-animation: type 2s steps(40, end);
-  animation: type 2s steps(40, end);
+  -webkit-animation: type 2s steps(40, end), blink .5s step-end infinite alternate;
+  animation: type 2s steps(40, end), blink .5s step-end infinite alternate;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
@@ -34,8 +34,8 @@ adapted from https://css-tricks.com/snippets/css/typewriter-effect/
 .css-typing p:nth-child(2) {
   width: 11.5em;
   opacity: 0;
-  -webkit-animation: type2 2s steps(40, end);
-  animation: type2 2s steps(40, end);
+  -webkit-animation: type2 2s steps(40, end), blink .5s step-end infinite alternate;
+  animation: type2 2s steps(40, end), blink .5s step-end infinite alternate;
   -webkit-animation-delay: 2s;
   animation-delay: 2s;
   -webkit-animation-fill-mode: forwards;
@@ -43,10 +43,10 @@ adapted from https://css-tricks.com/snippets/css/typewriter-effect/
 }
 
 .css-typing p:nth-child(3) {
-  width: 13.9em;
+  width: 15.6em;
   opacity: 0;
-  -webkit-animation: type3 5s steps(40, end), blink .5s step-end infinite alternate;
-  animation: type3 5s steps(40, end), blink .5s step-end infinite alternate;
+  -webkit-animation: type3 2s steps(40, end), blink .5s step-end infinite alternate;
+  animation: type3 2s steps(40, end), blink .5s step-end infinite alternate;
   -webkit-animation-delay: 4s;
   animation-delay: 4s;
   -webkit-animation-fill-mode: forwards;
