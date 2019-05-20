@@ -32,6 +32,7 @@ class Line3 extends Component {
                     id="line-3"
                     type="text"
                     multiline
+                    fullWidth
                     rowsMax="4"
                     defaultValue={this.props.haiku.line3}
                     helperText={this.props.countFeedback(this.props.haiku.count3, 5)}

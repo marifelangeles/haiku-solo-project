@@ -1,0 +1,34 @@
+/* haiku page*/
+
+.unused-word {
+  color: orange;
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: orange;
+}
+
+.used-word {
+  color: orange;
+  -webkit-text-fill-color: orange; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: orange;
+}
+
+
+
+.haiku-div {
+  width: 85%;
+}
+
+
+@media screen and (min-width: 768px) {
+  .haiku-div {
+  width: 60%;
+}
+}
+
+@media screen and (min-width: 1024px) {
+  .haiku-div {
+  width: 40%;
+}
+}
