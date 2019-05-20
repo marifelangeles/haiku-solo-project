@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Typography from '@material-ui/core/Typography';
+import { orange } from '@material-ui/core/colors';
 
 class SelectedWord extends Component {
 
@@ -11,6 +12,7 @@ class SelectedWord extends Component {
                 variant="h3" 
                 gutterBottom 
                 align="center"
+                style={{color: "orange"}}
             >
                 {this.props.wordInfo.word}
             </Typography >

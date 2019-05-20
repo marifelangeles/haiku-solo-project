@@ -3,7 +3,7 @@
 .bg-card {
     background-image: url("https://i.pinimg.com/originals/45/17/06/451706e975ea59409e3639b96868aa93.jpg");
     background-size: cover;
-    height: 25vh;
+    height: 30%;
     vertical-align: -webkit-baseline-middle middle;
 }
 
@@ -33,6 +33,19 @@
   
 }
 
+
+@media screen and (min-width: 375px) {
+  .bg-card {
+    background-image: url("https://i.pinimg.com/originals/45/17/06/451706e975ea59409e3639b96868aa93.jpg");
+    background-size: cover;
+    height: 28%;
+    vertical-align: -webkit-baseline-middle middle;
+    }  
+
+    .haiku-text{
+        font-size: 1.2rem;
+    }
+}
 @media screen and (min-width: 768px) {
   .card-button {
     width: 60%;
@@ -46,7 +59,7 @@
   .bg-card {
     background-image: url("https://i.pinimg.com/originals/45/17/06/451706e975ea59409e3639b96868aa93.jpg");
     background-size: cover;
-    height: 25vh;
+    height: 25%;
     vertical-align: -webkit-baseline-middle middle;
     }  
 
@@ -68,7 +81,7 @@
   .bg-card {
     background-image: url("https://i.pinimg.com/originals/45/17/06/451706e975ea59409e3639b96868aa93.jpg");
     background-size: cover;
-    height: 28vh;
+    height: 25%;
     vertical-align: -webkit-baseline-middle middle;
     }  
 
