@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Grid } from '@material-ui/core';
-
+import "./haikuPage.css";
 // components
 import Line1 from './Line1';
 import Line2 from './Line2';
@@ -102,24 +102,25 @@ class HaikuPage extends Component {
                     marginBottom: '3rem',
 
                 }}
+                className="haiku-page-container"
             >
-                <Grid item>
+                <Grid item className="haiku-div">
                     <Word />
                 </Grid>
                 
                 {/* <p>haiku reducer: {JSON.stringify(this.props.haiku)}</p> */}
                 {/* <p>userReducer: {JSON.stringify(this.props.user)}</p> */}
-                <Grid item>
+                <Grid item className="haiku-div">
                     <Line1 getMatch={this.getMatch} countFeedback={this.countFeedback} new_count={this.new_count}/>
                 </Grid>
-                <Grid item>
+                <Grid item className="haiku-div">
                     <Line2 getMatch={this.getMatch} countFeedback={this.countFeedback} new_count={this.new_count}/>
                 </Grid>
-                <Grid item>
+                <Grid item className="haiku-div">
                     <Line3 getMatch={this.getMatch} countFeedback={this.countFeedback} new_count={this.new_count}/>
                 </Grid>
                 
-                <Grid item style={{marginTop: '3rem'}}>
+                <Grid item style={{ marginTop: '3rem' }} className="haiku-div">
                     <Grid
                         container
                         spacing={24}

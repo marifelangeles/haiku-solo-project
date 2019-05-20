@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Typography from '@material-ui/core/Typography';
-import { orange } from '@material-ui/core/colors';
 
 class SelectedWord extends Component {
 
